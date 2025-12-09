@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POWERPEACE | Artista Oficial - Música en Todas las Plataformas</title>
-    <meta name="description" content="PowerPeace (Matías Taibo) - Artista independiente con sonido único. Escucha mi nuevo lanzamiento 'MIENTRAS YO GANO' en todas las plataformas de streaming.">
+    <title>POWERPEACE ⚡ | Artista Oficial - Trap & Techno Argentina</title>
+    <meta name="description" content="PowerPeace (Matías Taibo) - Artista independiente argentino con sonido único fusionando trap y techno. Escucha 'MIENTRAS YO GANO' en todas las plataformas.">
     <meta name="author" content="Matías Taibo">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="POWERPEACE | Artista Oficial - Música Original">
-    <meta property="og:description" content="Escucha el nuevo lanzamiento 'MIENTRAS YO GANO' de PowerPeace en todas las plataformas digitales">
+    <meta property="og:title" content="POWERPEACE ⚡ | Artista Argentino - Trap & Techno">
+    <meta property="og:description" content="Escucha el nuevo lanzamiento 'MIENTRAS YO GANO' de PowerPeace - Fusión única de trap y techno desde Argentina">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://i.ytimg.com/vi/VjdFM17OoGM/maxresdefault.jpg">
     <meta property="og:url" content="https://powerpeace.com">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="POWERPEACE | Artista Oficial">
+    <meta name="twitter:title" content="POWERPEACE ⚡ | Artista Oficial Argentina">
     <meta name="twitter:description" content="Nuevo lanzamiento 'MIENTRAS YO GANO' disponible en todas las plataformas">
     
-    <!-- Fuentes premium -->
+    <!-- Fuentes premium con estilo urbano -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Favicon -->
@@ -34,6 +34,10 @@
             --primary-dark: #CC0044;
             --secondary: #8A2BE2;
             --accent: #00D4FF;
+            --techno-blue: #00F3FF;
+            --trap-gold: #FFD700;
+            --argentina-blue: #74ACDF;
+            --argentina-sky: #6CACE4;
             --dark: #0A0A0A;
             --darker: #050505;
             --card: #111111;
@@ -42,12 +46,19 @@
             --text-light: #AAAAAA;
             --text-lighter: #888888;
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --gradient-trap: linear-gradient(135deg, var(--trap-gold), var(--primary));
+            --gradient-techno: linear-gradient(135deg, var(--techno-blue), var(--secondary));
+            --gradient-argentina: linear-gradient(135deg, var(--argentina-sky), var(--argentina-blue));
             --gradient-hover: linear-gradient(135deg, var(--secondary), var(--primary));
             --gradient-accent: linear-gradient(135deg, var(--accent), var(--primary));
-            --border-radius: 24px;
+            --border-radius: 20px;
+            --border-radius-sm: 12px;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-            --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            --shadow-hover: 0 30px 80px rgba(255, 0, 85, 0.3);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            --shadow-hover: 0 30px 80px rgba(255, 0, 85, 0.4);
+            --shadow-techno: 0 0 30px rgba(0, 243, 255, 0.3);
+            --shadow-trap: 0 0 30px rgba(255, 215, 0, 0.3);
+            --neon-glow: 0 0 10px currentColor, 0 0 20px currentColor;
         }
 
         * {
@@ -69,16 +80,19 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            background: radial-gradient(ellipse at top, #1a1a1a 0%, var(--dark) 70%);
+            background: 
+                radial-gradient(ellipse at top, #1a1a1a 0%, var(--dark) 70%),
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,0,85,0.02) 2px, rgba(255,0,85,0.02) 4px);
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
+            font-family: 'Orbitron', 'Poppins', sans-serif;
+            font-weight: 800;
             line-height: 1.1;
+            letter-spacing: 0.5px;
         }
 
-        /* Loader premium */
+        /* Loader con estilo trap/techno */
         .loader {
             position: fixed;
             top: 0;
@@ -104,27 +118,37 @@
         }
 
         .loader-spinner {
-            width: 60px;
-            height: 60px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top-color: var(--primary);
+            width: 80px;
+            height: 80px;
+            border: 3px solid transparent;
+            border-top: 3px solid var(--primary);
+            border-right: 3px solid var(--secondary);
+            border-bottom: 3px solid var(--techno-blue);
             border-radius: 50%;
             animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
             margin-bottom: 20px;
+            box-shadow: var(--shadow-techno);
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .loader-text {
-            font-size: 14px;
+            font-size: 18px;
             color: var(--text-light);
-            letter-spacing: 2px;
-            font-weight: 500;
+            letter-spacing: 3px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        /* Navbar profesional */
+        /* Navbar profesional con estilo urbano */
         .navbar {
             position: fixed;
             top: 0;
@@ -134,17 +158,18 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(5, 5, 5, 0.95);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .navbar.scrolled {
             padding: 1rem 5%;
-            background: rgba(5, 5, 5, 0.98);
+            background: rgba(0, 0, 0, 0.98);
+            border-bottom: 1px solid rgba(255, 0, 85, 0.2);
         }
 
         .logo-container {
@@ -170,6 +195,47 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .argentina-flag {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 0.5rem;
+            font-size: 1.2rem;
+            animation: pulse-flag 2s infinite;
+        }
+
+        .argentina-flag i {
+            background: linear-gradient(to bottom, var(--argentina-sky) 33%, white 33%, white 66%, var(--argentina-sky) 66%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+
+        .argentina-flag i:after {
+            content: '🇦🇷';
+            position: absolute;
+            left: 0;
+            font-size: 0.9rem;
+        }
+
+        .cross {
+            margin-left: 0.5rem;
+            color: var(--trap-gold);
+            font-size: 1.2rem;
+            animation: pulse-cross 3s infinite;
+        }
+
+        @keyframes pulse-flag {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes pulse-cross {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         .verified-badge {
@@ -184,17 +250,18 @@
             font-size: 0.7rem;
             margin-left: 0.3rem;
             animation: pulse 2s infinite;
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1); box-shadow: 0 0 5px rgba(255,0,85,0.5); }
+            50% { transform: scale(1.1); box-shadow: 0 0 15px rgba(255,0,85,0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 5px rgba(255,0,85,0.5); }
         }
 
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 2.5rem;
             align-items: center;
         }
 
@@ -208,6 +275,7 @@
             padding: 0.5rem 0;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            font-family: 'Rajdhani', sans-serif;
         }
 
         .nav-links a:after {
@@ -219,10 +287,12 @@
             height: 2px;
             background: var(--gradient);
             transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-techno);
         }
 
         .nav-links a:hover {
             color: var(--text);
+            text-shadow: var(--neon-glow);
         }
 
         .nav-links a:hover:after {
@@ -231,6 +301,7 @@
 
         .nav-links a.active {
             color: var(--text);
+            text-shadow: 0 0 10px rgba(255, 0, 85, 0.7);
         }
 
         .nav-links a.active:after {
@@ -252,13 +323,15 @@
             border-radius: 10px;
             transition: var(--transition);
             z-index: 1001;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .mobile-menu-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 0, 85, 0.2);
+            transform: rotate(90deg);
         }
 
-        /* Hero Section - Profesional */
+        /* Hero Section - Estilo Trap/Techno */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -276,8 +349,9 @@
             height: 100%;
             background: 
                 radial-gradient(circle at 15% 25%, rgba(255, 0, 85, 0.15) 0%, transparent 45%),
-                radial-gradient(circle at 85% 15%, rgba(138, 43, 226, 0.12) 0%, transparent 45%),
-                radial-gradient(circle at 35% 85%, rgba(0, 212, 255, 0.08) 0%, transparent 45%);
+                radial-gradient(circle at 85% 15%, rgba(138, 43, 226, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 35% 85%, rgba(0, 243, 255, 0.1) 0%, transparent 45%),
+                radial-gradient(circle at 65% 65%, rgba(255, 215, 0, 0.08) 0%, transparent 45%);
             z-index: -2;
         }
 
@@ -309,6 +383,36 @@
             margin-bottom: 1.5rem;
             line-height: 1;
             letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .hero-flag-cross {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: 1rem;
+        }
+
+        .hero-flag {
+            font-size: 4rem;
+            animation: float-flag 3s ease-in-out infinite;
+        }
+
+        .hero-cross {
+            font-size: 3rem;
+            color: var(--trap-gold);
+            animation: float-cross 4s ease-in-out infinite;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+        }
+
+        @keyframes float-flag {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        @keyframes float-cross {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.1); }
         }
 
         .gradient-text {
@@ -316,7 +420,20 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            display: block;
+            display: inline-block;
+            position: relative;
+        }
+
+        .gradient-text:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            border-radius: 2px;
+            box-shadow: var(--shadow-techno);
         }
 
         .artist-title {
@@ -338,6 +455,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.3);
         }
 
         .hero-subtitle {
@@ -347,6 +466,43 @@
             font-weight: 400;
             max-width: 600px;
             line-height: 1.4;
+        }
+
+        .genre-tags {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .genre-tag {
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .genre-tag.trap {
+            background: var(--gradient-trap);
+            color: black;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: var(--shadow-trap);
+        }
+
+        .genre-tag.techno {
+            background: var(--gradient-techno);
+            color: white;
+            border: 2px solid rgba(0, 243, 255, 0.3);
+            box-shadow: var(--shadow-techno);
+        }
+
+        .genre-tag.argentina {
+            background: var(--gradient-argentina);
+            color: white;
+            border: 2px solid rgba(116, 172, 223, 0.3);
         }
 
         .artist-badge {
@@ -361,6 +517,7 @@
             margin-bottom: 3rem;
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .artist-badge i {
@@ -398,6 +555,8 @@
             position: relative;
             overflow: hidden;
             letter-spacing: 0.5px;
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
         }
 
         .btn:before {
@@ -419,11 +578,13 @@
             background: var(--gradient);
             color: white;
             box-shadow: var(--shadow);
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .btn-primary:hover {
             transform: translateY(-8px) scale(1.05);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-hover), 0 0 30px rgba(255, 0, 85, 0.5);
+            border-color: rgba(255, 0, 85, 0.5);
         }
 
         .btn-secondary {
@@ -433,9 +594,17 @@
         }
 
         .btn-secondary:hover {
-            border-color: var(--primary);
-            background-color: rgba(255, 0, 85, 0.05);
+            border-color: var(--techno-blue);
+            background-color: rgba(0, 243, 255, 0.05);
             transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 243, 255, 0.2);
+        }
+
+        .btn-trap {
+            background: var(--gradient-trap);
+            color: black;
+            box-shadow: var(--shadow-trap);
+            border: 2px solid rgba(255, 215, 0, 0.3);
         }
 
         .social-links {
@@ -474,16 +643,17 @@
         }
 
         .social-link:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) scale(1.1);
             color: white;
             border-color: transparent;
+            box-shadow: 0 10px 20px rgba(255, 0, 85, 0.3);
         }
 
         .social-link:hover:before {
             opacity: 1;
         }
 
-        /* Video Preview - Profesional */
+        /* Video Preview - Estilo Techno */
         .video-preview {
             animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
             position: relative;
@@ -493,7 +663,7 @@
             position: relative;
             border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow), 0 0 40px rgba(0, 243, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
             background: var(--card);
             transform-style: preserve-3d;
@@ -511,12 +681,13 @@
             font-weight: 800;
             font-size: 0.9rem;
             z-index: 3;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 0, 85, 0.5);
             display: flex;
             align-items: center;
             gap: 0.5rem;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .video-wrapper {
@@ -536,7 +707,7 @@
             border: none;
         }
 
-        /* Estadísticas Reales - Profesional */
+        /* Estadísticas Reales - Estilo Urbano */
         .stats-section {
             padding: 6rem 5%;
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), transparent);
@@ -570,6 +741,7 @@
             background: var(--gradient);
             margin: 1.5rem auto;
             border-radius: 2px;
+            box-shadow: var(--shadow-techno);
         }
 
         .stats-subtitle {
@@ -595,6 +767,7 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .stat-card:before {
@@ -611,7 +784,7 @@
             transform: translateY(-15px);
             background: rgba(255, 255, 255, 0.04);
             border-color: rgba(255, 0, 85, 0.2);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow), 0 0 30px rgba(255, 0, 85, 0.2);
         }
 
         .stat-icon {
@@ -632,7 +805,7 @@
             color: transparent;
             line-height: 1;
             margin-bottom: 0.8rem;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             letter-spacing: -1px;
         }
 
@@ -644,7 +817,7 @@
             font-weight: 600;
         }
 
-        /* Platforms Section - Ultra profesional */
+        /* Platforms Section - Estilo Techno */
         .section {
             padding: 8rem 5%;
             max-width: 1400px;
@@ -671,6 +844,7 @@
             background: var(--gradient);
             margin: 2rem auto;
             border-radius: 3px;
+            box-shadow: var(--shadow-techno);
         }
 
         .section-subtitle {
@@ -700,6 +874,7 @@
             flex-direction: column;
             align-items: center;
             height: 100%;
+            backdrop-filter: blur(10px);
         }
 
         .platform-card:before {
@@ -715,7 +890,7 @@
         .platform-card:hover {
             transform: translateY(-20px);
             background: var(--card-hover);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow), 0 0 40px rgba(0, 243, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.12);
         }
 
@@ -727,7 +902,7 @@
         }
 
         .platform-card:hover .platform-icon {
-            transform: scale(1.15);
+            transform: scale(1.15) rotate(5deg);
         }
 
         .platform-card h3 {
@@ -763,13 +938,13 @@
         .platform-link:hover {
             background: var(--gradient);
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 0, 85, 0.3);
+            box-shadow: 0 15px 30px rgba(255, 0, 85, 0.3), 0 0 20px rgba(255, 0, 85, 0.5);
             border-color: transparent;
         }
 
-        /* Nuevo Lanzamiento - Profesional */
+        /* Nuevo Lanzamiento - Estilo Trap */
         .new-release-section {
-            background: linear-gradient(135deg, rgba(255, 0, 85, 0.05), rgba(138, 43, 226, 0.05));
+            background: linear-gradient(135deg, rgba(255, 0, 85, 0.08), rgba(138, 43, 226, 0.08), rgba(255, 215, 0, 0.05));
             border-radius: var(--border-radius);
             padding: 6rem 5rem;
             text-align: center;
@@ -777,6 +952,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .new-release-section:before {
@@ -786,13 +962,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 0, 85, 0.1) 0%, transparent 70%);
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255, 0, 85, 0.15) 0%, transparent 70%),
+                radial-gradient(circle at 70% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
             z-index: -1;
         }
 
         .new-release-badge {
-            background: var(--gradient);
-            color: white;
+            background: var(--gradient-trap);
+            color: black;
             padding: 0.8rem 2rem;
             border-radius: 50px;
             font-weight: 800;
@@ -803,12 +981,15 @@
             gap: 0.8rem;
             margin-bottom: 2rem;
             text-transform: uppercase;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: var(--shadow-trap);
         }
 
         .new-release-title {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             line-height: 1.1;
+            text-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
         }
 
         .new-release-subtitle {
@@ -826,7 +1007,7 @@
             flex-wrap: wrap;
         }
 
-        /* Music Previews profesionales */
+        /* Music Previews con estilo urbano */
         .previews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -841,12 +1022,13 @@
             border: 1px solid rgba(255, 255, 255, 0.06);
             height: 100%;
             position: relative;
+            backdrop-filter: blur(10px);
         }
 
         .preview-card:hover {
             transform: translateY(-15px);
-            box-shadow: var(--shadow);
-            border-color: rgba(255, 0, 85, 0.2);
+            box-shadow: var(--shadow), 0 0 30px rgba(0, 243, 255, 0.2);
+            border-color: rgba(0, 243, 255, 0.3);
         }
 
         .preview-content {
@@ -871,7 +1053,7 @@
             font-size: 2rem;
             color: white;
             flex-shrink: 0;
-            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3), 0 0 20px rgba(255, 0, 85, 0.5);
         }
 
         .preview-card h3 {
@@ -885,16 +1067,17 @@
             margin-bottom: 2rem;
         }
 
-        /* Sección Donaciones - Estilos Premium */
+        /* Sección Donaciones - Estilo Premium */
         .donation-section {
             max-width: 600px;
             margin: 0 auto;
             padding: 3rem;
-            background: linear-gradient(135deg, rgba(255, 0, 85, 0.05), rgba(138, 43, 226, 0.05));
+            background: linear-gradient(135deg, rgba(255, 0, 85, 0.05), rgba(138, 43, 226, 0.05), rgba(0, 243, 255, 0.03));
             border-radius: var(--border-radius);
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .donation-section:before {
@@ -932,7 +1115,8 @@
             justify-content: center;
             font-size: 2.5rem;
             color: white;
-            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3), 0 0 20px rgba(255, 0, 85, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .donation-header h3 {
@@ -988,13 +1172,13 @@
             color: white;
             outline: none;
             transition: var(--transition);
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Orbitron', sans-serif;
         }
 
         .amount-input:focus {
             border-color: var(--primary);
             background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 4px rgba(255, 0, 85, 0.1);
+            box-shadow: 0 0 0 4px rgba(255, 0, 85, 0.1), 0 0 20px rgba(255, 0, 85, 0.3);
         }
 
         .currency {
@@ -1038,7 +1222,7 @@
             background: var(--gradient);
             border-color: transparent;
             color: white;
-            box-shadow: 0 8px 20px rgba(255, 0, 85, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 0, 85, 0.3), 0 0 10px rgba(255, 0, 85, 0.5);
         }
 
         .payment-methods {
@@ -1085,7 +1269,7 @@
         .method-card.active {
             border-color: var(--primary);
             background: rgba(255, 0, 85, 0.08);
-            box-shadow: 0 8px 20px rgba(255, 0, 85, 0.2);
+            box-shadow: 0 8px 20px rgba(255, 0, 85, 0.2), 0 0 10px rgba(255, 0, 85, 0.3);
         }
 
         .method-icon {
@@ -1151,11 +1335,13 @@
             border: none;
             cursor: pointer;
             width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 166, 80, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .btn-mercadopago:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 166, 80, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 166, 80, 0.4), 0 0 20px rgba(0, 166, 80, 0.3);
         }
 
         .mp-content {
@@ -1244,9 +1430,9 @@
             display: none !important;
         }
 
-        /* Newsletter profesional */
+        /* Newsletter con estilo techno */
         .newsletter-section {
-            background: linear-gradient(135deg, rgba(255, 0, 85, 0.08), rgba(138, 43, 226, 0.08));
+            background: linear-gradient(135deg, rgba(255, 0, 85, 0.08), rgba(138, 43, 226, 0.08), rgba(0, 243, 255, 0.05));
             border-radius: var(--border-radius);
             padding: 6rem 5rem;
             text-align: center;
@@ -1254,6 +1440,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .newsletter-section:before {
@@ -1263,13 +1450,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 70% 30%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at 70% 30%, rgba(0, 243, 255, 0.15) 0%, transparent 70%);
             z-index: -1;
         }
 
         .newsletter h3 {
             font-size: 3rem;
             margin-bottom: 1.5rem;
+            background: var(--gradient-techno);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .newsletter p {
@@ -1306,21 +1497,22 @@
         }
 
         .newsletter-input:focus {
-            border-color: var(--primary);
+            border-color: var(--techno-blue);
             background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 0 3px rgba(255, 0, 85, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 243, 255, 0.1), 0 0 20px rgba(0, 243, 255, 0.2);
         }
 
         .newsletter-input::placeholder {
             color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Footer profesional */
+        /* Footer con estilo urbano */
         footer {
             padding: 6rem 5% 3rem;
             background: var(--darker);
             border-top: 1px solid rgba(255, 255, 255, 0.06);
             position: relative;
+            background: linear-gradient(to bottom, var(--darker) 0%, #000 100%);
         }
 
         .footer-content {
@@ -1349,6 +1541,7 @@
             width: 50px;
             height: 3px;
             background: var(--gradient);
+            box-shadow: var(--shadow-techno);
         }
 
         .footer-links {
@@ -1373,6 +1566,7 @@
         .footer-links a:hover {
             color: var(--primary);
             transform: translateX(10px);
+            text-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
         }
 
         .copyright {
@@ -1394,6 +1588,7 @@
 
         .copyright a:hover {
             text-decoration: underline;
+            text-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
         }
 
         /* Animaciones */
@@ -1417,19 +1612,19 @@
         .delay-3 { animation-delay: 0.6s; opacity: 0; }
         .delay-4 { animation-delay: 0.8s; opacity: 0; }
 
-        /* Player flotante profesional */
+        /* Player flotante con estilo trap */
         .floating-player {
             position: fixed;
             bottom: 3rem;
             right: 3rem;
-            background: var(--gradient);
-            color: white;
+            background: var(--gradient-trap);
+            color: black;
             padding: 1.2rem 2.5rem;
             border-radius: 50px;
             display: flex;
             align-items: center;
             gap: 1rem;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-trap), 0 0 20px rgba(255, 215, 0, 0.5);
             z-index: 999;
             cursor: pointer;
             transition: var(--transition);
@@ -1437,18 +1632,20 @@
             font-weight: 700;
             font-size: 1.05rem;
             letter-spacing: 0.5px;
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
         }
 
         .floating-player:hover {
             transform: translateY(-8px) scale(1.05);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.7);
         }
 
         .floating-player i {
             font-size: 1.3rem;
         }
 
-        /* Progress bar profesional */
+        /* Progress bar con estilo techno */
         .progress-container {
             position: fixed;
             top: 0;
@@ -1465,9 +1662,10 @@
             width: 0%;
             transition: width 0.1s ease;
             border-radius: 0 2px 2px 0;
+            box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
         }
 
-        /* Notificación profesional */
+        /* Notificación con estilo urbano */
         .notification {
             position: fixed;
             top: 2rem;
@@ -1476,7 +1674,7 @@
             color: white;
             padding: 1.5rem 2rem;
             border-radius: 16px;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow), 0 0 20px rgba(255, 0, 85, 0.5);
             z-index: 10000;
             display: flex;
             align-items: center;
@@ -1484,6 +1682,7 @@
             transform: translateX(120%);
             transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .notification.show {
@@ -1494,7 +1693,7 @@
             font-size: 1.8rem;
         }
 
-        /* Mobile Menu profesional */
+        /* Mobile Menu con estilo techno */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -1551,11 +1750,13 @@
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 0, 85, 0.3);
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 85, 0.2);
         }
 
         .mobile-menu-link.primary {
             background: var(--gradient);
             border: none;
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3);
         }
 
         .close-menu-btn {
@@ -1573,11 +1774,11 @@
         }
 
         .close-menu-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 0, 85, 0.2);
             transform: rotate(90deg);
         }
 
-        /* Responsive */
+        /* Responsive - Optimizado para todos los dispositivos */
         @media (max-width: 1200px) {
             .hero-content {
                 grid-template-columns: 1fr;
@@ -1605,6 +1806,12 @@
             
             .donation-section {
                 padding: 2rem 1.5rem;
+            }
+            
+            .hero h1 .argentina-flag,
+            .hero h1 .cross {
+                font-size: 3rem;
+                margin-left: 0.5rem;
             }
         }
 
@@ -1639,6 +1846,14 @@
             
             .donation-content {
                 padding: 1.5rem 1.5rem 2rem;
+            }
+            
+            .logo {
+                font-size: 1.6rem;
+            }
+            
+            .argentina-flag, .cross {
+                font-size: 1rem;
             }
         }
 
@@ -1703,6 +1918,17 @@
                 padding: 0.8rem 1rem;
                 font-size: 1rem;
             }
+            
+            .hero h1 .argentina-flag,
+            .hero h1 .cross {
+                font-size: 2.5rem;
+                margin-left: 0.3rem;
+            }
+            
+            .hero-flag-cross {
+                gap: 0.5rem;
+                margin-left: 0.5rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1744,9 +1970,21 @@
                 height: 60px;
                 font-size: 2rem;
             }
+            
+            .hero h1 .argentina-flag,
+            .hero h1 .cross {
+                font-size: 2rem;
+                margin-left: 0.2rem;
+            }
+            
+            .hero-flag-cross {
+                display: block;
+                margin-top: 1rem;
+                margin-left: 0;
+            }
         }
 
-        /* Partículas de fondo */
+        /* Partículas de fondo con estilo techno */
         .particles {
             position: absolute;
             top: 0;
@@ -1757,7 +1995,7 @@
             pointer-events: none;
         }
 
-        /* Back to top button */
+        /* Back to top button con estilo techno */
         .back-to-top {
             position: fixed;
             bottom: 6rem;
@@ -1789,7 +2027,42 @@
             background: var(--gradient);
             border-color: transparent;
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3), 0 0 20px rgba(255, 0, 85, 0.5);
+        }
+
+        /* Efectos de scanline (estilo techno) */
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--techno-blue), transparent);
+            z-index: 1002;
+            pointer-events: none;
+            opacity: 0.3;
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+
+        /* Grid techno de fondo */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 0, 85, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 85, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+            opacity: 0.3;
         }
     </style>
 </head>
@@ -1798,9 +2071,13 @@
     <div class="loader" id="loader">
         <div class="loader-content">
             <div class="loader-spinner"></div>
-            <div class="loader-text">POWERPEACE</div>
+            <div class="loader-text">POWERPEACE ⚡</div>
         </div>
     </div>
+
+    <!-- Efectos de fondo -->
+    <div class="grid-bg"></div>
+    <div class="scanline"></div>
 
     <!-- Progress Bar -->
     <div class="progress-container">
@@ -1819,6 +2096,8 @@
             <div class="logo">
                 <i class="fas fa-bolt"></i>
                 POWERPEACE
+                <span class="argentina-flag"><i class="fas fa-flag"></i></span>
+                <span class="cross">✝</span>
             </div>
             <div class="verified-badge">
                 <i class="fas fa-check"></i>
@@ -1885,21 +2164,31 @@
                 <div class="artist-title">
                     <h1>
                         <span class="gradient-text">POWER</span>PEACE
+                        <div class="hero-flag-cross">
+                            <span class="hero-flag">🇦🇷</span>
+                            <span class="hero-cross">✝</span>
+                        </div>
                     </h1>
                     <div class="verified-artist">
                         <i class="fas fa-check"></i> ARTISTA VERIFICADO
                     </div>
                 </div>
                 
-                <p class="hero-subtitle">Sonido auténtico • Evolución constante • Conexión real</p>
+                <p class="hero-subtitle">Fusión Trap & Techno • Evolución constante • Conexión real desde Argentina</p>
+                
+                <div class="genre-tags">
+                    <div class="genre-tag trap">TRAP</div>
+                    <div class="genre-tag techno">TECHNO</div>
+                    <div class="genre-tag argentina">ARGENTINA</div>
+                </div>
                 
                 <div class="artist-badge">
                     <i class="fas fa-user"></i>
-                    <span>MATÍAS TAIBO</span>
+                    <span>MATÍAS TAIBO • PRODUCTOR ARGENTINO</span>
                 </div>
                 
                 <p class="hero-description">
-                    Artista independiente creando música que trasciende géneros. Cada lanzamiento es una pieza única de mi journey musical, diseñada para conectar profundamente con mis oyentes.
+                    Artista independiente argentino creando una fusión única de trap y techno. Cada lanzamiento es una pieza única de mi evolución musical, diseñada para conectar profundamente con mis oyentes y llevar la escena urbana argentina al siguiente nivel.
                 </p>
                 
                 <div class="cta-buttons">
@@ -1908,6 +2197,9 @@
                     </a>
                     <a href="#music" class="btn btn-secondary">
                         <i class="fas fa-stream"></i> EXPLORAR CATÁLOGO
+                    </a>
+                    <a href="#donaciones" class="btn btn-trap">
+                        <i class="fas fa-heart"></i> APOYAR MI MÚSICA
                     </a>
                 </div>
                 
@@ -1995,7 +2287,7 @@
     <section class="section" id="music">
         <div class="section-header">
             <h2 class="section-title">DISPONIBLE EN TODAS LAS PLATAFORMAS</h2>
-            <p class="section-subtitle">Mi música está disponible globalmente. Elige tu plataforma favorita y comienza a escuchar.</p>
+            <p class="section-subtitle">Mi música está disponible globalmente. Elige tu plataforma favorita y comienza a escuchar la fusión única de trap y techno desde Argentina.</p>
         </div>
         
         <div class="platforms-grid">
@@ -2065,20 +2357,20 @@
     <section class="section" id="new-release">
         <div class="new-release-section fade-in">
             <div class="new-release-badge">
-                <i class="fas fa-fire"></i> NUEVO LANZAMIENTO
+                <i class="fas fa-fire"></i> NUEVO LANZAMIENTO - TRAP/TECHNO
             </div>
             
             <h2 class="new-release-title">"MIENTRAS YO GANO"</h2>
             
             <p class="new-release-subtitle">
-                Mi producción más reciente que fusiona elementos urbanos con sonidos electrónicos innovadores. Una declaración de crecimiento personal y éxito continuo en el camino musical.
+                Mi producción más reciente que fusiona elementos urbanos del trap con sonidos electrónicos innovadores del techno. Una declaración de crecimiento personal y éxito continuo en el camino musical desde Argentina al mundo.
             </p>
             
             <div class="release-cta">
                 <a href="https://youtu.be/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs" target="_blank" class="btn btn-primary" style="padding: 1.2rem 3rem;">
                     <i class="fab fa-youtube"></i> VER VIDEO OFICIAL
                 </a>
-                <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="btn btn-secondary" style="padding: 1.2rem 3rem;">
+                <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="btn btn-trap" style="padding: 1.2rem 3rem;">
                     <i class="fas fa-stream"></i> ESCUCHAR EN STREAMING
                 </a>
             </div>
@@ -2089,7 +2381,7 @@
     <section class="section" id="previews">
         <div class="section-header">
             <h2 class="section-title">EXPERIENCIA MUSICAL</h2>
-            <p class="section-subtitle">Descubre mis producciones y mantente al día con mi evolución musical.</p>
+            <p class="section-subtitle">Descubre mis producciones y mantente al día con mi evolución musical en la fusión trap/techno.</p>
         </div>
         
         <div class="previews-grid">
@@ -2101,12 +2393,12 @@
                         </div>
                         <div>
                             <h3>CATÁLOGO COMPLETO</h3>
-                            <div class="preview-meta">23 canciones disponibles</div>
+                            <div class="preview-meta">23 canciones disponibles • Trap & Techno</div>
                         </div>
                     </div>
                     
                     <p style="margin-bottom: 2.5rem; color: var(--text-light); line-height: 1.8; font-size: 1.1rem;">
-                        Explora mi discografía completa que abarca diferentes géneros y estilos. Desde mis primeras producciones hasta mis lanzamientos más recientes, cada canción cuenta una parte de mi journey como artista.
+                        Explora mi discografía completa que abarca la fusión única de trap y techno. Desde mis primeras producciones hasta mis lanzamientos más recientes, cada canción cuenta una parte de mi journey como artista argentino.
                     </p>
                     
                     <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
@@ -2128,12 +2420,12 @@
                         </div>
                         <div>
                             <h3>PRÓXIMOS LANZAMIENTOS</h3>
-                            <div class="preview-meta">En producción actualmente</div>
+                            <div class="preview-meta">En producción actualmente • Nuevas fusiones</div>
                         </div>
                     </div>
                     
                     <p style="margin-bottom: 2.5rem; color: var(--text-light); line-height: 1.8; font-size: 1.1rem;">
-                        Siempre trabajando en nueva música. Mantente al tanto de mis próximos lanzamientos y sé el primero en escuchar mis nuevas producciones antes de que salgan oficialmente.
+                        Siempre trabajando en nueva música experimental que empuja los límites del trap y techno. Mantente al tanto de mis próximos lanzamientos y sé el primero en escuchar mis nuevas producciones antes de que salgan oficialmente.
                     </p>
                     
                     <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
@@ -2153,7 +2445,7 @@
     <section class="section" id="donaciones">
         <div class="section-header">
             <h2 class="section-title">APOYÁ MI MÚSICA</h2>
-            <p class="section-subtitle">Tu donación hace posible que siga creando y compartiendo mi música con el mundo</p>
+            <p class="section-subtitle">Tu donación hace posible que siga creando y compartiendo mi música de trap/techno con el mundo</p>
         </div>
         
         <div class="donation-section fade-in">
@@ -2163,7 +2455,7 @@
                         <i class="fas fa-heart"></i>
                     </div>
                     <h3>¡APOYÁ MI ARTE!</h3>
-                    <p class="donation-subtitle">Cada contribución me ayuda a seguir produciendo música de calidad</p>
+                    <p class="donation-subtitle">Cada contribución me ayuda a seguir produciendo música de calidad y llevar el sonido argentino al mundo</p>
                 </div>
                 
                 <div class="donation-content">
@@ -2197,7 +2489,7 @@
                                 </div>
                                 <div class="method-info">
                                     <h5>PayPal</h5>
-                                    <p>Tarjetas y PayPal</p>
+                                    <p>Tarjetas y PayPal • Todo el mundo</p>
                                 </div>
                                 <div class="method-check">
                                     <i class="fas fa-check-circle"></i>
@@ -2282,9 +2574,9 @@
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>POWERPEACE</h3>
+                <h3>POWERPEACE ⚡</h3>
                 <p style="color: var(--text-light); margin-bottom: 2rem; line-height: 1.8; font-size: 1.1rem;">
-                    Música original creada desde el corazón por Matías Taibo. Cada canción es una pieza única de mi journey artístico y personal.
+                    Música original de trap y techno creada desde Argentina por Matías Taibo. Cada canción es una pieza única de mi journey artístico y personal, fusionando lo urbano con lo electrónico.
                 </p>
                 <div class="social-links">
                     <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="social-link" title="Instagram">
@@ -2327,10 +2619,10 @@
         </div>
         
         <div class="copyright">
-            <p>&copy; <span id="currentYear"></span> <strong>POWERPEACE</strong> · Todos los derechos reservados internacionalmente</p>
-            <p style="margin-top: 1rem; color: var(--text-lighter);">Artista: <strong>Matías Taibo</strong> · Música original protegida bajo derechos de autor</p>
+            <p>&copy; <span id="currentYear"></span> <strong>POWERPEACE ⚡</strong> · Artista Argentino · Todos los derechos reservados internacionalmente</p>
+            <p style="margin-top: 1rem; color: var(--text-lighter);">Artista: <strong>Matías Taibo</strong> · Fusión Trap & Techno · Música original protegida bajo derechos de autor</p>
             <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.3);">
-                Diseñado para la mejor experiencia musical · Hecho con <i class="fas fa-heart" style="color: var(--primary);"></i> para mis oyentes
+                Diseñado para la mejor experiencia musical · Hecho con <i class="fas fa-heart" style="color: var(--primary);"></i> desde Argentina para el mundo
             </p>
         </div>
     </footer>
@@ -2366,6 +2658,9 @@
             
             // Inicializar sistema de donaciones
             initDonations();
+            
+            // Crear partículas
+            createParticles();
         });
 
         // Efecto de scroll en navbar
@@ -2473,7 +2768,7 @@
             }, 5000);
         }
 
-        // Contadores animados para estadísticas (CON TUS NÚMEROS REALES)
+        // Contadores animados para estadísticas
         function animateCounter(element, target, suffix = '') {
             let current = 0;
             const increment = target / 50;
@@ -2535,7 +2830,16 @@
                 const size = Math.random() * 6 + 2;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
-                particle.style.background = 'rgba(255, 255, 255, 0.1)';
+                
+                // Colores aleatorios según el estilo trap/techno
+                const colors = [
+                    'rgba(255, 0, 85, 0.3)',
+                    'rgba(138, 43, 226, 0.3)',
+                    'rgba(0, 243, 255, 0.3)',
+                    'rgba(255, 215, 0, 0.3)'
+                ];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
                 particle.style.borderRadius = '50%';
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
@@ -2543,7 +2847,8 @@
                 
                 // Animación
                 const duration = Math.random() * 20 + 10;
-                particle.style.animation = `float ${duration}s infinite ease-in-out`;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s ${delay}s infinite ease-in-out`;
                 
                 particlesContainer.appendChild(particle);
             }
@@ -2552,15 +2857,15 @@
             const style = document.createElement('style');
             style.textContent = `
                 @keyframes float {
-                    0%, 100% { transform: translateY(0) rotate(0deg); }
-                    50% { transform: translateY(-20px) rotate(180deg); }
+                    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+                    25% { transform: translate(20px, -20px) rotate(90deg); }
+                    50% { transform: translate(0, -40px) rotate(180deg); }
+                    75% { transform: translate(-20px, -20px) rotate(270deg); }
                 }
             `;
             document.head.appendChild(style);
         }
         
-        createParticles();
-
         // Efecto al hacer clic en botones
         document.querySelectorAll('.btn, .platform-link, .social-link').forEach(button => {
             button.addEventListener('click', function() {
@@ -2594,7 +2899,7 @@
                 },
                 onApprove: function(data, actions) {
                     return actions.order.capture().then(function(details) {
-                        showNotification(`¡Gracias por tu donación de $${amountInput.value}! 🎶 Tu apoyo significa mucho.`);
+                        showNotification(`¡Gracias por tu donación de $${amountInput.value}! 🎶 Tu apoyo significa mucho para mi música.`);
                         
                         // Resetear formulario
                         amountInput.value = "10";
@@ -2636,11 +2941,11 @@
                 mpArea.classList.toggle("hidden", method !== "mp");
             }
             
-            // Actualizar link de Mercado Pago con el monto
+            // Actualizar link de Mercado Pago con el monto y TU ID REAL
             function updateMercadoPagoLink() {
                 const value = amountInput.value || "10";
-                // Usando tu pref_id real de Mercado Pago
-                mpLink.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=3724467291170236`;
+                // TU ID REAL DE MERCADO PAGO - CORREGIDO
+                mpLink.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=372446729-1170236&amount=${value}`;
             }
             
             // Event listeners para el monto
