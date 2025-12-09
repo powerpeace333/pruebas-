@@ -194,7 +194,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 3rem;
             align-items: center;
         }
 
@@ -235,6 +235,10 @@
 
         .nav-links a.active:after {
             width: 100%;
+        }
+
+        .nav-cta {
+            margin-left: 2rem;
         }
 
         .mobile-menu-btn {
@@ -881,6 +885,365 @@
             margin-bottom: 2rem;
         }
 
+        /* Sección Donaciones - Estilos Premium */
+        .donation-section {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(255, 0, 85, 0.05), rgba(138, 43, 226, 0.05));
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donation-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 0, 85, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .donation-box {
+            background: var(--card);
+            border-radius: calc(var(--border-radius) - 10px);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .donation-header {
+            padding: 3rem 3rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .donation-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3);
+        }
+
+        .donation-header h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .donation-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .donation-content {
+            padding: 2rem 3rem 3rem;
+        }
+
+        .amount-section {
+            margin-bottom: 3rem;
+        }
+
+        .amount-label {
+            display: block;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .amount-label i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+
+        .amount-input-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .amount-input {
+            width: 100%;
+            padding: 1.5rem 4rem 1.5rem 2rem;
+            font-size: 2rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            color: white;
+            outline: none;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .amount-input:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(255, 0, 85, 0.1);
+        }
+
+        .currency {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .amount-presets {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .amount-preset {
+            flex: 1;
+            min-width: 80px;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .amount-preset:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .amount-preset.active {
+            background: var(--gradient);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 0, 85, 0.3);
+        }
+
+        .payment-methods {
+            margin-bottom: 2.5rem;
+        }
+
+        .methods-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .methods-header h4 {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+        }
+
+        .method-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .method-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .method-card.active {
+            border-color: var(--primary);
+            background: rgba(255, 0, 85, 0.08);
+            box-shadow: 0 8px 20px rgba(255, 0, 85, 0.2);
+        }
+
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .method-card.active .method-icon {
+            background: var(--gradient);
+        }
+
+        .method-info {
+            flex: 1;
+        }
+
+        .method-info h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: white;
+        }
+
+        .method-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .method-check {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .method-card.active .method-check {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .payment-area {
+            margin-bottom: 3rem;
+        }
+
+        #paypal-button-container {
+            margin-top: 1rem;
+        }
+
+        .btn-mercadopago {
+            display: block;
+            background: linear-gradient(135deg, #00A650, #009B3A);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-mercadopago:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 166, 80, 0.3);
+        }
+
+        .mp-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mp-icon {
+            font-size: 2rem;
+        }
+
+        .mp-text {
+            flex: 1;
+            text-align: left;
+            margin-left: 1.5rem;
+        }
+
+        .mp-title {
+            display: block;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .mp-subtitle {
+            display: block;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .mp-arrow {
+            font-size: 1.3rem;
+            opacity: 0.8;
+        }
+
+        .mp-note {
+            margin-top: 1rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .donation-benefits {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .donation-benefits h4 {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .benefits-list li i {
+            color: var(--primary);
+            margin-top: 0.3rem;
+            flex-shrink: 0;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
         /* Newsletter profesional */
         .newsletter-section {
             background: linear-gradient(135deg, rgba(255, 0, 85, 0.08), rgba(138, 43, 226, 0.08));
@@ -1239,10 +1602,14 @@
             .newsletter-section {
                 padding: 4rem 2rem;
             }
+            
+            .donation-section {
+                padding: 2rem 1.5rem;
+            }
         }
 
         @media (max-width: 992px) {
-            .nav-links {
+            .nav-links, .nav-cta {
                 display: none;
             }
             
@@ -1264,6 +1631,14 @@
             
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .donation-header {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+            
+            .donation-content {
+                padding: 1.5rem 1.5rem 2rem;
             }
         }
 
@@ -1304,6 +1679,30 @@
             .section-title {
                 font-size: 2.5rem;
             }
+            
+            .methods-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .amount-input {
+                font-size: 1.8rem;
+                padding: 1.2rem 3.5rem 1.2rem 1.5rem;
+            }
+            
+            .currency {
+                right: 1.5rem;
+                font-size: 1.3rem;
+            }
+            
+            .amount-presets {
+                gap: 0.8rem;
+            }
+            
+            .amount-preset {
+                min-width: 60px;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1334,6 +1733,16 @@
             
             .newsletter h3 {
                 font-size: 2.5rem;
+            }
+            
+            .donation-header h3 {
+                font-size: 1.8rem;
+            }
+            
+            .donation-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
             }
         }
 
@@ -1421,7 +1830,13 @@
             <a href="#stats">ESTADÍSTICAS</a>
             <a href="#music">ESCUCHAR</a>
             <a href="#new-release">NUEVO LANZAMIENTO</a>
-            <a href="#contact">CONTACTO</a>
+            <a href="#platforms">PLATAFORMAS</a>
+            <a href="#donaciones">DONACIONES</a>
+            <div class="nav-cta">
+                <a href="#music" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 0.95rem;">
+                    <i class="fas fa-headphones"></i> ESCUCHAR AHORA
+                </a>
+            </div>
         </div>
         
         <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1448,11 +1863,14 @@
             <a href="#new-release" class="mobile-menu-link">
                 <i class="fas fa-play-circle"></i> NUEVO LANZAMIENTO
             </a>
-            <a href="#contact" class="mobile-menu-link">
-                <i class="fas fa-envelope"></i> CONTACTO
+            <a href="#platforms" class="mobile-menu-link">
+                <i class="fas fa-music"></i> PLATAFORMAS
             </a>
-            <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="mobile-menu-link primary">
-                <i class="fab fa-spotify"></i> ESCUCHAR AHORA
+            <a href="#donaciones" class="mobile-menu-link">
+                <i class="fas fa-heart"></i> DONACIONES
+            </a>
+            <a href="#newsletter" class="mobile-menu-link primary">
+                <i class="fas fa-envelope"></i> NEWSLETTER
             </a>
         </div>
     </div>
@@ -1481,15 +1899,15 @@
                 </div>
                 
                 <p class="hero-description">
-                    Artista independiente creando música que trasciende géneros. Cada lanzamiento es una pieza única de mi journey musical, diseñada para conectar profundamente con mis oyentes. Fusionando elementos urbanos con sonidos electrónicos innovadores, mi música representa crecimiento personal y éxito continuo.
+                    Artista independiente creando música que trasciende géneros. Cada lanzamiento es una pieza única de mi journey musical, diseñada para conectar profundamente con mis oyentes.
                 </p>
                 
                 <div class="cta-buttons">
                     <a href="#new-release" class="btn btn-primary">
-                        <i class="fas fa-fire"></i> NUEVO LANZAMIENTO
+                        <i class="fas fa-play-circle"></i> NUEVO LANZAMIENTO
                     </a>
                     <a href="#music" class="btn btn-secondary">
-                        <i class="fas fa-headphones"></i> ESCUCHAR CATÁLOGO
+                        <i class="fas fa-stream"></i> EXPLORAR CATÁLOGO
                     </a>
                 </div>
                 
@@ -1512,12 +1930,12 @@
             <div class="video-preview">
                 <div class="video-container">
                     <div class="video-badge">
-                        <i class="fas fa-crown"></i> LANZAMIENTO DEL AÑO
+                        <i class="fas fa-fire"></i> NUEVO LANZAMIENTO
                     </div>
                     
                     <div class="video-wrapper">
                         <iframe 
-                            src="https://www.youtube.com/embed/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs&autoplay=1&mute=1" 
+                            src="https://www.youtube.com/embed/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs" 
                             title="Nuevo lanzamiento de POWERPEACE - MIENTRAS YO GANO"
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -1543,7 +1961,7 @@
                         <i class="fas fa-headphones"></i>
                     </div>
                     <div class="stat-number" id="totalListeners">600</div>
-                    <div class="stat-label">Oyentes Activos Mensuales</div>
+                    <div class="stat-label">Oyentes Totales</div>
                 </div>
                 
                 <div class="stat-card fade-in delay-1">
@@ -1551,7 +1969,7 @@
                         <i class="fas fa-play-circle"></i>
                     </div>
                     <div class="stat-number" id="totalStreams">10,000</div>
-                    <div class="stat-label">Streams Globales</div>
+                    <div class="stat-label">Reproducciones Totales</div>
                 </div>
                 
                 <div class="stat-card fade-in delay-2">
@@ -1559,7 +1977,7 @@
                         <i class="fas fa-music"></i>
                     </div>
                     <div class="stat-number" id="totalTracks">23</div>
-                    <div class="stat-label">Producciones Originales</div>
+                    <div class="stat-label">Canciones Publicadas</div>
                 </div>
                 
                 <div class="stat-card fade-in delay-3">
@@ -1567,7 +1985,7 @@
                         <i class="fas fa-globe-americas"></i>
                     </div>
                     <div class="stat-number" id="totalCountries">15</div>
-                    <div class="stat-label">Países con Audiencia</div>
+                    <div class="stat-label">Países con Oyentes</div>
                 </div>
             </div>
         </div>
@@ -1577,7 +1995,7 @@
     <section class="section" id="music">
         <div class="section-header">
             <h2 class="section-title">DISPONIBLE EN TODAS LAS PLATAFORMAS</h2>
-            <p class="section-subtitle">Elije tu plataforma favorita y sumérgete en mi universo musical. Calidad premium garantizada.</p>
+            <p class="section-subtitle">Mi música está disponible globalmente. Elige tu plataforma favorita y comienza a escuchar.</p>
         </div>
         
         <div class="platforms-grid">
@@ -1585,9 +2003,9 @@
             <div class="platform-card fade-in">
                 <i class="fab fa-spotify platform-icon" style="color: #1DB954;"></i>
                 <h3>Spotify</h3>
-                <p class="platform-description">Playlists oficiales, álbumes completos y exclusivos, con recomendaciones personalizadas y estadísticas detalladas.</p>
+                <p class="platform-description">Escucha mis playlists oficiales, álbumes completos y singles más recientes con la mejor calidad de streaming.</p>
                 <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="platform-link">
-                    <i class="fab fa-spotify"></i> ESCUCHAR EN SPOTIFY
+                    <i class="fab fa-spotify"></i> ABRIR EN SPOTIFY
                 </a>
             </div>
             
@@ -1595,7 +2013,7 @@
             <div class="platform-card fade-in delay-1">
                 <i class="fab fa-apple platform-icon" style="color: #FA243C;"></i>
                 <h3>Apple Music</h3>
-                <p class="platform-description">Sonido espacial Dolby Atmos, letras sincronizadas en tiempo real y calidad lossless para la mejor experiencia.</p>
+                <p class="platform-description">Experiencia musical premium con sonido espacial y todo mi catálogo en alta definición.</p>
                 <a href="https://music.apple.com/ar/artist/powerpeace/1641021393" target="_blank" class="platform-link">
                     <i class="fab fa-apple"></i> ABRIR EN APPLE MUSIC
                 </a>
@@ -1605,9 +2023,9 @@
             <div class="platform-card fade-in delay-2">
                 <i class="fab fa-youtube platform-icon" style="color: #FF0000;"></i>
                 <h3>YouTube Music</h3>
-                <p class="platform-description">Videoclips oficiales, detrás de escenas, contenido exclusivo y mi catálogo completo en video y audio.</p>
+                <p class="platform-description">Videos oficiales, contenido exclusivo y mi catálogo completo disponible en video y audio.</p>
                 <a href="https://youtube.com/channel/UCj2EzCODcnx5hqrqNVH6tAg" target="_blank" class="platform-link">
-                    <i class="fab fa-youtube"></i> VER EN YOUTUBE
+                    <i class="fab fa-youtube"></i> ABRIR EN YOUTUBE
                 </a>
             </div>
             
@@ -1615,9 +2033,9 @@
             <div class="platform-card fade-in">
                 <i class="fab fa-deezer platform-icon" style="color: #00C7F2;"></i>
                 <h3>Deezer</h3>
-                <p class="platform-description">Calidad Hi-Fi superior (FLAC 16-bit), Flow inteligente y playlists personalizadas según tu estado de ánimo.</p>
+                <p class="platform-description">Calidad Hi-Fi superior y playlists personalizadas con Flow. Escucha como nunca antes.</p>
                 <a href="https://link.deezer.com/s/31Plv6FXvdjRBSCPOJGKA" target="_blank" class="platform-link">
-                    <i class="fab fa-deezer"></i> STREAM EN DEEZER
+                    <i class="fab fa-deezer"></i> ABRIR EN DEEZER
                 </a>
             </div>
             
@@ -1625,9 +2043,9 @@
             <div class="platform-card fade-in delay-1">
                 <i class="fab fa-amazon platform-icon" style="color: #00A8E1;"></i>
                 <h3>Amazon Music</h3>
-                <p class="platform-description">Disponible para suscriptores de Prime y Unlimited. Integración perfecta con dispositivos Alexa.</p>
+                <p class="platform-description">Disponible para suscriptores de Prime y Amazon Music Unlimited en todo el mundo.</p>
                 <a href="https://music.amazon.com/artists/B0BBP4DM1V/powerpeace" target="_blank" class="platform-link">
-                    <i class="fab fa-amazon"></i> EXPLORAR EN AMAZON
+                    <i class="fab fa-amazon"></i> ABRIR EN AMAZON MUSIC
                 </a>
             </div>
             
@@ -1635,40 +2053,43 @@
             <div class="platform-card fade-in delay-2">
                 <i class="fab fa-soundcloud platform-icon" style="color: #FF3300;"></i>
                 <h3>SoundCloud</h3>
-                <p class="platform-description">Lanzamientos exclusivos, demos inéditas, remixes y versiones alternativas disponibles solo aquí.</p>
+                <p class="platform-description">Lanzamientos exclusivos, demos y versiones alternativas disponibles solo aquí.</p>
                 <a href="https://soundcloud.com/powerpeace-music" target="_blank" class="platform-link">
-                    <i class="fab fa-soundcloud"></i> DESCUBRIR EN SOUNDCLOUD
-                </a>
-            </div>
-        </div>
-        
-        <div class="new-release-section fade-in" style="margin-top: 6rem;">
-            <div class="new-release-badge">
-                <i class="fas fa-rocket"></i> LANZAMIENTO ESTRENO
-            </div>
-            
-            <h2 class="new-release-title">"MIENTRAS YO GANO"</h2>
-            
-            <p class="new-release-subtitle">
-                Mi producción más ambiciosa hasta la fecha. Una fusión de trap melódico con elementos electrónicos futuristas. Una declaración de empoderamiento y éxito personal que redefine mi sonido.
-            </p>
-            
-            <div class="release-cta">
-                <a href="https://youtu.be/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs" target="_blank" class="btn btn-primary" style="padding: 1.2rem 3rem;">
-                    <i class="fab fa-youtube"></i> VER VIDEOOFICIAL
-                </a>
-                <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="btn btn-secondary" style="padding: 1.2rem 3rem;">
-                    <i class="fas fa-stream"></i> STREAM EN TODAS LAS PLATAFORMAS
+                    <i class="fab fa-soundcloud"></i> ABRIR EN SOUNDCLOUD
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Experiencia Musical -->
-    <section class="section" id="experience">
+    <!-- Nuevo Lanzamiento -->
+    <section class="section" id="new-release">
+        <div class="new-release-section fade-in">
+            <div class="new-release-badge">
+                <i class="fas fa-fire"></i> NUEVO LANZAMIENTO
+            </div>
+            
+            <h2 class="new-release-title">"MIENTRAS YO GANO"</h2>
+            
+            <p class="new-release-subtitle">
+                Mi producción más reciente que fusiona elementos urbanos con sonidos electrónicos innovadores. Una declaración de crecimiento personal y éxito continuo en el camino musical.
+            </p>
+            
+            <div class="release-cta">
+                <a href="https://youtu.be/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs" target="_blank" class="btn btn-primary" style="padding: 1.2rem 3rem;">
+                    <i class="fab fa-youtube"></i> VER VIDEO OFICIAL
+                </a>
+                <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="btn btn-secondary" style="padding: 1.2rem 3rem;">
+                    <i class="fas fa-stream"></i> ESCUCHAR EN STREAMING
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Previews -->
+    <section class="section" id="previews">
         <div class="section-header">
-            <h2 class="section-title">EXPERIENCIA INMERSIVA</h2>
-            <p class="section-subtitle">Más que música, una journey sensorial. Descubre los elementos que definen mi arte.</p>
+            <h2 class="section-title">EXPERIENCIA MUSICAL</h2>
+            <p class="section-subtitle">Descubre mis producciones y mantente al día con mi evolución musical.</p>
         </div>
         
         <div class="previews-grid">
@@ -1676,24 +2097,24 @@
                 <div class="preview-content">
                     <div class="preview-header">
                         <div class="preview-icon">
-                            <i class="fas fa-layer-group"></i>
+                            <i class="fas fa-fire"></i>
                         </div>
                         <div>
-                            <h3>DISCROGRAFÍA COMPLETA</h3>
-                            <div class="preview-meta">23 canciones • 4 géneros fusionados</div>
+                            <h3>CATÁLOGO COMPLETO</h3>
+                            <div class="preview-meta">23 canciones disponibles</div>
                         </div>
                     </div>
                     
                     <p style="margin-bottom: 2.5rem; color: var(--text-light); line-height: 1.8; font-size: 1.1rem;">
-                        Desde mis primeros demos hasta mis producciones más pulidas. Un viaje a través de trap, hip-hop, electrónica y R&B contemporáneo. Cada track cuenta una historia diferente de mi evolución como artista y productor.
+                        Explora mi discografía completa que abarca diferentes géneros y estilos. Desde mis primeras producciones hasta mis lanzamientos más recientes, cada canción cuenta una parte de mi journey como artista.
                     </p>
                     
                     <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
                         <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="platform-link" style="padding: 1rem 2rem;">
-                            <i class="fab fa-spotify"></i> EXPLORAR DISCOGRAFÍA
+                            <i class="fab fa-spotify"></i> VER TODO EN SPOTIFY
                         </a>
-                        <a href="#stats" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1rem;">
-                            <i class="fas fa-chart-bar"></i> VER ESTADÍSTICAS
+                        <a href="#music" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1rem;">
+                            <i class="fas fa-music"></i> VER TODAS LAS PLATAFORMAS
                         </a>
                     </div>
                 </div>
@@ -1703,25 +2124,135 @@
                 <div class="preview-content">
                     <div class="preview-header">
                         <div class="preview-icon">
-                            <i class="fas fa-cogs"></i>
+                            <i class="fas fa-headphones"></i>
                         </div>
                         <div>
-                            <h3>PROCESO CREATIVO</h3>
-                            <div class="preview-meta">Producción • Composición • Mastering</div>
+                            <h3>PRÓXIMOS LANZAMIENTOS</h3>
+                            <div class="preview-meta">En producción actualmente</div>
                         </div>
                     </div>
                     
                     <p style="margin-bottom: 2.5rem; color: var(--text-light); line-height: 1.8; font-size: 1.1rem;">
-                        Involucrado en cada etapa: desde la escritura de letras hasta la mezcla final. Uso tecnología de vanguardia combinada con técnicas clásicas para crear un sonido único que destaca en la escena musical independiente.
+                        Siempre trabajando en nueva música. Mantente al tanto de mis próximos lanzamientos y sé el primero en escuchar mis nuevas producciones antes de que salgan oficialmente.
                     </p>
                     
                     <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-                        <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="platform-link" style="padding: 1rem 2rem;">
-                            <i class="fab fa-instagram"></i> DETRÁS DE ESCENAS
+                        <a href="#newsletter" class="platform-link" style="padding: 1rem 2rem;">
+                            <i class="fas fa-bell"></i> RECIBIR AVISOS
                         </a>
-                        <a href="#contact" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1rem;">
-                            <i class="fas fa-handshake"></i> COLABORACIONES
+                        <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1rem;">
+                            <i class="fab fa-instagram"></i> SEGUIR EN INSTAGRAM
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Donaciones -->
+    <section class="section" id="donaciones">
+        <div class="section-header">
+            <h2 class="section-title">APOYÁ MI MÚSICA</h2>
+            <p class="section-subtitle">Tu donación hace posible que siga creando y compartiendo mi música con el mundo</p>
+        </div>
+        
+        <div class="donation-section fade-in">
+            <div class="donation-box">
+                <div class="donation-header">
+                    <div class="donation-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>¡APOYÁ MI ARTE!</h3>
+                    <p class="donation-subtitle">Cada contribución me ayuda a seguir produciendo música de calidad</p>
+                </div>
+                
+                <div class="donation-content">
+                    <div class="amount-section">
+                        <label for="amount" class="amount-label">
+                            <i class="fas fa-dollar-sign"></i> MONTO DE DONACIÓN (USD)
+                        </label>
+                        <div class="amount-input-wrapper">
+                            <input type="number" id="amount" class="amount-input" min="1" step="1" placeholder="Ej: 10" value="10">
+                            <span class="currency">USD</span>
+                        </div>
+                        
+                        <div class="amount-presets">
+                            <button class="amount-preset" data-amount="5">$5</button>
+                            <button class="amount-preset" data-amount="10">$10</button>
+                            <button class="amount-preset" data-amount="20">$20</button>
+                            <button class="amount-preset" data-amount="50">$50</button>
+                            <button class="amount-preset" data-amount="100">$100</button>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <div class="methods-header">
+                            <h4><i class="fas fa-credit-card"></i> MÉTODO DE PAGO</h4>
+                        </div>
+                        
+                        <div class="methods-grid">
+                            <div id="btn-paypal" class="method-card active">
+                                <div class="method-icon">
+                                    <i class="fab fa-paypal"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h5>PayPal</h5>
+                                    <p>Tarjetas y PayPal</p>
+                                </div>
+                                <div class="method-check">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                            
+                            <div id="btn-mp" class="method-card">
+                                <div class="method-icon">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h5>Mercado Pago</h5>
+                                    <p>Argentina y Latinoamérica</p>
+                                </div>
+                                <div class="method-check">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Área PayPal -->
+                    <div id="paypal-area" class="payment-area">
+                        <div id="paypal-button-container"></div>
+                    </div>
+                    
+                    <!-- Área Mercado Pago -->
+                    <div id="mp-area" class="payment-area hidden">
+                        <a id="mp-link" target="_blank" class="btn-mercadopago">
+                            <div class="mp-content">
+                                <div class="mp-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="mp-text">
+                                    <span class="mp-title">Donar con Mercado Pago</span>
+                                    <span class="mp-subtitle">Procesamiento seguro e instantáneo</span>
+                                </div>
+                                <div class="mp-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <p class="mp-note">
+                            <i class="fas fa-shield-alt"></i> Redirigido al sitio seguro de Mercado Pago
+                        </p>
+                    </div>
+                    
+                    <div class="donation-benefits">
+                        <h4><i class="fas fa-gift"></i> BENEFICIOS</h4>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check-circle"></i> Mención especial en redes sociales</li>
+                            <li><i class="fas fa-check-circle"></i> Acceso anticipado a nuevos lanzamientos</li>
+                            <li><i class="fas fa-check-circle"></i> Agradecimiento personal en video</li>
+                            <li><i class="fas fa-check-circle"></i> Mi música seguirá siendo libre para todos</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1732,28 +2263,28 @@
     <section class="section" id="newsletter">
         <div class="newsletter-section fade-in">
             <div class="newsletter">
-                <h3>COMUNIDAD EXCLUSIVA</h3>
-                <p>Acceso prioritario a lanzamientos, contenido inédito, descuentos en merch, invitaciones a eventos y conexión directa conmigo. Sé parte del núcleo de mi audiencia.</p>
+                <h3>ÚNETE A MI COMUNIDAD</h3>
+                <p>Recibe contenido exclusivo, avisos de nuevos lanzamientos antes que nadie, acceso a material inédito y convocatorias especiales para mis seguidores más leales.</p>
                 <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" class="newsletter-input" placeholder="tuemail@ejemplo.com" required>
+                    <input type="email" class="newsletter-input" placeholder="Ingresa tu mejor email" required>
                     <button type="submit" class="btn btn-primary" style="padding: 1.2rem 2.8rem;">
-                        <i class="fas fa-gem"></i> UNIRME A LA COMUNIDAD
+                        <i class="fas fa-paper-plane"></i> SUSCRIBIRME
                     </button>
                 </form>
                 <p style="margin-top: 1.5rem; font-size: 1rem; color: var(--text-light);">
-                    <i class="fas fa-shield-alt" style="margin-right: 0.5rem;"></i> 100% seguro • Sin spam • Contenido exclusivo
+                    <i class="fas fa-lock" style="margin-right: 0.5rem;"></i> Respetamos tu privacidad. Sin spam, solo música y contenido de valor.
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="footer-content">
             <div class="footer-column">
                 <h3>POWERPEACE</h3>
                 <p style="color: var(--text-light); margin-bottom: 2rem; line-height: 1.8; font-size: 1.1rem;">
-                    Música con propósito. Cada producción es una pieza de arte diseñada para resonar, inspirar y conectar. Arte independiente de calidad mundial.
+                    Música original creada desde el corazón por Matías Taibo. Cada canción es una pieza única de mi journey artístico y personal.
                 </p>
                 <div class="social-links">
                     <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="social-link" title="Instagram">
@@ -1772,24 +2303,25 @@
             </div>
             
             <div class="footer-column">
-                <h3>NAVEGACIÓN</h3>
+                <h3>ENLACES RÁPIDOS</h3>
                 <ul class="footer-links">
                     <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-                    <li><a href="#stats"><i class="fas fa-chevron-right"></i> Impacto Musical</a></li>
-                    <li><a href="#music"><i class="fas fa-chevron-right"></i> Plataformas</a></li>
-                    <li><a href="#experience"><i class="fas fa-chevron-right"></i> Experiencia</a></li>
-                    <li><a href="#newsletter"><i class="fas fa-chevron-right"></i> Comunidad</a></li>
+                    <li><a href="#stats"><i class="fas fa-chevron-right"></i> Estadísticas</a></li>
+                    <li><a href="#music"><i class="fas fa-chevron-right"></i> Escuchar Música</a></li>
+                    <li><a href="#new-release"><i class="fas fa-chevron-right"></i> Nuevo Lanzamiento</a></li>
+                    <li><a href="#platforms"><i class="fas fa-chevron-right"></i> Todas las Plataformas</a></li>
+                    <li><a href="#donaciones"><i class="fas fa-chevron-right"></i> Donaciones</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
-                <h3>CONEXIÓN DIRECTA</h3>
+                <h3>CONTACTO & NEGOCIOS</h3>
                 <ul class="footer-links">
                     <li><a href="mailto:contacto@powerpeace.com"><i class="fas fa-envelope"></i> contacto@powerpeace.com</a></li>
-                    <li><a href="https://www.instagram.com/powerpeacee/" target="_blank"><i class="fab fa-instagram"></i> Instagram Oficial</a></li>
-                    <li><a href="#"><i class="fas fa-microphone-alt"></i> Booking & Shows</a></li>
-                    <li><a href="#"><i class="fas fa-pen-nib"></i> Colaboraciones Artísticas</a></li>
-                    <li><a href="#"><i class="fas fa-copyright"></i> Licencias & Derechos</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> Booking & Shows</a></li>
+                    <li><a href="#"><i class="fas fa-handshake"></i> Colaboraciones</a></li>
+                    <li><a href="#"><i class="fas fa-guitar"></i> Producción Musical</a></li>
+                    <li><a href="#"><i class="fas fa-file-contract"></i> Derechos de Autor</a></li>
                 </ul>
             </div>
         </div>
@@ -1798,14 +2330,14 @@
             <p>&copy; <span id="currentYear"></span> <strong>POWERPEACE</strong> · Todos los derechos reservados internacionalmente</p>
             <p style="margin-top: 1rem; color: var(--text-lighter);">Artista: <strong>Matías Taibo</strong> · Música original protegida bajo derechos de autor</p>
             <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.3);">
-                Diseñado para la mejor experiencia musical · Hecho con <i class="fas fa-heart" style="color: var(--primary);"></i> para la comunidad
+                Diseñado para la mejor experiencia musical · Hecho con <i class="fas fa-heart" style="color: var(--primary);"></i> para mis oyentes
             </p>
         </div>
     </footer>
 
     <!-- Floating Player -->
     <button class="floating-player" id="floatingPlayer">
-        <i class="fas fa-play"></i> ESCUCHAR AHORA EN SPOTIFY
+        <i class="fas fa-play"></i> ESCUCHAR AHORA
     </button>
 
     <!-- Back to Top -->
@@ -1813,21 +2345,27 @@
         <i class="fas fa-chevron-up"></i>
     </a>
 
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=ATKfk7d4rzjz_fHEyNcMlIDgsD48zpAXpghL4tmJs_fbdlQlo9NTf96tgS-KJioAkatXlEaWXWYODmKE&currency=USD"></script>
+
     <script>
         // Cargar página
         window.addEventListener('load', function() {
             const loader = document.getElementById('loader');
             setTimeout(() => {
                 loader.classList.add('hidden');
-            }, 800);
+            }, 1000);
             
             // Mostrar notificación
             setTimeout(() => {
-                showNotification('🎵 "MIENTRAS YO GANO" ya disponible en todas las plataformas');
-            }, 1500);
+                showNotification('¡Nuevo lanzamiento "MIENTRAS YO GANO" disponible!');
+            }, 1800);
             
             // Actualizar año en copyright
             document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Inicializar sistema de donaciones
+            initDonations();
         });
 
         // Efecto de scroll en navbar
@@ -1904,13 +2442,13 @@
             const email = this.querySelector('.newsletter-input').value;
             
             // Simulación de envío exitoso
-            showNotification('🎉 ¡Bienvenido a la comunidad! Recibirás acceso exclusivo en breve.');
+            showNotification('¡Gracias por suscribirte! Recibirás contenido exclusivo pronto.');
             this.reset();
             
             // Animación de éxito
             const submitBtn = this.querySelector('.btn');
             const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡MIEMBRO CONFIRMADO!';
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡SUSCRITO!';
             submitBtn.style.background = 'linear-gradient(135deg, #00CC88, #00AA66)';
             
             setTimeout(() => {
@@ -1935,7 +2473,7 @@
             }, 5000);
         }
 
-        // Contadores animados para estadísticas
+        // Contadores animados para estadísticas (CON TUS NÚMEROS REALES)
         function animateCounter(element, target, suffix = '') {
             let current = 0;
             const increment = target / 50;
@@ -1956,6 +2494,7 @@
                 if (entry.isIntersecting) {
                     const element = entry.target;
                     
+                    // TUS ESTADÍSTICAS REALES ACTUALIZADAS
                     if (element.id === 'totalListeners') {
                         animateCounter(element, 600);
                     } else if (element.id === 'totalStreams') {
@@ -1987,154 +2526,156 @@
             });
         });
 
-        // Crear partículas de fondo mejoradas
+        // Crear partículas de fondo
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            
-            // Limpiar contenedor
-            particlesContainer.innerHTML = '';
-            
-            // Crear partículas con diferentes características
-            for (let i = 0; i < 60; i++) {
+            for (let i = 0; i < 50; i++) {
                 const particle = document.createElement('div');
                 particle.style.position = 'absolute';
-                
-                // Tamaño aleatorio
-                const size = Math.random() * 8 + 2;
+                const size = Math.random() * 6 + 2;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
-                
-                // Color aleatorio basado en la paleta
-                const colors = [
-                    'rgba(255, 0, 85, 0.3)',
-                    'rgba(138, 43, 226, 0.3)',
-                    'rgba(0, 212, 255, 0.3)',
-                    'rgba(255, 255, 255, 0.1)'
-                ];
-                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = 'rgba(255, 255, 255, 0.1)';
                 particle.style.borderRadius = '50%';
-                
-                // Posición aleatoria
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
                 particle.style.zIndex = '-1';
                 
-                // Animación única para cada partícula
-                const duration = Math.random() * 25 + 15;
-                const delay = Math.random() * 5;
-                particle.style.animation = `float ${duration}s ${delay}s infinite ease-in-out`;
+                // Animación
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${duration}s infinite ease-in-out`;
                 
                 particlesContainer.appendChild(particle);
             }
             
-            // Añadir animación de flotación mejorada
-            if (!document.getElementById('particles-animation')) {
-                const style = document.createElement('style');
-                style.id = 'particles-animation';
-                style.textContent = `
-                    @keyframes float {
-                        0%, 100% { 
-                            transform: translateY(0) translateX(0) rotate(0deg); 
-                            opacity: 0.7;
-                        }
-                        25% { 
-                            transform: translateY(-30px) translateX(20px) rotate(90deg); 
-                            opacity: 1;
-                        }
-                        50% { 
-                            transform: translateY(-60px) translateX(-10px) rotate(180deg); 
-                            opacity: 0.8;
-                        }
-                        75% { 
-                            transform: translateY(-30px) translateX(-20px) rotate(270deg); 
-                            opacity: 1;
-                        }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
+            // Añadir animación de flotación
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0%, 100% { transform: translateY(0) rotate(0deg); }
+                    50% { transform: translateY(-20px) rotate(180deg); }
+                }
+            `;
+            document.head.appendChild(style);
         }
         
         createParticles();
 
         // Efecto al hacer clic en botones
         document.querySelectorAll('.btn, .platform-link, .social-link').forEach(button => {
-            button.addEventListener('click', function(e) {
-                // Solo animar si no es un enlace externo
-                if (!this.getAttribute('target') || this.getAttribute('target') !== '_blank') {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                }
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
             });
         });
 
-        // Efecto de parallax en hero
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const particles = document.getElementById('particles');
+        // Sistema de donaciones
+        function initDonations() {
+            let selectedMethod = "paypal";
+            const amountInput = document.getElementById("amount");
+            const paypalArea = document.getElementById("paypal-area");
+            const mpArea = document.getElementById("mp-area");
+            const mpLink = document.getElementById("mp-link");
             
-            if (hero && particles) {
-                const rate = scrolled * 0.5;
-                hero.style.backgroundPosition = `0% ${rate}px`;
-                particles.style.transform = `translateY(${rate * 0.3}px)`;
+            // Inicializar PayPal con tus credenciales reales
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    const value = amountInput.value || "10";
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: value,
+                                currency_code: "USD"
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        showNotification(`¡Gracias por tu donación de $${amountInput.value}! 🎶 Tu apoyo significa mucho.`);
+                        
+                        // Resetear formulario
+                        amountInput.value = "10";
+                        document.querySelectorAll('.amount-preset').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        document.querySelector('.amount-preset[data-amount="10"]').classList.add('active');
+                        
+                        // Mostrar mensaje de agradecimiento especial
+                        setTimeout(() => {
+                            showNotification("Recibirás un agradecimiento personal en mis redes sociales esta semana ❤️");
+                        }, 3000);
+                    });
+                },
+                onError: function(err) {
+                    console.error("PayPal Error:", err);
+                    showNotification("Hubo un error con el pago. Por favor intenta de nuevo.");
+                }
+            }).render("#paypal-button-container");
+            
+            // Selección de método de pago
+            document.getElementById("btn-paypal").addEventListener("click", function() {
+                selectPaymentMethod("paypal");
+            });
+            
+            document.getElementById("btn-mp").addEventListener("click", function() {
+                selectPaymentMethod("mp");
+            });
+            
+            function selectPaymentMethod(method) {
+                selectedMethod = method;
+                
+                // Actualizar clases activas
+                document.getElementById("btn-paypal").classList.toggle("active", method === "paypal");
+                document.getElementById("btn-mp").classList.toggle("active", method === "mp");
+                
+                // Mostrar/ocultar áreas de pago
+                paypalArea.classList.toggle("hidden", method !== "paypal");
+                mpArea.classList.toggle("hidden", method !== "mp");
             }
-        });
-
-        // Auto-play del video cuando está visible
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const iframe = entry.target.querySelector('iframe');
-                if (iframe && entry.isIntersecting) {
-                    // El video ya tiene autoplay en el src
-                }
-            });
-        }, { threshold: 0.5 });
-
-        // Observar contenedor de video
-        const videoContainer = document.querySelector('.video-container');
-        if (videoContainer) {
-            videoObserver.observe(videoContainer);
-        }
-
-        // Efecto de sonido al hacer hover en botones de plataforma
-        document.querySelectorAll('.platform-link').forEach(link => {
-            link.addEventListener('mouseenter', function() {
-                // Efecto visual sin sonido para no ser intrusivo
-                this.style.boxShadow = '0 20px 40px rgba(255, 0, 85, 0.4)';
+            
+            // Actualizar link de Mercado Pago con el monto
+            function updateMercadoPagoLink() {
+                const value = amountInput.value || "10";
+                // Usando tu pref_id real de Mercado Pago
+                mpLink.href = `https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=3724467291170236`;
+            }
+            
+            // Event listeners para el monto
+            amountInput.addEventListener("input", function() {
+                updateMercadoPagoLink();
             });
             
-            link.addEventListener('mouseleave', function() {
-                this.style.boxShadow = '';
+            // Presets de monto
+            document.querySelectorAll('.amount-preset').forEach(preset => {
+                preset.addEventListener('click', function() {
+                    const amount = this.getAttribute('data-amount');
+                    amountInput.value = amount;
+                    
+                    // Actualizar clases activas
+                    document.querySelectorAll('.amount-preset').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    updateMercadoPagoLink();
+                });
             });
-        });
+            
+            // Inicializar preset activo
+            document.querySelector('.amount-preset[data-amount="10"]').classList.add('active');
+            
+            // Actualizar link inicial
+            updateMercadoPagoLink();
+        }
 
         // Detectar preferencia de color del sistema
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
             document.documentElement.style.setProperty('--text-light', '#666666');
             document.documentElement.style.setProperty('--text-lighter', '#888888');
         }
-
-        // Efecto de carga suave para imágenes (si se agregan en el futuro)
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.style.opacity = '0';
-                img.style.transition = 'opacity 0.5s ease';
-                
-                img.onload = function() {
-                    this.style.opacity = '1';
-                };
-                
-                // Si ya está cargada
-                if (img.complete) img.onload();
-            });
-        });
-
-        // Mostrar hora local en consola (para debugging)
-        console.log(`🎧 POWERPEACE - Página cargada a las ${new Date().toLocaleTimeString()}`);
     </script>
 </body>
 </html>
