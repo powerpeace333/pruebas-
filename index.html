@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POWERPEACE | Artista Oficial - Música en Todas las Plataformas</title>
+    <meta name="description" content="PowerPeace (Matías Taibo) - Artista independiente con sonido único. Escucha mi nuevo lanzamiento 'MIENTRAS YO GANO' en todas las plataformas de streaming.">
+    <meta name="author" content="Matías Taibo">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="POWERPEACE | Artista Oficial - Música Original">
+    <meta property="og:description" content="Escucha el nuevo lanzamiento 'MIENTRAS YO GANO' de PowerPeace en todas las plataformas digitales">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.ytimg.com/vi/VjdFM17OoGM/maxresdefault.jpg">
+    <meta property="og:url" content="https://powerpeace.com">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="POWERPEACE | Artista Oficial">
+    <meta name="twitter:description" content="Nuevo lanzamiento 'MIENTRAS YO GANO' disponible en todas las plataformas">
+    
+    <!-- Fuentes premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+    
+    <style>
+        :root {
+            --primary: #FF0055;
+            --primary-dark: #CC0044;
+            --secondary: #8A2BE2;
+            --accent: #00D4FF;
+            --dark: #0A0A0A;
+            --darker: #050505;
+            --card: #111111;
+            --card-hover: #1A1A1A;
+            --text: #FFFFFF;
+            --text-light: #AAAAAA;
+            --text-lighter: #888888;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --gradient-hover: linear-gradient(135deg, var(--secondary), var(--primary));
+            --gradient-accent: linear-gradient(135deg, var(--accent), var(--primary));
+            --border-radius: 24px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            --shadow-hover: 0 30px 80px rgba(255, 0, 85, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: radial-gradient(ellipse at top, #1a1a1a 0%, var(--dark) 70%);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        /* Loader premium */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s, visibility 0.6s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loader-text {
+            font-size: 14px;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* Navbar profesional */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar.scrolled {
+            padding: 1rem 5%;
+            background: rgba(5, 5, 5, 0.98);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .verified-badge {
+            background: var(--gradient);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            margin-left: 0.3rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--text);
+        }
+
+        .nav-links a.active:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero Section - Profesional */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(255, 0, 85, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 85% 15%, rgba(138, 43, 226, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 35% 85%, rgba(0, 212, 255, 0.08) 0%, transparent 45%);
+            z-index: -2;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        @media (max-width: 1200px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 4rem;
+            }
+        }
+
+        .hero-text {
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.8rem, 9vw, 7rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: block;
+        }
+
+        .artist-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .verified-artist {
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.7rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            max-width: 600px;
+            line-height: 1.4;
+        }
+
+        .artist-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            padding: 1rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+        }
+
+        .artist-badge i {
+            color: var(--primary);
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 3.5rem;
+            max-width: 550px;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3.5rem;
+        }
+
+        .btn {
+            padding: 1.2rem 2.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+            font-size: 1.05rem;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background-color: rgba(255, 0, 85, 0.05);
+            transform: translateY(-8px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 2.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.04);
+            color: white;
+            font-size: 1.3rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .social-link:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        .social-link:hover {
+            transform: translateY(-8px);
+            color: white;
+            border-color: transparent;
+        }
+
+        .social-link:hover:before {
+            opacity: 1;
+        }
+
+        /* Video Preview - Profesional */
+        .video-preview {
+            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+            position: relative;
+        }
+
+        .video-container {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--card);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .video-badge {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: var(--gradient);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            z-index: 3;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Estadísticas Reales - Profesional */
+        .stats-section {
+            padding: 6rem 5%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), transparent);
+            position: relative;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stats-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .stats-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .stats-title:after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+        }
+
+        .stats-subtitle {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 3.5rem 2.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 0, 85, 0.2);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+            margin-bottom: 0.8rem;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Platforms Section - Ultra profesional */
+        .section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 140px;
+            height: 5px;
+            background: var(--gradient);
+            margin: 2rem auto;
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .platform-card {
+            background: var(--card);
+            border-radius: var(--border-radius);
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .platform-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .platform-card:hover {
+            transform: translateY(-20px);
+            background: var(--card-hover);
+            box-shadow: var(--shadow);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .platform-icon {
+            font-size: 4.5rem;
+            margin-bottom: 2.5rem;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .platform-card:hover .platform-icon {
+            transform: scale(1.15);
+        }
+
+        .platform-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .platform-description {
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            flex-grow: 1;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .platform-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            letter-spacing: 0.5px;
+            font-size: 1.05rem;
+        }
+
+        .platform-link:hover {
+            background: var(--gradient);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 0, 85, 0.3);
+            border-color: transparent;
+        }
+
+        /* Nuevo Lanzamiento - Profesional */
+        .new-release-section {
+            background: linear-gradient(135deg, rgba(255, 0, 85, 0.05), rgba(138, 43, 226, 0.05));
+            border-radius: var(--border-radius);
+            padding: 6rem 5rem;
+            text-align: center;
+            margin-top: 5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .new-release-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 0, 85, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .new-release-badge {
+            background: var(--gradient);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .new-release-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .new-release-subtitle {
+            color: var(--text-light);
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .release-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Music Previews profesionales */
+        .previews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .preview-card {
+            background: var(--card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            height: 100%;
+            position: relative;
+        }
+
+        .preview-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow);
+            border-color: rgba(255, 0, 85, 0.2);
+        }
+
+        .preview-content {
+            padding: 3rem;
+        }
+
+        .preview-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .preview-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3);
+        }
+
+        .preview-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-meta {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Newsletter profesional */
+        .newsletter-section {
+            background: linear-gradient(135deg, rgba(255, 0, 85, 0.08), rgba(138, 43, 226, 0.08));
+            border-radius: var(--border-radius);
+            padding: 6rem 5rem;
+            text-align: center;
+            margin-top: 5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .newsletter h3 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter p {
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            gap: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: white;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 0, 85, 0.1);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Footer profesional */
+        footer {
+            padding: 6rem 5% 3rem;
+            background: var(--darker);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 5rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+            color: var(--text);
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem 0;
+            font-size: 1.05rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .copyright a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+        .delay-3 { animation-delay: 0.6s; opacity: 0; }
+        .delay-4 { animation-delay: 0.8s; opacity: 0; }
+
+        /* Player flotante profesional */
+        .floating-player {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            background: var(--gradient);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow);
+            z-index: 999;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+
+        .floating-player:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .floating-player i {
+            font-size: 1.3rem;
+        }
+
+        /* Progress bar profesional */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.03);
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient);
+            width: 0%;
+            transition: width 0.1s ease;
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* Notificación profesional */
+        .notification {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--gradient);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            transform: translateX(120%);
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification i {
+            font-size: 1.8rem;
+        }
+
+        /* Mobile Menu profesional */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 5, 5, 0.98);
+            z-index: 9999;
+            padding: 8rem 2rem 3rem;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            display: none;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.show {
+            display: flex;
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .mobile-menu-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .mobile-menu-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            gap: 1.2rem;
+        }
+
+        .mobile-menu-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 0, 85, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .mobile-menu-link.primary {
+            background: var(--gradient);
+            border: none;
+        }
+
+        .close-menu-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .close-menu-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(90deg);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 4rem;
+            }
+            
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .new-release-section,
+            .newsletter-section {
+                padding: 4rem 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding-top: 10rem;
+            }
+            
+            .previews-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .platforms-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 6rem 5%;
+            }
+            
+            .hero h1 {
+                font-size: clamp(3rem, 10vw, 5rem);
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .new-release-title {
+                font-size: 2.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .stat-card {
+                padding: 3rem 2rem;
+            }
+            
+            .stat-number {
+                font-size: 3.5rem;
+            }
+            
+            .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .release-cta {
+                flex-direction: column;
+            }
+            
+            .floating-player {
+                bottom: 2rem;
+                right: 2rem;
+                padding: 1rem 2rem;
+                font-size: 0.9rem;
+            }
+            
+            .new-release-section,
+            .newsletter-section {
+                padding: 3rem 1.5rem;
+            }
+            
+            .newsletter h3 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Partículas de fondo */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 6rem;
+            right: 3rem;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 998;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--gradient);
+            border-color: transparent;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 85, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader profesional -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">POWERPEACE</div>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-music"></i>
+        <span>¡Nuevo lanzamiento "MIENTRAS YO GANO" disponible!</span>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <a href="#home" class="logo-container">
+            <div class="logo">
+                <i class="fas fa-bolt"></i>
+                POWERPEACE
+            </div>
+            <div class="verified-badge">
+                <i class="fas fa-check"></i>
+            </div>
+        </a>
+        
+        <div class="nav-links">
+            <a href="#home" class="active">INICIO</a>
+            <a href="#stats">ESTADÍSTICAS</a>
+            <a href="#music">ESCUCHAR</a>
+            <a href="#new-release">NUEVO LANZAMIENTO</a>
+            <a href="#contact">CONTACTO</a>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu-btn" id="closeMenuBtn">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="mobile-menu-content">
+            <a href="#home" class="mobile-menu-link">
+                <i class="fas fa-home"></i> INICIO
+            </a>
+            <a href="#stats" class="mobile-menu-link">
+                <i class="fas fa-chart-line"></i> ESTADÍSTICAS
+            </a>
+            <a href="#music" class="mobile-menu-link">
+                <i class="fas fa-headphones"></i> ESCUCHAR
+            </a>
+            <a href="#new-release" class="mobile-menu-link">
+                <i class="fas fa-play-circle"></i> NUEVO LANZAMIENTO
+            </a>
+            <a href="#contact" class="mobile-menu-link">
+                <i class="fas fa-envelope"></i> CONTACTO
+            </a>
+            <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="mobile-menu-link primary">
+                <i class="fab fa-spotify"></i> ESCUCHAR AHORA
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="particles" id="particles"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="artist-title">
+                    <h1>
+                        <span class="gradient-text">POWER</span>PEACE
+                    </h1>
+                    <div class="verified-artist">
+                        <i class="fas fa-check"></i> ARTISTA VERIFICADO
+                    </div>
+                </div>
+                
+                <p class="hero-subtitle">Sonido auténtico • Evolución constante • Conexión real</p>
+                
+                <div class="artist-badge">
+                    <i class="fas fa-user"></i>
+                    <span>MATÍAS TAIBO</span>
+                </div>
+                
+                <p class="hero-description">
+                    Artista independiente creando música que trasciende géneros. Cada lanzamiento es una pieza única de mi journey musical, diseñada para conectar profundamente con mis oyentes. Fusionando elementos urbanos con sonidos electrónicos innovadores, mi música representa crecimiento personal y éxito continuo.
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="#new-release" class="btn btn-primary">
+                        <i class="fas fa-fire"></i> NUEVO LANZAMIENTO
+                    </a>
+                    <a href="#music" class="btn btn-secondary">
+                        <i class="fas fa-headphones"></i> ESCUCHAR CATÁLOGO
+                    </a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="social-link" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@matias.taiboo" target="_blank" class="social-link" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://youtube.com/channel/UCj2EzCODcnx5hqrqNVH6tAg" target="_blank" class="social-link" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="social-link" title="Spotify">
+                        <i class="fab fa-spotify"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="video-preview">
+                <div class="video-container">
+                    <div class="video-badge">
+                        <i class="fas fa-crown"></i> LANZAMIENTO DEL AÑO
+                    </div>
+                    
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://www.youtube.com/embed/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs&autoplay=1&mute=1" 
+                            title="Nuevo lanzamiento de POWERPEACE - MIENTRAS YO GANO"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estadísticas Reales Actualizadas -->
+    <section class="stats-section" id="stats">
+        <div class="stats-container">
+            <div class="stats-header fade-in">
+                <h2 class="stats-title">IMPACTO MUSICAL</h2>
+                <p class="stats-subtitle">Estadísticas combinadas de todas las plataformas digitales donde mi música está disponible</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <div class="stat-number" id="totalListeners">600</div>
+                    <div class="stat-label">Oyentes Activos Mensuales</div>
+                </div>
+                
+                <div class="stat-card fade-in delay-1">
+                    <div class="stat-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="stat-number" id="totalStreams">10,000</div>
+                    <div class="stat-label">Streams Globales</div>
+                </div>
+                
+                <div class="stat-card fade-in delay-2">
+                    <div class="stat-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="stat-number" id="totalTracks">23</div>
+                    <div class="stat-label">Producciones Originales</div>
+                </div>
+                
+                <div class="stat-card fade-in delay-3">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="stat-number" id="totalCountries">15</div>
+                    <div class="stat-label">Países con Audiencia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section class="section" id="music">
+        <div class="section-header">
+            <h2 class="section-title">DISPONIBLE EN TODAS LAS PLATAFORMAS</h2>
+            <p class="section-subtitle">Elije tu plataforma favorita y sumérgete en mi universo musical. Calidad premium garantizada.</p>
+        </div>
+        
+        <div class="platforms-grid">
+            <!-- Spotify -->
+            <div class="platform-card fade-in">
+                <i class="fab fa-spotify platform-icon" style="color: #1DB954;"></i>
+                <h3>Spotify</h3>
+                <p class="platform-description">Playlists oficiales, álbumes completos y exclusivos, con recomendaciones personalizadas y estadísticas detalladas.</p>
+                <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="platform-link">
+                    <i class="fab fa-spotify"></i> ESCUCHAR EN SPOTIFY
+                </a>
+            </div>
+            
+            <!-- Apple Music -->
+            <div class="platform-card fade-in delay-1">
+                <i class="fab fa-apple platform-icon" style="color: #FA243C;"></i>
+                <h3>Apple Music</h3>
+                <p class="platform-description">Sonido espacial Dolby Atmos, letras sincronizadas en tiempo real y calidad lossless para la mejor experiencia.</p>
+                <a href="https://music.apple.com/ar/artist/powerpeace/1641021393" target="_blank" class="platform-link">
+                    <i class="fab fa-apple"></i> ABRIR EN APPLE MUSIC
+                </a>
+            </div>
+            
+            <!-- YouTube -->
+            <div class="platform-card fade-in delay-2">
+                <i class="fab fa-youtube platform-icon" style="color: #FF0000;"></i>
+                <h3>YouTube Music</h3>
+                <p class="platform-description">Videoclips oficiales, detrás de escenas, contenido exclusivo y mi catálogo completo en video y audio.</p>
+                <a href="https://youtube.com/channel/UCj2EzCODcnx5hqrqNVH6tAg" target="_blank" class="platform-link">
+                    <i class="fab fa-youtube"></i> VER EN YOUTUBE
+                </a>
+            </div>
+            
+            <!-- Deezer -->
+            <div class="platform-card fade-in">
+                <i class="fab fa-deezer platform-icon" style="color: #00C7F2;"></i>
+                <h3>Deezer</h3>
+                <p class="platform-description">Calidad Hi-Fi superior (FLAC 16-bit), Flow inteligente y playlists personalizadas según tu estado de ánimo.</p>
+                <a href="https://link.deezer.com/s/31Plv6FXvdjRBSCPOJGKA" target="_blank" class="platform-link">
+                    <i class="fab fa-deezer"></i> STREAM EN DEEZER
+                </a>
+            </div>
+            
+            <!-- Amazon Music -->
+            <div class="platform-card fade-in delay-1">
+                <i class="fab fa-amazon platform-icon" style="color: #00A8E1;"></i>
+                <h3>Amazon Music</h3>
+                <p class="platform-description">Disponible para suscriptores de Prime y Unlimited. Integración perfecta con dispositivos Alexa.</p>
+                <a href="https://music.amazon.com/artists/B0BBP4DM1V/powerpeace" target="_blank" class="platform-link">
+                    <i class="fab fa-amazon"></i> EXPLORAR EN AMAZON
+                </a>
+            </div>
+            
+            <!-- SoundCloud -->
+            <div class="platform-card fade-in delay-2">
+                <i class="fab fa-soundcloud platform-icon" style="color: #FF3300;"></i>
+                <h3>SoundCloud</h3>
+                <p class="platform-description">Lanzamientos exclusivos, demos inéditas, remixes y versiones alternativas disponibles solo aquí.</p>
+                <a href="https://soundcloud.com/powerpeace-music" target="_blank" class="platform-link">
+                    <i class="fab fa-soundcloud"></i> DESCUBRIR EN SOUNDCLOUD
+                </a>
+            </div>
+        </div>
+        
+        <div class="new-release-section fade-in" style="margin-top: 6rem;">
+            <div class="new-release-badge">
+                <i class="fas fa-rocket"></i> LANZAMIENTO ESTRENO
+            </div>
+            
+            <h2 class="new-release-title">"MIENTRAS YO GANO"</h2>
+            
+            <p class="new-release-subtitle">
+                Mi producción más ambiciosa hasta la fecha. Una fusión de trap melódico con elementos electrónicos futuristas. Una declaración de empoderamiento y éxito personal que redefine mi sonido.
+            </p>
+            
+            <div class="release-cta">
+                <a href="https://youtu.be/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs" target="_blank" class="btn btn-primary" style="padding: 1.2rem 3rem;">
+                    <i class="fab fa-youtube"></i> VER VIDEOOFICIAL
+                </a>
+                <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="btn btn-secondary" style="padding: 1.2rem 3rem;">
+                    <i class="fas fa-stream"></i> STREAM EN TODAS LAS PLATAFORMAS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia Musical -->
+    <section class="section" id="experience">
+        <div class="section-header">
+            <h2 class="section-title">EXPERIENCIA INMERSIVA</h2>
+            <p class="section-subtitle">Más que música, una journey sensorial. Descubre los elementos que definen mi arte.</p>
+        </div>
+        
+        <div class="previews-grid">
+            <div class="preview-card fade-in">
+                <div class="preview-content">
+                    <div class="preview-header">
+                        <div class="preview-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <h3>DISCROGRAFÍA COMPLETA</h3>
+                            <div class="preview-meta">23 canciones • 4 géneros fusionados</div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-bottom: 2.5rem; color: var(--text-light); line-height: 1.8; font-size: 1.1rem;">
+                        Desde mis primeros demos hasta mis producciones más pulidas. Un viaje a través de trap, hip-hop, electrónica y R&B contemporáneo. Cada track cuenta una historia diferente de mi evolución como artista y productor.
+                    </p>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                        <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="platform-link" style="padding: 1rem 2rem;">
+                            <i class="fab fa-spotify"></i> EXPLORAR DISCOGRAFÍA
+                        </a>
+                        <a href="#stats" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1rem;">
+                            <i class="fas fa-chart-bar"></i> VER ESTADÍSTICAS
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="preview-card fade-in delay-1">
+                <div class="preview-content">
+                    <div class="preview-header">
+                        <div class="preview-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div>
+                            <h3>PROCESO CREATIVO</h3>
+                            <div class="preview-meta">Producción • Composición • Mastering</div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-bottom: 2.5rem; color: var(--text-light); line-height: 1.8; font-size: 1.1rem;">
+                        Involucrado en cada etapa: desde la escritura de letras hasta la mezcla final. Uso tecnología de vanguardia combinada con técnicas clásicas para crear un sonido único que destaca en la escena musical independiente.
+                    </p>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                        <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="platform-link" style="padding: 1rem 2rem;">
+                            <i class="fab fa-instagram"></i> DETRÁS DE ESCENAS
+                        </a>
+                        <a href="#contact" class="btn btn-secondary" style="padding: 1rem 2rem; font-size: 1rem;">
+                            <i class="fas fa-handshake"></i> COLABORACIONES
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section" id="newsletter">
+        <div class="newsletter-section fade-in">
+            <div class="newsletter">
+                <h3>COMUNIDAD EXCLUSIVA</h3>
+                <p>Acceso prioritario a lanzamientos, contenido inédito, descuentos en merch, invitaciones a eventos y conexión directa conmigo. Sé parte del núcleo de mi audiencia.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" class="newsletter-input" placeholder="tuemail@ejemplo.com" required>
+                    <button type="submit" class="btn btn-primary" style="padding: 1.2rem 2.8rem;">
+                        <i class="fas fa-gem"></i> UNIRME A LA COMUNIDAD
+                    </button>
+                </form>
+                <p style="margin-top: 1.5rem; font-size: 1rem; color: var(--text-light);">
+                    <i class="fas fa-shield-alt" style="margin-right: 0.5rem;"></i> 100% seguro • Sin spam • Contenido exclusivo
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>POWERPEACE</h3>
+                <p style="color: var(--text-light); margin-bottom: 2rem; line-height: 1.8; font-size: 1.1rem;">
+                    Música con propósito. Cada producción es una pieza de arte diseñada para resonar, inspirar y conectar. Arte independiente de calidad mundial.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="social-link" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@matias.taiboo" target="_blank" class="social-link" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://youtube.com/channel/UCj2EzCODcnx5hqrqNVH6tAg" target="_blank" class="social-link" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="social-link" title="Spotify">
+                        <i class="fab fa-spotify"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>NAVEGACIÓN</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li><a href="#stats"><i class="fas fa-chevron-right"></i> Impacto Musical</a></li>
+                    <li><a href="#music"><i class="fas fa-chevron-right"></i> Plataformas</a></li>
+                    <li><a href="#experience"><i class="fas fa-chevron-right"></i> Experiencia</a></li>
+                    <li><a href="#newsletter"><i class="fas fa-chevron-right"></i> Comunidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>CONEXIÓN DIRECTA</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:contacto@powerpeace.com"><i class="fas fa-envelope"></i> contacto@powerpeace.com</a></li>
+                    <li><a href="https://www.instagram.com/powerpeacee/" target="_blank"><i class="fab fa-instagram"></i> Instagram Oficial</a></li>
+                    <li><a href="#"><i class="fas fa-microphone-alt"></i> Booking & Shows</a></li>
+                    <li><a href="#"><i class="fas fa-pen-nib"></i> Colaboraciones Artísticas</a></li>
+                    <li><a href="#"><i class="fas fa-copyright"></i> Licencias & Derechos</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; <span id="currentYear"></span> <strong>POWERPEACE</strong> · Todos los derechos reservados internacionalmente</p>
+            <p style="margin-top: 1rem; color: var(--text-lighter);">Artista: <strong>Matías Taibo</strong> · Música original protegida bajo derechos de autor</p>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.3);">
+                Diseñado para la mejor experiencia musical · Hecho con <i class="fas fa-heart" style="color: var(--primary);"></i> para la comunidad
+            </p>
+        </div>
+    </footer>
+
+    <!-- Floating Player -->
+    <button class="floating-player" id="floatingPlayer">
+        <i class="fas fa-play"></i> ESCUCHAR AHORA EN SPOTIFY
+    </button>
+
+    <!-- Back to Top -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script>
+        // Cargar página
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 800);
+            
+            // Mostrar notificación
+            setTimeout(() => {
+                showNotification('🎵 "MIENTRAS YO GANO" ya disponible en todas las plataformas');
+            }, 1500);
+            
+            // Actualizar año en copyright
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+
+        // Efecto de scroll en navbar
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            // Navbar scroll effect
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Progress bar
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+            
+            // Back to top button
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Cerrar menú al hacer clic en enlaces
+        mobileMenu.querySelectorAll('.mobile-menu-link').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Newsletter form
+        const newsletterForm = document.getElementById('newsletterForm');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            
+            // Simulación de envío exitoso
+            showNotification('🎉 ¡Bienvenido a la comunidad! Recibirás acceso exclusivo en breve.');
+            this.reset();
+            
+            // Animación de éxito
+            const submitBtn = this.querySelector('.btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡MIEMBRO CONFIRMADO!';
+            submitBtn.style.background = 'linear-gradient(135deg, #00CC88, #00AA66)';
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = '';
+            }, 3000);
+        });
+
+        // Floating player
+        document.getElementById('floatingPlayer').addEventListener('click', function() {
+            window.open('https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL', '_blank');
+        });
+
+        // Mostrar notificación
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.querySelector('span').textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 5000);
+        }
+
+        // Contadores animados para estadísticas
+        function animateCounter(element, target, suffix = '') {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toLocaleString() + suffix;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString() + suffix;
+                }
+            }, 30);
+        }
+
+        // Observar elementos de estadísticas para animarlos cuando sean visibles
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    
+                    if (element.id === 'totalListeners') {
+                        animateCounter(element, 600);
+                    } else if (element.id === 'totalStreams') {
+                        animateCounter(element, 10000);
+                    } else if (element.id === 'totalTracks') {
+                        animateCounter(element, 23);
+                    } else if (element.id === 'totalCountries') {
+                        animateCounter(element, 15);
+                    }
+                    
+                    observer.unobserve(element);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        // Observar elementos de estadísticas
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            observer.observe(stat);
+        });
+
+        // Efectos hover para tarjetas
+        document.querySelectorAll('.platform-card, .stat-card, .preview-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Crear partículas de fondo mejoradas
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            // Limpiar contenedor
+            particlesContainer.innerHTML = '';
+            
+            // Crear partículas con diferentes características
+            for (let i = 0; i < 60; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 8 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Color aleatorio basado en la paleta
+                const colors = [
+                    'rgba(255, 0, 85, 0.3)',
+                    'rgba(138, 43, 226, 0.3)',
+                    'rgba(0, 212, 255, 0.3)',
+                    'rgba(255, 255, 255, 0.1)'
+                ];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                
+                // Posición aleatoria
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.zIndex = '-1';
+                
+                // Animación única para cada partícula
+                const duration = Math.random() * 25 + 15;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float ${duration}s ${delay}s infinite ease-in-out`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Añadir animación de flotación mejorada
+            if (!document.getElementById('particles-animation')) {
+                const style = document.createElement('style');
+                style.id = 'particles-animation';
+                style.textContent = `
+                    @keyframes float {
+                        0%, 100% { 
+                            transform: translateY(0) translateX(0) rotate(0deg); 
+                            opacity: 0.7;
+                        }
+                        25% { 
+                            transform: translateY(-30px) translateX(20px) rotate(90deg); 
+                            opacity: 1;
+                        }
+                        50% { 
+                            transform: translateY(-60px) translateX(-10px) rotate(180deg); 
+                            opacity: 0.8;
+                        }
+                        75% { 
+                            transform: translateY(-30px) translateX(-20px) rotate(270deg); 
+                            opacity: 1;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+        
+        createParticles();
+
+        // Efecto al hacer clic en botones
+        document.querySelectorAll('.btn, .platform-link, .social-link').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Solo animar si no es un enlace externo
+                if (!this.getAttribute('target') || this.getAttribute('target') !== '_blank') {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
+
+        // Efecto de parallax en hero
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const particles = document.getElementById('particles');
+            
+            if (hero && particles) {
+                const rate = scrolled * 0.5;
+                hero.style.backgroundPosition = `0% ${rate}px`;
+                particles.style.transform = `translateY(${rate * 0.3}px)`;
+            }
+        });
+
+        // Auto-play del video cuando está visible
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const iframe = entry.target.querySelector('iframe');
+                if (iframe && entry.isIntersecting) {
+                    // El video ya tiene autoplay en el src
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observar contenedor de video
+        const videoContainer = document.querySelector('.video-container');
+        if (videoContainer) {
+            videoObserver.observe(videoContainer);
+        }
+
+        // Efecto de sonido al hacer hover en botones de plataforma
+        document.querySelectorAll('.platform-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                // Efecto visual sin sonido para no ser intrusivo
+                this.style.boxShadow = '0 20px 40px rgba(255, 0, 85, 0.4)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Detectar preferencia de color del sistema
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.documentElement.style.setProperty('--text-light', '#666666');
+            document.documentElement.style.setProperty('--text-lighter', '#888888');
+        }
+
+        // Efecto de carga suave para imágenes (si se agregan en el futuro)
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.5s ease';
+                
+                img.onload = function() {
+                    this.style.opacity = '1';
+                };
+                
+                // Si ya está cargada
+                if (img.complete) img.onload();
+            });
+        });
+
+        // Mostrar hora local en consola (para debugging)
+        console.log(`🎧 POWERPEACE - Página cargada a las ${new Date().toLocaleTimeString()}`);
+    </script>
+</body>
+</html>
