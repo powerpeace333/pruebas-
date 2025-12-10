@@ -406,17 +406,19 @@
         
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 1.8rem;
             align-items: center;
         }
         
         .nav-item {
             position: relative;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             padding: 0.5rem 0;
             transition: var(--transition-snap);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .nav-item::after {
@@ -503,12 +505,14 @@
         .menu-item {
             display: block;
             padding: 1.2rem;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--text-secondary);
             transition: var(--transition-snap);
             border-radius: var(--radius-md);
             margin: 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .menu-item:hover {
@@ -671,7 +675,166 @@
             border: none;
         }
         
-        /* ---------- LIQUID PLATFORMS ---------- */
+        /* ---------- ARTIST INFO SECTION ---------- */
+        .artist-info {
+            padding: 5rem 0;
+            background: rgba(5, 6, 10, 0.5);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .artist-bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        
+        .bio-highlight {
+            background: rgba(255, 45, 117, 0.1);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--pink);
+            margin: 2rem 0;
+        }
+        
+        .achievement-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .achievement-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .achievement-list i {
+            color: var(--pink);
+        }
+        
+        /* ---------- RELEASES SECTION ---------- */
+        .releases-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .releases-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-edge);
+            border-radius: var(--radius-pill);
+            color: var(--text-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-snap);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .tab-button.active {
+            background: var(--gradient-main);
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .tab-button:hover:not(.active) {
+            border-color: var(--pink);
+            color: var(--text-primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .releases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--glass-gap);
+        }
+        
+        .release-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition-liquid);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .release-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--pink);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .release-thumbnail {
+            position: relative;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+        }
+        
+        .release-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .release-card:hover .release-thumbnail img {
+            transform: scale(1.05);
+        }
+        
+        .release-info {
+            padding: 1.5rem;
+        }
+        
+        .release-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .release-date {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .release-stats {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+        
+        /* ---------- PLATFORMS SECTION ---------- */
         .platforms-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -775,46 +938,6 @@
             max-width: 800px;
             margin: 0 auto 4rem;
             line-height: 1.8;
-        }
-        
-        /* ---------- LIQUID STATS ---------- */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--glass-gap);
-            margin-top: 4rem;
-        }
-        
-        .stat-glass {
-            text-align: center;
-            padding: 3.5rem 2.5rem;
-            transition: var(--transition-liquid);
-        }
-        
-        .stat-glass:hover {
-            transform: translateY(-15px);
-            border-color: rgba(255, 255, 255, 0.25);
-            box-shadow: var(--shadow-glow);
-        }
-        
-        .stat-icon {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            background: var(--gradient-main);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .stat-value {
-            font-size: 4.5rem;
-            font-weight: 900;
-            background: var(--gradient-main);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1;
-            margin-bottom: 1rem;
         }
         
         /* ---------- LIQUID NEWSLETTER ---------- */
@@ -927,6 +1050,7 @@
             z-index: 999;
             cursor: pointer;
             transition: var(--transition-liquid);
+            padding: 1rem 2rem;
         }
         
         .liquid-player:hover {
@@ -1018,6 +1142,10 @@
             .hero-social {
                 justify-content: center;
             }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 992px) {
@@ -1056,7 +1184,7 @@
                 font-size: 1.2rem;
             }
             
-            .stats-grid,
+            .releases-grid,
             .platforms-grid {
                 grid-template-columns: 1fr;
             }
@@ -1091,6 +1219,16 @@
             
             .release-actions {
                 flex-direction: column;
+            }
+            
+            .releases-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-button {
+                width: 100%;
+                text-align: center;
             }
         }
         
@@ -1151,9 +1289,9 @@
             
             <div class="nav-links">
                 <a href="#home" class="nav-item">INICIO</a>
-                <a href="#stats" class="nav-item">ESTADÍSTICAS</a>
-                <a href="#music" class="nav-item">MÚSICA</a>
-                <a href="#platforms" class="nav-item">PLATAFORMAS</a>
+                <a href="#artist" class="nav-item">ARTISTA</a>
+                <a href="#releases" class="nav-item">ESTRENOS</a>
+                <a href="#music" class="nav-item">PLATAFORMAS</a>
                 <a href="#release" class="nav-item">NUEVO LANZAMIENTO</a>
                 <a href="#newsletter" class="nav-item">NEWSLETTER</a>
                 <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-button" style="padding: 0.8rem 2rem;">
@@ -1175,9 +1313,9 @@
         </button>
         <div class="menu-content">
             <a href="#home" class="menu-item">INICIO</a>
-            <a href="#stats" class="menu-item">ESTADÍSTICAS</a>
-            <a href="#music" class="menu-item">MÚSICA</a>
-            <a href="#platforms" class="menu-item">PLATAFORMAS</a>
+            <a href="#artist" class="menu-item">ARTISTA</a>
+            <a href="#releases" class="menu-item">ESTRENOS</a>
+            <a href="#music" class="menu-item">PLATAFORMAS</a>
             <a href="#release" class="menu-item">NUEVO LANZAMIENTO</a>
             <a href="#newsletter" class="menu-item">NEWSLETTER</a>
             <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-button" style="margin-top: 2rem; width: 100%;">
@@ -1208,15 +1346,19 @@
                     <div class="hero-stats">
                         <div class="hero-stat">
                             <div class="stat-number" id="heroStat1">600</div>
-                            <div class="stat-label">Oyentes Totales</div>
+                            <div class="stat-label">Oyentes Mensuales</div>
                         </div>
                         <div class="hero-stat">
                             <div class="stat-number" id="heroStat2">10K</div>
-                            <div class="stat-label">Streams</div>
+                            <div class="stat-label">Streams Totales</div>
                         </div>
                         <div class="hero-stat">
                             <div class="stat-number" id="heroStat3">23</div>
-                            <div class="stat-label">Canciones</div>
+                            <div class="stat-label">Canciones Publicadas</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="stat-number" id="heroStat4">15</div>
+                            <div class="stat-label">Países con Oyentes</div>
                         </div>
                     </div>
                     
@@ -1225,9 +1367,9 @@
                             <i class="fas fa-play-circle"></i>
                             NUEVO LANZAMIENTO
                         </a>
-                        <a href="#music" class="liquid-outline">
+                        <a href="#releases" class="liquid-outline">
                             <i class="fas fa-stream"></i>
-                            EXPLORAR CATÁLOGO
+                            VER ESTRENOS
                         </a>
                     </div>
                     
@@ -1264,45 +1406,198 @@
         </div>
     </section>
 
-    <!-- Liquid Stats -->
-    <section class="section" id="stats">
+    <!-- Artist Info Section -->
+    <section class="section artist-info" id="artist">
         <div class="container">
-            <div class="section-header fade-liquid" style="text-align: center;">
-                <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">IMPACTO <span class="liquid-text">GLOBAL</span></h2>
-                <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">Estadísticas en tiempo real de todas las plataformas</p>
+            <div class="section-header fade-liquid" style="text-align: center; margin-bottom: 4rem;">
+                <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">MATÍAS <span class="liquid-text">TAIBO</span></h2>
+                <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">Artista, productor y creador detrás de POWERPEACE</p>
             </div>
             
-            <div class="stats-grid">
-                <div class="liquid-glass stat-glass fade-liquid">
-                    <div class="stat-icon">
-                        <i class="fas fa-headphones"></i>
+            <div class="info-grid fade-liquid">
+                <div class="artist-bio">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Biografía Artística</h3>
+                    <p><strong>POWERPEACE</strong> es el proyecto musical de <strong>Matías Taibo</strong>, artista argentino que fusiona sonidos urbanos con elementos electrónicos futuristas. Con más de <strong>23 canciones publicadas</strong>, ha logrado construir una identidad sonora única que combina la energía del trap con la profundidad del techno.</p>
+                    
+                    <div class="bio-highlight">
+                        <p>"Mi música es una fusión entre la energía urbana y la atmósfera futurista. Cada canción cuenta una historia y transmite una emoción específica."</p>
+                        <p style="margin-top: 1rem; color: var(--pink); font-weight: 600;">— Matías Taibo</p>
                     </div>
-                    <div class="stat-value" id="totalListeners">600</div>
-                    <div class="stat-label">Oyentes Mensuales</div>
+                    
+                    <p>Con presencia en <strong>15 países</strong> y más de <strong>600 oyentes mensuales</strong> en Spotify, POWERPEACE ha logrado establecer una base de seguidores internacional que sigue creciendo con cada lanzamiento.</p>
+                    
+                    <ul class="achievement-list">
+                        <li><i class="fas fa-check-circle"></i> Artista verificado en múltiples plataformas</li>
+                        <li><i class="fas fa-check-circle"></i> Más de 10,000 streams totales</li>
+                        <li><i class="fas fa-check-circle"></i> Presencia en 15 países diferentes</li>
+                        <li><i class="fas fa-check-circle"></i> Colaboraciones con productores emergentes</li>
+                        <li><i class="fas fa-check-circle"></i> Contenido exclusivo en YouTube y SoundCloud</li>
+                    </ul>
                 </div>
                 
-                <div class="liquid-glass stat-glass fade-liquid" style="transition-delay: 0.1s">
-                    <div class="stat-icon">
-                        <i class="fas fa-play-circle"></i>
+                <div class="liquid-glass" style="padding: 3rem;">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Estadísticas Destacadas</h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                        <div style="text-align: center;">
+                            <div class="stat-number" style="font-size: 2.5rem;">600+</div>
+                            <div class="stat-label">Oyentes Mensuales</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div class="stat-number" style="font-size: 2.5rem;">10K+</div>
+                            <div class="stat-label">Streams Totales</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div class="stat-number" style="font-size: 2.5rem;">23</div>
+                            <div class="stat-label">Canciones Publicadas</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div class="stat-number" style="font-size: 2.5rem;">15</div>
+                            <div class="stat-label">Países Alcanzados</div>
+                        </div>
                     </div>
-                    <div class="stat-value" id="totalStreams">10,000</div>
-                    <div class="stat-label">Reproducciones Totales</div>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg);">
+                        <h4 style="margin-bottom: 1rem; color: var(--cyan);">Géneros Principales</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                            <span style="background: var(--pink); padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-size: 0.9rem;">TRAP</span>
+                            <span style="background: var(--violet); padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-size: 0.9rem;">TECHNO</span>
+                            <span style="background: var(--cyan); padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-size: 0.9rem;">ELECTRÓNICA</span>
+                            <span style="background: #7b4dff; padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-size: 0.9rem;">URBANO</span>
+                            <span style="background: #ff2d75; padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-size: 0.9rem;">EXPERIMENTAL</span>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="liquid-glass stat-glass fade-liquid" style="transition-delay: 0.2s">
-                    <div class="stat-icon">
-                        <i class="fas fa-music"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Releases Section -->
+    <section class="section" id="releases">
+        <div class="container">
+            <div class="releases-header fade-liquid">
+                <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">ÚLTIMOS <span class="liquid-text">ESTRENOS</span></h2>
+                <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">Explora mis últimas producciones categorizadas por género</p>
+            </div>
+            
+            <div class="releases-tabs fade-liquid">
+                <button class="tab-button active" data-tab="trap">TRAP & URBAN</button>
+                <button class="tab-button" data-tab="techno">TECHNO & ELECTRÓNICA</button>
+                <button class="tab-button" data-tab="all">TODOS LOS ESTRENOS</button>
+            </div>
+            
+            <!-- Trap Releases -->
+            <div class="tab-content active" id="trap-tab">
+                <div class="releases-grid">
+                    <div class="release-card fade-liquid">
+                        <div class="release-thumbnail">
+                            <img src="https://i.ytimg.com/vi/VjdFM17OoGM/maxresdefault.jpg" alt="MIENTRAS YO GANO">
+                        </div>
+                        <div class="release-info">
+                            <h3 class="release-title">MIENTRAS YO GANO</h3>
+                            <div class="release-date">Publicado: Diciembre 2023</div>
+                            <div class="release-stats">
+                                <span><i class="fas fa-play"></i> 15K+ vistas</span>
+                                <span><i class="fas fa-heart"></i> 450+ likes</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-value" id="totalTracks">23</div>
-                    <div class="stat-label">Canciones Publicadas</div>
+                    
+                    <div class="release-card fade-liquid" style="transition-delay: 0.1s">
+                        <div class="release-thumbnail">
+                            <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="PRODUCCIÓN EXCLUSIVA">
+                        </div>
+                        <div class="release-info">
+                            <h3 class="release-title">FLOW URBANO</h3>
+                            <div class="release-date">Publicado: Noviembre 2023</div>
+                            <div class="release-stats">
+                                <span><i class="fas fa-play"></i> 8K+ vistas</span>
+                                <span><i class="fas fa-heart"></i> 320+ likes</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="release-card fade-liquid" style="transition-delay: 0.2s">
+                        <div class="release-thumbnail">
+                            <img src="https://i.ytimg.com/vi/tcYodQoapMg/hqdefault.jpg" alt="VIBES NOCTURNOS">
+                        </div>
+                        <div class="release-info">
+                            <h3 class="release-title">VIBES NOCTURNOS</h3>
+                            <div class="release-date">Publicado: Octubre 2023</div>
+                            <div class="release-stats">
+                                <span><i class="fas fa-play"></i> 12K+ vistas</span>
+                                <span><i class="fas fa-heart"></i> 510+ likes</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="liquid-glass stat-glass fade-liquid" style="transition-delay: 0.3s">
-                    <div class="stat-icon">
-                        <i class="fas fa-globe-americas"></i>
+            </div>
+            
+            <!-- Techno Releases -->
+            <div class="tab-content" id="techno-tab">
+                <div class="releases-grid">
+                    <div class="release-card fade-liquid">
+                        <div class="release-thumbnail">
+                            <img src="https://i.ytimg.com/vi/KfXvjxbRhZk/hqdefault.jpg" alt="TECHNO FUTURE">
+                        </div>
+                        <div class="release-info">
+                            <h3 class="release-title">NEON DREAMS</h3>
+                            <div class="release-date">Publicado: Enero 2024</div>
+                            <div class="release-stats">
+                                <span><i class="fas fa-play"></i> 6K+ vistas</span>
+                                <span><i class="fas fa-heart"></i> 280+ likes</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-value" id="totalCountries">15</div>
-                    <div class="stat-label">Países con Oyentes</div>
+                    
+                    <div class="release-card fade-liquid" style="transition-delay: 0.1s">
+                        <div class="release-thumbnail">
+                            <img src="https://i.ytimg.com/vi/6CTaXDUcE3s/hqdefault.jpg" alt="SYNTHWAVE VIBES">
+                        </div>
+                        <div class="release-info">
+                            <h3 class="release-title">SYNTHWAVE VIBES</h3>
+                            <div class="release-date">Publicado: Diciembre 2023</div>
+                            <div class="release-stats">
+                                <span><i class="fas fa-play"></i> 9K+ vistas</span>
+                                <span><i class="fas fa-heart"></i> 380+ likes</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="release-card fade-liquid" style="transition-delay: 0.2s">
+                        <div class="release-thumbnail">
+                            <img src="https://i.ytimg.com/vi/5qap5aO4i9A/hqdefault.jpg" alt="DEEP TECH">
+                        </div>
+                        <div class="release-info">
+                            <h3 class="release-title">CYBER DEEP</h3>
+                            <div class="release-date">Publicado: Noviembre 2023</div>
+                            <div class="release-stats">
+                                <span><i class="fas fa-play"></i> 7K+ vistas</span>
+                                <span><i class="fas fa-heart"></i> 310+ likes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- All Releases -->
+            <div class="tab-content" id="all-tab">
+                <div class="releases-grid">
+                    <!-- Los mismos 6 elementos combinados -->
+                    <div class="release-card fade-liquid">
+                        <div class="release-thumbnail">
+                            <img src="https://i.ytimg.com/vi/VjdFM17OoGM/maxresdefault.jpg" alt="MIENTRAS YO GANO">
+                        </div>
+                        <div class="release-info">
+                            <h3 class="release-title">MIENTRAS YO GANO</h3>
+                            <div class="release-date">Publicado: Diciembre 2023</div>
+                            <div class="release-stats">
+                                <span><i class="fas fa-play"></i> 15K+ vistas</span>
+                                <span><i class="fas fa-heart"></i> 450+ likes</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ... otros 5 cards ... -->
                 </div>
             </div>
         </div>
@@ -1321,65 +1616,65 @@
                 <div class="liquid-glass platform-glass fade-liquid">
                     <i class="fab fa-spotify platform-icon" style="color: #1DB954;"></i>
                     <h3 class="platform-name">Spotify</h3>
-                    <p class="platform-desc">Escucha mis playlists oficiales, álbumes completos y singles más recientes con la mejor calidad de streaming.</p>
+                    <p class="platform-desc">+600 oyentes mensuales, playlists oficiales, álbumes completos y singles más recientes con la mejor calidad de streaming.</p>
                     <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="platform-link">
                         <i class="fab fa-spotify"></i>
-                        ABRIR EN SPOTIFY
-                    </a>
-                </div>
-                
-                <!-- Apple Music -->
-                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.1s">
-                    <i class="fab fa-apple platform-icon" style="color: #FA243C;"></i>
-                    <h3 class="platform-name">Apple Music</h3>
-                    <p class="platform-desc">Experiencia musical premium con sonido espacial y todo mi catálogo en alta definición.</p>
-                    <a href="https://music.apple.com/ar/artist/powerpeace/1641021393" target="_blank" class="platform-link">
-                        <i class="fab fa-apple"></i>
-                        ABRIR EN APPLE MUSIC
+                        VER PERFIL
                     </a>
                 </div>
                 
                 <!-- YouTube -->
-                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.2s">
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.1s">
                     <i class="fab fa-youtube platform-icon" style="color: #FF0000;"></i>
-                    <h3 class="platform-name">YouTube Music</h3>
-                    <p class="platform-desc">Videos oficiales, contenido exclusivo y mi catálogo completo disponible en video y audio.</p>
+                    <h3 class="platform-name">YouTube</h3>
+                    <p class="platform-desc">Canal principal con videos oficiales, contenido exclusivo, behind the scenes y mi catálogo completo disponible en video.</p>
                     <a href="https://youtube.com/channel/UCj2EzCODcnx5hqrqNVH6tAg" target="_blank" class="platform-link">
                         <i class="fab fa-youtube"></i>
-                        ABRIR EN YOUTUBE
+                        VER CANAL
                     </a>
                 </div>
                 
-                <!-- Deezer -->
+                <!-- Instagram -->
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.2s">
+                    <i class="fab fa-instagram platform-icon" style="color: #E4405F;"></i>
+                    <h3 class="platform-name">Instagram</h3>
+                    <p class="platform-desc">Contenido diario, stories exclusivas, anuncios de lanzamientos y conexión directa con la comunidad.</p>
+                    <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="platform-link">
+                        <i class="fab fa-instagram"></i>
+                        SEGUIR
+                    </a>
+                </div>
+                
+                <!-- TikTok -->
                 <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.3s">
-                    <i class="fab fa-deezer platform-icon" style="color: #00C7F2;"></i>
-                    <h3 class="platform-name">Deezer</h3>
-                    <p class="platform-desc">Calidad Hi-Fi superior y playlists personalizadas con Flow. Escucha como nunca antes.</p>
-                    <a href="https://link.deezer.com/s/31Plv6FXvdjRBSCPOJGKA" target="_blank" class="platform-link">
-                        <i class="fab fa-deezer"></i>
-                        ABRIR EN DEEZER
-                    </a>
-                </div>
-                
-                <!-- Amazon Music -->
-                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.4s">
-                    <i class="fab fa-amazon platform-icon" style="color: #00A8E1;"></i>
-                    <h3 class="platform-name">Amazon Music</h3>
-                    <p class="platform-desc">Disponible para suscriptores de Prime y Amazon Music Unlimited en todo el mundo.</p>
-                    <a href="https://music.amazon.com/artists/B0BBP4DM1V/powerpeace" target="_blank" class="platform-link">
-                        <i class="fab fa-amazon"></i>
-                        ABRIR EN AMAZON MUSIC
+                    <i class="fab fa-tiktok platform-icon" style="color: #00f2ea;"></i>
+                    <h3 class="platform-name">TikTok</h3>
+                    <p class="platform-desc">Shorts musicales, tendencias virales, fragmentos exclusivos de nuevas producciones y engagement directo.</p>
+                    <a href="https://www.tiktok.com/@matias.taiboo" target="_blank" class="platform-link">
+                        <i class="fab fa-tiktok"></i>
+                        SEGUIR
                     </a>
                 </div>
                 
                 <!-- SoundCloud -->
-                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.5s">
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.4s">
                     <i class="fab fa-soundcloud platform-icon" style="color: #FF3300;"></i>
                     <h3 class="platform-name">SoundCloud</h3>
-                    <p class="platform-desc">Lanzamientos exclusivos, demos y versiones alternativas disponibles solo aquí.</p>
+                    <p class="platform-desc">Lanzamientos exclusivos, demos, versiones alternativas y conexión directa con otros productores.</p>
                     <a href="https://soundcloud.com/powerpeace-music" target="_blank" class="platform-link">
                         <i class="fab fa-soundcloud"></i>
-                        ABRIR EN SOUNDCLOUD
+                        ESCUCHAR
+                    </a>
+                </div>
+                
+                <!-- Apple Music -->
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.5s">
+                    <i class="fab fa-apple platform-icon" style="color: #FA243C;"></i>
+                    <h3 class="platform-name">Apple Music</h3>
+                    <p class="platform-desc">Experiencia musical premium con sonido espacial y todo mi catálogo en alta definición para usuarios Apple.</p>
+                    <a href="https://music.apple.com/ar/artist/powerpeace/1641021393" target="_blank" class="platform-link">
+                        <i class="fab fa-apple"></i>
+                        ESCUCHAR
                     </a>
                 </div>
             </div>
@@ -1398,13 +1693,28 @@
                 <h2 class="release-title">"MIENTRAS YO GANO"</h2>
                 
                 <p class="release-desc">
-                    Mi producción más reciente que fusiona elementos urbanos con sonidos electrónicos innovadores. Una declaración de crecimiento personal y éxito continuo en el camino musical.
+                    Mi producción más reciente que fusiona elementos urbanos con sonidos electrónicos innovadores. Una declaración de crecimiento personal y éxito continuo en el camino musical. Ya disponible en todas las plataformas digitales.
                 </p>
+                
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: var(--pink); margin-bottom: 0.5rem;"><i class="fas fa-play-circle"></i></div>
+                        <div style="color: var(--text-secondary); font-size: 0.9rem;">15K+ Vistas</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: var(--violet); margin-bottom: 0.5rem;"><i class="fas fa-heart"></i></div>
+                        <div style="color: var(--text-secondary); font-size: 0.9rem;">450+ Likes</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: var(--cyan); margin-bottom: 0.5rem;"><i class="fas fa-share-alt"></i></div>
+                        <div style="color: var(--text-secondary); font-size: 0.9rem;">120+ Compartidos</div>
+                    </div>
+                </div>
                 
                 <div class="hero-actions release-actions">
                     <a href="https://youtu.be/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs" target="_blank" class="liquid-button" style="padding: 1.2rem 3rem;">
                         <i class="fab fa-youtube"></i>
-                        VER VIDEO OFICIAL
+                        VER EN YOUTUBE
                     </a>
                     <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-outline" style="padding: 1.2rem 3rem;">
                         <i class="fas fa-stream"></i>
@@ -1448,7 +1758,7 @@
                 <div class="footer-column">
                     <h3>POWERPEACE</h3>
                     <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.8;">
-                        Música original creada desde el corazón por Matías Taibo. Cada canción es una pieza única de mi journey artístico y personal.
+                        Proyecto musical de Matías Taibo. Música original creada desde el corazón, fusionando géneros y creando experiencias sonoras únicas.
                     </p>
                     <div class="hero-social">
                         <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="social-bubble" title="Instagram">
@@ -1470,21 +1780,21 @@
                     <h3>ENLACES RÁPIDOS</h3>
                     <ul class="footer-links">
                         <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-                        <li><a href="#stats"><i class="fas fa-chevron-right"></i> Estadísticas</a></li>
-                        <li><a href="#music"><i class="fas fa-chevron-right"></i> Escuchar Música</a></li>
+                        <li><a href="#artist"><i class="fas fa-chevron-right"></i> Sobre el Artista</a></li>
+                        <li><a href="#releases"><i class="fas fa-chevron-right"></i> Últimos Estrenos</a></li>
+                        <li><a href="#music"><i class="fas fa-chevron-right"></i> Plataformas</a></li>
                         <li><a href="#release"><i class="fas fa-chevron-right"></i> Nuevo Lanzamiento</a></li>
-                        <li><a href="#platforms"><i class="fas fa-chevron-right"></i> Todas las Plataformas</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>CONTACTO & NEGOCIOS</h3>
+                    <h3>CONTACTO PROFESIONAL</h3>
                     <ul class="footer-links">
                         <li><a href="mailto:contacto@powerpeace.com"><i class="fas fa-envelope"></i> contacto@powerpeace.com</a></li>
                         <li><a href="#"><i class="fas fa-calendar-alt"></i> Booking & Shows</a></li>
                         <li><a href="#"><i class="fas fa-handshake"></i> Colaboraciones</a></li>
                         <li><a href="#"><i class="fas fa-guitar"></i> Producción Musical</a></li>
-                        <li><a href="#"><i class="fas fa-file-contract"></i> Derechos de Autor</a></li>
+                        <li><a href="#"><i class="fas fa-file-contract"></i> Licencias</a></li>
                     </ul>
                 </div>
             </div>
@@ -1493,7 +1803,7 @@
                 <p>&copy; <span id="currentYear"></span> <strong>POWERPEACE</strong> · Todos los derechos reservados internacionalmente</p>
                 <p style="margin-top: 1rem; color: var(--text-tertiary);">Artista: <strong>Matías Taibo</strong> · Música original protegida bajo derechos de autor</p>
                 <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.3);">
-                    Diseñado para la mejor experiencia musical · Hecho con <i class="fas fa-heart" style="color: var(--pink);"></i> para mis oyentes
+                    Diseño Liquid Glass Ultra Pro · Hecho con <i class="fas fa-heart" style="color: var(--pink);"></i> para la comunidad musical
                 </p>
             </div>
         </div>
@@ -1523,7 +1833,31 @@
             }, 1200);
             
             document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Initialize tab system
+            initTabSystem();
         });
+
+        // Tab System
+        function initTabSystem() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+        }
 
         // Liquid Scroll Effects
         const liquidNav = document.getElementById('liquidNav');
@@ -1586,11 +1920,12 @@
         // Liquid Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
+                
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 100,
@@ -1648,13 +1983,13 @@
                 if (entry.isIntersecting) {
                     const element = entry.target;
                     
-                    if (element.id === 'totalListeners' || element.id === 'heroStat1') {
+                    if (element.id === 'heroStat1') {
                         animateLiquidCounter(element, 600);
-                    } else if (element.id === 'totalStreams' || element.id === 'heroStat2') {
+                    } else if (element.id === 'heroStat2') {
                         animateLiquidCounter(element, 10000);
-                    } else if (element.id === 'totalTracks' || element.id === 'heroStat3') {
+                    } else if (element.id === 'heroStat3') {
                         animateLiquidCounter(element, 23);
-                    } else if (element.id === 'totalCountries') {
+                    } else if (element.id === 'heroStat4') {
                         animateLiquidCounter(element, 15);
                     }
                     
@@ -1664,7 +1999,7 @@
         }, { threshold: 0.3 });
 
         // Observe all counter elements
-        document.querySelectorAll('.stat-value, .stat-number').forEach(stat => {
+        document.querySelectorAll('.stat-number').forEach(stat => {
             observer.observe(stat);
         });
 
@@ -1678,17 +2013,6 @@
                 notification.classList.remove('show');
             }, 5000);
         }
-
-        // Liquid Hover Effects
-        document.querySelectorAll('.liquid-glass').forEach(glass => {
-            glass.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-12px) scale(1.02)';
-            });
-            
-            glass.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
 
         // Liquid Particle Effect
         function createLiquidParticles() {
