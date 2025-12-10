@@ -24,11 +24,15 @@
             "https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL",
             "https://youtube.com/channel/UCj2EzCODcnx5hqrqNVH6tAg",
             "https://www.instagram.com/powerpeacee/",
-            "https://www.tiktok.com/@matias.taiboo"
+            "https://www.tiktok.com/@matias.taiboo",
+            "https://music.amazon.com/es-ar/artists/B0BBP4DM1V/powerpeace",
+            "https://www.deezer.com/mx/artist/180903537",
+            "https://www.claromusica.com/artist/8163571/AR"
         ],
         "member": {
             "@type": "Person",
             "name": "Matías Taibo",
+            "birthDate": "2003-11-07",
             "jobTitle": "Artista Musical",
             "url": "https://powerpeace.com"
         }
@@ -63,20 +67,50 @@
             --radius-pill: 999px;
             
             --shadow-liquid: 0 60px 200px -20px rgba(0, 0, 0, 0.7);
-            --shadow-glow: 0 0 80px rgba(255, 45, 117, 0.25);
-            --shadow-cyan: 0 0 60px rgba(0, 212, 255, 0.2);
+            --shadow-glow: 0 0 80px rgba(255, 45, 117, 0.35);
+            --shadow-cyan: 0 0 60px rgba(0, 212, 255, 0.25);
+            --shadow-fire: 0 0 100px rgba(255, 45, 117, 0.4);
             
             --transition-liquid: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             --transition-snap: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --transition-fire: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             
             --gradient-main: linear-gradient(135deg, var(--pink), var(--violet));
             --gradient-horizontal: linear-gradient(90deg, var(--pink), var(--violet));
             --gradient-cyan: linear-gradient(135deg, var(--cyan), var(--pink));
             --gradient-diagonal: linear-gradient(45deg, var(--pink), var(--cyan), var(--violet));
+            --gradient-fire: linear-gradient(135deg, #ff2d75, #ff6b00, #ff2d75);
             
             --max-width: 1400px;
             --glass-gap: 24px;
             --glass-pad: 32px;
+        }
+        
+        /* ---------- FIRE ANIMATION ---------- */
+        @keyframes fireGlow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 45, 117, 0.5)); }
+            50% { filter: drop-shadow(0 0 40px rgba(255, 45, 117, 0.8)); }
+        }
+        
+        @keyframes fireText {
+            0%, 100% { 
+                background-position: 0% 50%;
+                text-shadow: 0 0 10px rgba(255, 45, 117, 0.5);
+            }
+            50% { 
+                background-position: 100% 50%;
+                text-shadow: 0 0 25px rgba(255, 45, 117, 0.9), 0 0 40px rgba(255, 45, 117, 0.6);
+            }
+        }
+        
+        .fire-text {
+            background: var(--gradient-fire);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fireText 3s ease-in-out infinite;
+            font-weight: 900;
         }
         
         /* ---------- RESET & BASE LIQUID ---------- */
@@ -106,7 +140,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* LIQUID BACKGROUND EFFECTS */
+        /* FIRE BACKGROUND EFFECTS */
         body::before {
             content: '';
             position: fixed;
@@ -115,12 +149,14 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 15% 20%, rgba(255, 45, 117, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 85% 10%, rgba(123, 77, 255, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 50% 85%, rgba(0, 212, 255, 0.1) 0%, transparent 40%);
+                radial-gradient(circle at 15% 20%, rgba(255, 45, 117, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 85% 10%, rgba(255, 107, 0, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 50% 85%, rgba(123, 77, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 70% 40%, rgba(0, 212, 255, 0.1) 0%, transparent 40%);
             z-index: -3;
             pointer-events: none;
-            opacity: 0.6;
+            opacity: 0.7;
+            animation: fireGlow 4s infinite alternate;
         }
         
         /* LIQUID FLOW ANIMATION */
@@ -155,7 +191,7 @@
             height: 100%;
             background: linear-gradient(90deg, 
                 transparent, 
-                rgba(255, 255, 255, 0.1), 
+                rgba(255, 255, 255, 0.15), 
                 transparent);
             transition: left 0.8s ease;
             z-index: 1;
@@ -167,13 +203,13 @@
         
         .liquid-glass:hover {
             transform: translateY(-12px) scale(1.02);
-            border-color: rgba(255, 255, 255, 0.25);
-            box-shadow: var(--shadow-glow);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-fire);
         }
         
         h1, h2, h3, h4 {
             font-family: 'Poppins', 'Space Grotesk', sans-serif;
-            font-weight: 800;
+            font-weight: 900;
             line-height: 1.1;
             letter-spacing: -0.02em;
         }
@@ -192,12 +228,14 @@
         
         /* ---------- LIQUID UTILITY CLASSES ---------- */
         .liquid-text {
-            background: var(--gradient-main);
+            background: var(--gradient-fire);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             position: relative;
             display: inline-block;
+            animation: fireText 3s ease-in-out infinite;
+            font-weight: 900;
         }
         
         .liquid-text::after {
@@ -207,9 +245,10 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: var(--gradient-horizontal);
+            background: var(--gradient-fire);
             border-radius: 2px;
-            opacity: 0.7;
+            opacity: 0.8;
+            animation: fireText 3s ease-in-out infinite;
         }
         
         .liquid-badge {
@@ -217,18 +256,25 @@
             align-items: center;
             gap: 0.75rem;
             padding: 0.75rem 1.5rem;
-            background: var(--gradient-main);
+            background: var(--gradient-fire);
             color: white;
             border-radius: var(--radius-pill);
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.9rem;
-            box-shadow: 0 10px 40px rgba(255, 45, 117, 0.3);
-            animation: pulseGlow 2s infinite;
+            box-shadow: 0 10px 40px rgba(255, 45, 117, 0.4);
+            animation: pulseFire 2s infinite;
+            letter-spacing: 0.5px;
         }
         
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 10px 40px rgba(255, 45, 117, 0.3); }
-            50% { box-shadow: 0 15px 60px rgba(255, 45, 117, 0.5); }
+        @keyframes pulseFire {
+            0%, 100% { 
+                box-shadow: 0 10px 40px rgba(255, 45, 117, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 15px 60px rgba(255, 45, 117, 0.7);
+                transform: scale(1.05);
+            }
         }
         
         .liquid-button {
@@ -236,16 +282,17 @@
             align-items: center;
             gap: 0.8rem;
             padding: 1rem 2.5rem;
-            background: var(--gradient-main);
+            background: var(--gradient-fire);
             color: white;
             border-radius: var(--radius-pill);
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1rem;
-            transition: var(--transition-liquid);
+            transition: var(--transition-fire);
             position: relative;
             overflow: hidden;
             border: none;
             cursor: pointer;
+            letter-spacing: 0.5px;
         }
         
         .liquid-button::before {
@@ -257,7 +304,7 @@
             height: 100%;
             background: linear-gradient(90deg, 
                 transparent, 
-                rgba(255, 255, 255, 0.2), 
+                rgba(255, 255, 255, 0.3), 
                 transparent);
             transition: left 0.7s ease;
         }
@@ -268,7 +315,8 @@
         
         .liquid-button:hover {
             transform: translateY(-6px) scale(1.05);
-            box-shadow: var(--shadow-glow);
+            box-shadow: var(--shadow-fire);
+            animation: pulseFire 0.5s ease-in-out;
         }
         
         .liquid-outline {
@@ -287,8 +335,9 @@
         
         .liquid-outline:hover {
             border-color: var(--pink);
-            background: rgba(255, 45, 117, 0.05);
+            background: rgba(255, 45, 117, 0.1);
             transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(255, 45, 117, 0.2);
         }
         
         .container {
@@ -299,7 +348,7 @@
         }
         
         .section {
-            padding: 100px 0;
+            padding: 120px 0;
             position: relative;
         }
         
@@ -309,12 +358,12 @@
         }
         
         .section-header h2 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1.5rem;
         }
         
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto;
@@ -346,7 +395,7 @@
             height: 80px;
             border: 3px solid rgba(255, 255, 255, 0.1);
             border-top: 3px solid var(--pink);
-            border-right: 3px solid var(--violet);
+            border-right: 3px solid #ff6b00;
             border-bottom: 3px solid var(--cyan);
             border-radius: 50%;
             animation: liquidSpin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
@@ -367,19 +416,20 @@
             right: 5%;
             z-index: 1000;
             padding: 1rem 2rem;
-            background: rgba(5, 6, 10, 0.7);
+            background: rgba(5, 6, 10, 0.85);
             border: 1px solid var(--glass-edge);
             border-radius: var(--radius-pill);
-            backdrop-filter: blur(30px) saturate(180%);
-            -webkit-backdrop-filter: blur(30px) saturate(180%);
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(30px) saturate(200%);
+            -webkit-backdrop-filter: blur(30px) saturate(200%);
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 45, 117, 0.1);
             transition: var(--transition-liquid);
         }
         
         .liquid-nav.scrolled {
             top: 10px;
-            background: rgba(5, 6, 10, 0.85);
-            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
+            background: rgba(5, 6, 10, 0.95);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6), 0 0 50px rgba(255, 45, 117, 0.15);
+            border-color: rgba(255, 45, 117, 0.2);
         }
         
         .nav-container {
@@ -394,28 +444,29 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 900;
         }
         
         .logo-gradient {
-            background: var(--gradient-main);
+            background: var(--gradient-fire);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            animation: fireText 3s ease-in-out infinite;
         }
         
         .verified-bubble {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
-            background: var(--gradient-main);
+            background: var(--gradient-fire);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
+            font-size: 0.8rem;
             color: white;
-            box-shadow: 0 8px 30px rgba(255, 45, 117, 0.3);
+            box-shadow: 0 8px 30px rgba(255, 45, 117, 0.4);
             animation: bubbleFloat 3s infinite ease-in-out;
         }
         
@@ -426,19 +477,19 @@
         
         .nav-links {
             display: flex;
-            gap: 1.8rem;
+            gap: 2rem;
             align-items: center;
         }
         
         .nav-item {
             position: relative;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             padding: 0.5rem 0;
-            transition: var(--transition-snap);
+            transition: var(--transition-fire);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
         
         .nav-item::after {
@@ -448,7 +499,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--gradient-horizontal);
+            background: var(--gradient-fire);
             transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
@@ -465,11 +516,17 @@
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
             padding: 0.5rem;
             border-radius: var(--radius-sm);
             transition: var(--transition-snap);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-toggle:hover {
+            background: rgba(255, 45, 117, 0.2);
+            transform: rotate(90deg);
         }
         
         /* ---------- LIQUID MOBILE MENU ---------- */
@@ -479,7 +536,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(5, 6, 10, 0.95);
+            background: rgba(5, 6, 10, 0.98);
             backdrop-filter: blur(50px);
             -webkit-backdrop-filter: blur(50px);
             z-index: 9998;
@@ -504,15 +561,17 @@
             background: none;
             border: none;
             color: white;
-            font-size: 1.8rem;
+            font-size: 2rem;
             cursor: pointer;
             padding: 0.5rem;
             border-radius: var(--radius-sm);
             transition: var(--transition-snap);
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .menu-close:hover {
             transform: rotate(90deg);
+            background: rgba(255, 45, 117, 0.2);
         }
         
         .menu-content {
@@ -525,19 +584,20 @@
         .menu-item {
             display: block;
             padding: 1.2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            font-weight: 700;
             color: var(--text-secondary);
-            transition: var(--transition-snap);
+            transition: var(--transition-fire);
             border-radius: var(--radius-md);
             margin: 0.5rem 0;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
         
         .menu-item:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 45, 117, 0.15);
             color: var(--text-primary);
+            transform: translateX(10px);
         }
         
         /* ---------- LIQUID HERO SECTION ---------- */
@@ -560,13 +620,13 @@
         }
         
         .hero-title {
-            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-size: clamp(4rem, 9vw, 8rem);
             line-height: 0.9;
             margin-bottom: 1.5rem;
         }
         
         .hero-subtitle {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--text-secondary);
             margin-bottom: 3rem;
             max-width: 600px;
@@ -585,47 +645,48 @@
         }
         
         .stat-number {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            background: var(--gradient-main);
+            background: var(--gradient-fire);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             line-height: 1;
             margin-bottom: 0.5rem;
+            animation: fireText 3s ease-in-out infinite;
         }
         
         .stat-label {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-tertiary);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 500;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
         
         .hero-actions {
             display: flex;
-            gap: 1.2rem;
+            gap: 1.5rem;
             margin-bottom: 3rem;
         }
         
         .hero-social {
             display: flex;
-            gap: 1.2rem;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
         
         .social-bubble {
-            width: 56px;
-            height: 56px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.07);
             border: 1px solid var(--glass-edge);
             border-radius: 50%;
-            font-size: 1.4rem;
-            transition: var(--transition-liquid);
+            font-size: 1.5rem;
+            transition: var(--transition-fire);
             position: relative;
             overflow: hidden;
         }
@@ -637,15 +698,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient-main);
+            background: var(--gradient-fire);
             opacity: 0;
             transition: opacity 0.4s;
             z-index: -1;
         }
         
         .social-bubble:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px) scale(1.1);
             border-color: transparent;
+            box-shadow: 0 15px 40px rgba(255, 45, 117, 0.4);
         }
         
         .social-bubble:hover::before {
@@ -665,16 +727,17 @@
         .video-glass {
             border-radius: var(--radius-xl);
             overflow: hidden;
-            box-shadow: var(--shadow-liquid);
+            box-shadow: var(--shadow-fire);
             transform-style: preserve-3d;
+            border: 1px solid rgba(255, 45, 117, 0.3);
         }
         
         .video-glass::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: var(--gradient-main);
-            opacity: 0.1;
+            background: var(--gradient-fire);
+            opacity: 0.15;
             z-index: 1;
             pointer-events: none;
         }
@@ -705,27 +768,39 @@
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
         }
         
         .artist-bio {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            line-height: 1.9;
             color: var(--text-secondary);
         }
         
         .bio-highlight {
-            background: rgba(255, 45, 117, 0.1);
-            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 45, 117, 0.15), rgba(255, 107, 0, 0.1));
+            padding: 2.5rem;
             border-radius: var(--radius-lg);
             border-left: 4px solid var(--pink);
-            margin: 2rem 0;
+            margin: 2.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bio-highlight::before {
+            content: '🔥';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 3rem;
+            opacity: 0.2;
+            transform: rotate(20deg);
         }
         
         .achievement-list {
             list-style: none;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
         }
         
         .achievement-list li {
@@ -734,10 +809,19 @@
             gap: 1rem;
             margin-bottom: 1rem;
             color: var(--text-secondary);
+            padding: 0.8rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition-snap);
+        }
+        
+        .achievement-list li:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
         }
         
         .achievement-list i {
             color: var(--pink);
+            font-size: 1.2rem;
         }
         
         /* ---------- RELEASES SECTION ---------- */
@@ -755,28 +839,30 @@
         }
         
         .tab-button {
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem 2.5rem;
+            background: rgba(255, 255, 255, 0.07);
             border: 1px solid var(--glass-edge);
             border-radius: var(--radius-pill);
             color: var(--text-secondary);
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: var(--transition-snap);
+            transition: var(--transition-fire);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
         
         .tab-button.active {
-            background: var(--gradient-main);
+            background: var(--gradient-fire);
             color: white;
             border-color: transparent;
             box-shadow: var(--shadow-glow);
+            animation: pulseFire 2s infinite;
         }
         
         .tab-button:hover:not(.active) {
             border-color: var(--pink);
             color: var(--text-primary);
+            transform: translateY(-3px);
         }
         
         .tab-content {
@@ -800,17 +886,34 @@
         }
         
         .release-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: var(--radius-lg);
             overflow: hidden;
-            transition: var(--transition-liquid);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-fire);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            position: relative;
+        }
+        
+        .release-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-fire);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .release-card:hover::before {
+            opacity: 1;
         }
         
         .release-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--pink);
-            box-shadow: var(--shadow-glow);
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(255, 45, 117, 0.3);
+            box-shadow: var(--shadow-fire);
         }
         
         .release-thumbnail {
@@ -826,19 +929,19 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .release-card:hover .release-thumbnail img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
         
         .release-info {
-            padding: 1.5rem;
+            padding: 1.8rem;
         }
         
         .release-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
         }
         
@@ -853,19 +956,21 @@
         
         .release-genre {
             display: inline-block;
-            padding: 0.3rem 1rem;
-            background: var(--gradient-main);
+            padding: 0.4rem 1.2rem;
+            background: var(--gradient-fire);
             color: white;
             border-radius: var(--radius-pill);
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 800;
             margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .release-actions {
             display: flex;
             gap: 0.8rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
         
         /* ---------- PLATFORMS SECTION ---------- */
@@ -878,8 +983,8 @@
         
         .platform-glass {
             text-align: center;
-            padding: 3rem 2.5rem;
-            transition: var(--transition-liquid);
+            padding: 3.5rem 2.5rem;
+            transition: var(--transition-fire);
             position: relative;
         }
         
@@ -889,62 +994,71 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: var(--gradient-horizontal);
+            height: 5px;
+            background: var(--gradient-fire);
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+        
+        .platform-glass:hover::before {
+            opacity: 1;
         }
         
         .platform-icon {
-            font-size: 4.5rem;
-            margin-bottom: 2rem;
+            font-size: 5rem;
+            margin-bottom: 2.5rem;
             display: block;
-            transition: var(--transition-liquid);
+            transition: var(--transition-fire);
         }
         
         .platform-glass:hover .platform-icon {
-            transform: scale(1.2) rotate(5deg);
-            filter: drop-shadow(0 10px 30px currentColor);
+            transform: scale(1.3) rotate(8deg);
+            filter: drop-shadow(0 15px 40px currentColor);
         }
         
         .platform-name {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            font-weight: 900;
         }
         
         .platform-desc {
             color: var(--text-secondary);
             margin-bottom: 2.5rem;
-            line-height: 1.7;
-            font-size: 1.05rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
         
         .platform-link {
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            padding: 1rem 2.5rem;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 1.2rem 3rem;
+            background: rgba(255, 255, 255, 0.08);
             border: 1px solid var(--glass-edge);
             border-radius: var(--radius-pill);
             color: white;
-            font-weight: 700;
-            transition: var(--transition-liquid);
+            font-weight: 800;
+            transition: var(--transition-fire);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .platform-link:hover {
-            background: var(--gradient-main);
+            background: var(--gradient-fire);
             border-color: transparent;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 45, 117, 0.3);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 45, 117, 0.4);
         }
         
         /* ---------- LIQUID RELEASE SECTION ---------- */
         .release-glass {
-            padding: 5rem 4rem;
+            padding: 6rem 4rem;
             text-align: center;
             position: relative;
             overflow: hidden;
             margin-top: 4rem;
+            border: 1px solid rgba(255, 45, 117, 0.3);
         }
         
         .release-glass::before {
@@ -955,28 +1069,31 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at 30% 30%, 
-                rgba(255, 45, 117, 0.15) 0%, 
+                rgba(255, 45, 117, 0.25) 0%, 
+                transparent 70%),
+                    radial-gradient(circle at 70% 70%, 
+                rgba(255, 107, 0, 0.2) 0%, 
                 transparent 70%);
             z-index: -1;
         }
         
         .release-title {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1.5rem;
             line-height: 1;
         }
         
         .release-desc {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--text-secondary);
             max-width: 800px;
             margin: 0 auto 4rem;
-            line-height: 1.8;
+            line-height: 1.9;
         }
         
         /* ---------- LIQUID NEWSLETTER ---------- */
         .newsletter-glass {
-            padding: 5rem 4rem;
+            padding: 6rem 4rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -991,7 +1108,7 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at 70% 30%, 
-                rgba(0, 212, 255, 0.15) 0%, 
+                rgba(0, 212, 255, 0.2) 0%, 
                 transparent 70%);
             z-index: -1;
         }
@@ -1000,47 +1117,48 @@
             display: flex;
             max-width: 600px;
             margin: 3rem auto 0;
-            gap: 1.2rem;
+            gap: 1.5rem;
         }
         
         .newsletter-input {
             flex: 1;
-            padding: 1.2rem 2rem;
-            background: rgba(255, 255, 255, 0.07);
+            padding: 1.3rem 2.2rem;
+            background: rgba(255, 255, 255, 0.09);
             border: 1px solid var(--glass-edge);
             border-radius: var(--radius-pill);
             color: white;
-            font-size: 1.05rem;
-            transition: var(--transition-snap);
+            font-size: 1.1rem;
+            transition: var(--transition-fire);
             outline: none;
         }
         
         .newsletter-input:focus {
             border-color: var(--pink);
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 0 4px rgba(255, 45, 117, 0.1);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 5px rgba(255, 45, 117, 0.15);
+            transform: translateY(-3px);
         }
         
         /* ---------- LIQUID FOOTER ---------- */
         .liquid-footer {
-            padding: 6rem 5% 3rem;
-            background: rgba(5, 6, 10, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 8rem 5% 4rem;
+            background: rgba(5, 6, 10, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
         }
         
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 5rem;
+            gap: 6rem;
             margin-bottom: 4rem;
         }
         
         .footer-column h3 {
-            font-size: 1.6rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
             position: relative;
             display: inline-block;
         }
@@ -1048,11 +1166,12 @@
         .footer-column h3::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--gradient-horizontal);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-fire);
+            border-radius: 2px;
         }
         
         .footer-links {
@@ -1060,20 +1179,23 @@
         }
         
         .footer-links li {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
         }
         
         .footer-links a {
             color: var(--text-secondary);
-            transition: var(--transition-snap);
+            transition: var(--transition-fire);
             display: inline-flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.2rem;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
         }
         
         .footer-links a:hover {
             color: var(--pink);
-            transform: translateX(10px);
+            transform: translateX(12px);
+            background: rgba(255, 45, 117, 0.1);
         }
         
         /* ---------- LIQUID FLOATING ELEMENTS ---------- */
@@ -1083,37 +1205,38 @@
             bottom: 2.5rem;
             z-index: 999;
             cursor: pointer;
-            transition: var(--transition-liquid);
-            padding: 1rem 2rem;
+            transition: var(--transition-fire);
+            padding: 1.2rem 2.5rem;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 1rem;
+            border: 1px solid rgba(255, 45, 117, 0.3);
         }
         
         .liquid-player:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: var(--shadow-glow);
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: var(--shadow-fire);
         }
         
         .liquid-scrolltop {
             position: fixed;
             right: 2.5rem;
-            bottom: 7rem;
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.05);
+            bottom: 8rem;
+            width: 65px;
+            height: 65px;
+            background: rgba(255, 255, 255, 0.08);
             border: 1px solid var(--glass-edge);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             opacity: 0;
             visibility: hidden;
-            transition: var(--transition-liquid);
+            transition: var(--transition-fire);
             z-index: 998;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
         }
         
         .liquid-scrolltop.show {
@@ -1122,9 +1245,10 @@
         }
         
         .liquid-scrolltop:hover {
-            background: var(--gradient-main);
+            background: var(--gradient-fire);
             border-color: transparent;
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 45, 117, 0.4);
         }
         
         /* ---------- LIQUID PROGRESS ---------- */
@@ -1134,13 +1258,13 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.05);
             z-index: 1001;
         }
         
         .progress-fill {
             height: 100%;
-            background: var(--gradient-horizontal);
+            background: var(--gradient-fire);
             width: 0%;
             transition: width 0.1s ease;
             border-radius: 0 2px 2px 0;
@@ -1164,7 +1288,7 @@
         @media (max-width: 1200px) {
             .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 4rem;
+                gap: 5rem;
                 text-align: center;
             }
             
@@ -1184,6 +1308,10 @@
             .info-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .section-header h2 {
+                font-size: 3.5rem;
+            }
         }
         
         @media (max-width: 992px) {
@@ -1201,34 +1329,34 @@
             
             .release-glass,
             .newsletter-glass {
-                padding: 4rem 2rem;
+                padding: 5rem 2rem;
             }
             
             .release-title {
-                font-size: 3.5rem;
+                font-size: 4rem;
             }
             
             .section-header h2 {
-                font-size: 3rem;
+                font-size: 3.2rem;
             }
         }
         
         @media (max-width: 768px) {
             .section {
-                padding: 80px 0;
+                padding: 100px 0;
             }
             
             .hero-title {
-                font-size: clamp(3rem, 10vw, 5rem);
+                font-size: clamp(3.5rem, 10vw, 6rem);
             }
             
             .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
             
             .hero-stats {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 2rem;
             }
             
             .releases-grid,
@@ -1243,13 +1371,17 @@
             .liquid-player {
                 bottom: 1.5rem;
                 right: 1.5rem;
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
             
             .liquid-scrolltop {
-                bottom: 6rem;
+                bottom: 7rem;
                 right: 1.5rem;
+            }
+            
+            .platform-glass {
+                padding: 3rem 2rem;
             }
         }
         
@@ -1279,7 +1411,11 @@
             }
             
             .section-header h2 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+            
+            .hero-title {
+                font-size: clamp(3rem, 12vw, 5rem);
             }
         }
         
@@ -1302,13 +1438,13 @@
     <div id="liquid-loader">
         <div class="loader-content">
             <div class="liquid-spinner"></div>
-            <div class="liquid-logo" style="font-size: 2.5rem; margin-bottom: 1rem;">
+            <div class="liquid-logo" style="font-size: 3rem; margin-bottom: 1rem;">
                 <span class="logo-gradient">POWERPEACE</span>
                 <div class="verified-bubble">
-                    <i class="fas fa-check"></i>
+                    <i class="fas fa-fire"></i>
                 </div>
             </div>
-            <p style="color: var(--text-tertiary); letter-spacing: 2px;">CARGANDO EXPERIENCIA SONORA</p>
+            <p style="color: var(--text-tertiary); letter-spacing: 3px; font-weight: 600; font-size: 1.1rem;">CARGANDO EXPERIENCIA SONORA 🔥</p>
         </div>
     </div>
 
@@ -1319,11 +1455,11 @@
 
     <!-- Liquid Notification -->
     <div class="liquid-notification" id="liquidNotification">
-        <div class="liquid-glass" style="display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem;">
-            <i class="fas fa-music" style="color: var(--pink);"></i>
+        <div class="liquid-glass" style="display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.8rem;">
+            <i class="fas fa-fire" style="color: var(--pink); font-size: 1.5rem;"></i>
             <div>
-                <strong>NUEVO ESTRENO DISPONIBLE</strong>
-                <div style="color: var(--text-secondary); font-size: 0.9rem;">Escucha ahora en todas las plataformas</div>
+                <strong style="font-size: 1.1rem;">🔥 NUEVO ESTRENO 🔥</strong>
+                <div style="color: var(--text-secondary); font-size: 0.95rem;">"MIENTRAS YO GANO" disponible en todas las plataformas</div>
             </div>
         </div>
     </div>
@@ -1334,7 +1470,7 @@
             <a href="#home" class="liquid-logo">
                 <span class="logo-gradient">POWERPEACE</span>
                 <div class="verified-bubble">
-                    <i class="fas fa-check"></i>
+                    <i class="fas fa-fire"></i>
                 </div>
             </a>
             
@@ -1345,9 +1481,9 @@
                 <a href="#music" class="nav-item">PLATAFORMAS</a>
                 <a href="#release" class="nav-item">NUEVO SINGLE</a>
                 <a href="#newsletter" class="nav-item">NEWSLETTER</a>
-                <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-button" style="padding: 0.8rem 2rem;">
-                    <i class="fas fa-play"></i>
-                    ESCUCHAR
+                <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-button" style="padding: 1rem 2.5rem;">
+                    <i class="fas fa-fire"></i>
+                    ESCUCHAR AHORA
                 </a>
             </div>
             
@@ -1369,7 +1505,7 @@
             <a href="#music" class="menu-item">PLATAFORMAS</a>
             <a href="#release" class="menu-item">NUEVO SINGLE</a>
             <a href="#newsletter" class="menu-item">NEWSLETTER</a>
-            <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-button" style="margin-top: 2rem; width: 100%;">
+            <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-button" style="margin-top: 3rem; width: 100%; padding: 1.5rem;">
                 <i class="fab fa-spotify"></i>
                 ABRIR SPOTIFY
             </a>
@@ -1382,16 +1518,16 @@
             <div class="hero-grid">
                 <div class="hero-content">
                     <div class="liquid-badge">
-                        <i class="fas fa-check"></i>
-                        ARTISTA VERIFICADO
+                        <i class="fas fa-fire"></i>
+                        ARTISTA VERIFICADO 🔥
                     </div>
                     
                     <h1 class="hero-title">
-                        <span class="liquid-text">POWER</span>PEACE
+                        <span class="fire-text">POWER</span><span class="liquid-text">PEACE</span>
                     </h1>
                     
                     <p class="hero-subtitle">
-                        Matías Taibo · 
+                        Matías Taibo · Fusión Explosiva de TRAP & TECHNO
                     </p>
                     
                     <div class="hero-stats">
@@ -1415,11 +1551,11 @@
                     
                     <div class="hero-actions">
                         <a href="#release" class="liquid-button">
-                            <i class="fas fa-play-circle"></i>
-                            NUEVO SINGLE
+                            <i class="fas fa-fire"></i>
+                            NUEVO SINGLE 🔥
                         </a>
                         <a href="#releases" class="liquid-outline">
-                            <i class="fas fa-stream"></i>
+                            <i class="fas fa-compact-disc"></i>
                             VER ESTRENOS
                         </a>
                     </div>
@@ -1461,61 +1597,65 @@
     <section class="section artist-info" id="artist">
         <div class="container">
             <div class="section-header fade-liquid">
-                <h2>MATÍAS <span class="liquid-text">TAIBO</span></h2>
+                <h2>MATÍAS <span class="fire-text">TAIBO</span></h2>
                 <p class="section-subtitle">Productor musical, artista y creador detrás del proyecto POWERPEACE</p>
             </div>
             
             <div class="info-grid fade-liquid">
                 <div class="artist-bio">
-                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Biografía Artística</h3>
-                    <p><strong>POWERPEACE</strong> es la identidad musical de <strong>Matías Taibo</strong>, un artista argentino especializado en la fusión de géneros urbanos y electrónicos. Con una discografía de <strong>23 producciones originales</strong>, ha desarrollado un sonido distintivo que combina la energía cruda del TRAP con la atmósfera profunda del TECHNO.</p>
+                    <h3 style="font-size: 2.2rem; margin-bottom: 2rem;">Biografía Artística</h3>
+                    <p><strong>POWERPEACE</strong> es la identidad musical de <strong>Matías Taibo</strong>, un artista argentino nacido el <strong>7 de noviembre del 2003</strong> especializado en la fusión de géneros urbanos y electrónicos. Desde muy chico siempre tuve una pasión profunda por el techno y la electrónica, lo que me llevó a comenzar a crear música a los <strong>12-13 años</strong> usando FL Studio.</p>
                     
                     <div class="bio-highlight">
-                        <p>"Creo en la evolución constante del sonido. Mi música es un viaje entre lo urbano y lo futurista, donde cada canción es una pieza única de un universo sonoro en expansión."</p>
-                        <p style="margin-top: 1rem; color: var(--pink); font-weight: 600;">— Matías Taibo</p>
+                        <p>🔥 <strong>"Mi viaje musical comenzó con pura pasión. A lo largo de los años hice varios cursos y fui perfeccionando mi sonido, siempre buscando la mejor calidad posible. En 2022 empecé a sacar techno de manera profesional, y hoy logramos tener <span class="fire-text">23 canciones disponibles</span>."</strong></p>
+                        <p style="margin-top: 1.5rem; color: var(--pink); font-weight: 700;">— Matías Taibo</p>
                     </div>
                     
-                    <p>Con presencia en <strong>15 países</strong> y una base de <strong>600+ oyentes mensuales</strong> en Spotify, POWERPEACE ha establecido una comunidad internacional que crece con cada lanzamiento. Su enfoque innovador en la producción musical lo posiciona como una voz emergente en la escena electrónica latinoamericana.</p>
+                    <p>Este año <strong>2025</strong> decidí expandir mis horizontes musicales y probar nuevos géneros. Actualmente estoy explorando el mundo del <strong>TRAP</strong> con nuevas producciones que estarán disponibles pronto. Cada canción es una pieza única de un universo sonoro en expansión que combina la energía cruda del TRAP con la atmósfera profunda del TECHNO.</p>
+                    
+                    <p>Con presencia en <strong>15 países</strong> y una base de <strong>600+ oyentes mensuales</strong> en Spotify, POWERPEACE ha establecido una comunidad internacional que crece con cada lanzamiento. Mi enfoque innovador en la producción musical me posiciona como una voz emergente en la escena electrónica latinoamericana.</p>
                     
                     <ul class="achievement-list">
-                        <li><i class="fas fa-check-circle"></i> Artista verificado en Spotify, Apple Music y YouTube</li>
-                        <li><i class="fas fa-check-circle"></i> +10,000 reproducciones totales en plataformas digitales</li>
-                        <li><i class="fas fa-check-circle"></i> Presencia internacional en 15 países distintos</li>
-                        <li><i class="fas fa-check-circle"></i> Especialización en fusión TRAP/TECHNO</li>
-                        <li><i class="fas fa-check-circle"></i> Contenido exclusivo en redes sociales</li>
+                        <li><i class="fas fa-fire"></i> Artista verificado en Spotify, Apple Music y YouTube</li>
+                        <li><i class="fas fa-fire"></i> +10,000 reproducciones totales en plataformas digitales</li>
+                        <li><i class="fas fa-fire"></i> Presencia internacional en 15 países distintos</li>
+                        <li><i class="fas fa-fire"></i> Especialización en fusión TRAP/TECHNO desde 2022</li>
+                        <li><i class="fas fa-fire"></i> 23 producciones originales disponibles</li>
+                        <li><i class="fas fa-fire"></i> Contenido exclusivo en redes sociales</li>
                     </ul>
                 </div>
                 
-                <div class="liquid-glass" style="padding: 3rem;">
-                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Impacto Musical</h3>
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <div class="liquid-glass" style="padding: 3.5rem;">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 2rem;">Impacto Musical</h3>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem;">
                         <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2.5rem;">600+</div>
+                            <div class="stat-number" style="font-size: 3rem;">600+</div>
                             <div class="stat-label">Oyentes Mensuales</div>
                         </div>
                         <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2.5rem;">10K+</div>
+                            <div class="stat-number" style="font-size: 3rem;">10K+</div>
                             <div class="stat-label">Streams Totales</div>
                         </div>
                         <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2.5rem;">23</div>
+                            <div class="stat-number" style="font-size: 3rem;">23</div>
                             <div class="stat-label">Producciones</div>
                         </div>
                         <div style="text-align: center;">
-                            <div class="stat-number" style="font-size: 2.5rem;">15</div>
+                            <div class="stat-number" style="font-size: 3rem;">15</div>
                             <div class="stat-label">Países</div>
                         </div>
                     </div>
                     
-                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-lg);">
-                        <h4 style="margin-bottom: 1rem; color: var(--cyan);">Especialización en Géneros</h4>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
-                            <span style="background: var(--pink); padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-size: 0.9rem; font-weight: 600;">TRAP</span>
-                            <span style="background: var(--violet); padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-size: 0.9rem; font-weight: 600;">TECHNO</span>
-                            <span style="background: var(--cyan); padding: 0.5rem 1rem; border-radius: var(--radius-pill); font-size: 0.9rem; font-weight: 600;">ELECTRÓNICA</span>
+                    <div style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, rgba(255, 45, 117, 0.1), rgba(255, 107, 0, 0.08)); border-radius: var(--radius-xl); border: 1px solid rgba(255, 45, 117, 0.2);">
+                        <h4 style="margin-bottom: 1.5rem; color: var(--cyan); font-size: 1.5rem;">🎵 Especialización en Géneros</h4>
+                        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 1.5rem;">
+                            <span style="background: var(--gradient-fire); padding: 0.7rem 1.5rem; border-radius: var(--radius-pill); font-size: 1rem; font-weight: 800; color: white;">TRAP</span>
+                            <span style="background: var(--gradient-fire); padding: 0.7rem 1.5rem; border-radius: var(--radius-pill); font-size: 1rem; font-weight: 800; color: white;">TECHNO</span>
+                            <span style="background: var(--gradient-fire); padding: 0.7rem 1.5rem; border-radius: var(--radius-pill); font-size: 1rem; font-weight: 800; color: white;">ELECTRÓNICA</span>
                         </div>
-                        <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem; text-align: center;">
-                            Fusión única de géneros creando un sonido distintivo
+                        <p style="margin-top: 1.5rem; color: var(--text-secondary); font-size: 1rem; text-align: center; line-height: 1.6;">
+                            <strong>🔥 FUSIÓN ÚNICA 🔥</strong><br>
+                            Combinando lo mejor del techno profundo con la energía del trap urbano para crear un sonido distintivo y explosivo.
                         </p>
                     </div>
                 </div>
@@ -1527,13 +1667,13 @@
     <section class="section" id="releases">
         <div class="container">
             <div class="section-header fade-liquid">
-                <h2>ÚLTIMOS <span class="liquid-text">ESTRENOS</span></h2>
+                <h2>ÚLTIMOS <span class="fire-text">ESTRENOS</span></h2>
                 <p class="section-subtitle">Explora mis producciones más recientes organizadas por género musical</p>
             </div>
             
             <div class="releases-tabs fade-liquid">
-                <button class="tab-button active" data-tab="trap">TRAP</button>
-                <button class="tab-button" data-tab="techno">TECHNO</button>
+                <button class="tab-button active" data-tab="trap">🔥 TRAP URBANO</button>
+                <button class="tab-button" data-tab="techno">⚡ TECHNO PROFUNDO</button>
             </div>
             
             <!-- Trap Releases -->
@@ -1544,17 +1684,17 @@
                             <img src="https://i.ytimg.com/vi/VjdFM17OoGM/maxresdefault.jpg" alt="MIENTRAS YO GANO">
                         </div>
                         <div class="release-info">
-                            <span class="release-genre" style="background: var(--pink);">TRAP</span>
+                            <span class="release-genre" style="background: var(--gradient-fire);">🔥 TRAP</span>
                             <h3 class="release-title">MIENTRAS YO GANO</h3>
                             <div class="release-date">
                                 <i class="far fa-calendar"></i>
                                 Publicado: Diciembre 2025
                             </div>
-                            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">
-                                 producción innovadora.
+                            <p style="color: var(--text-secondary); margin-bottom: 1.2rem; font-size: 1rem; line-height: 1.6;">
+                                Mi single más explosivo del 2025. Una fusión perfecta entre el trap urbano y elementos electrónicos innovadores que representa mi evolución artística.
                             </p>
                             <div class="release-actions">
-                                <a href="https://www.youtube.com/watch?v=VjdFM17OoGM" target="_blank" class="platform-link" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">
+                                <a href="https://www.youtube.com/watch?v=VjdFM17OoGM" target="_blank" class="platform-link" style="padding: 0.8rem 1.5rem; font-size: 0.95rem;">
                                     <i class="fab fa-youtube"></i>
                                     Ver en YouTube
                                 </a>
@@ -1564,20 +1704,20 @@
                     
                     <div class="release-card fade-liquid" style="transition-delay: 0.1s">
                         <div class="release-thumbnail">
-                            <img src="https://i.ytimg.com/vi/ycOw7CFICMQ/maxresdefault.jpg" alt="FLOW URBANO">
+                            <img src="https://i.ytimg.com/vi/ycOw7CFICMQ/maxresdefault.jpg" alt="A MIS 23">
                         </div>
                         <div class="release-info">
-                            <span class="release-genre" style="background: var(--pink);">TRAP</span>
+                            <span class="release-genre" style="background: var(--gradient-fire);">🔥 TRAP</span>
                             <h3 class="release-title">A MIS 23</h3>
                             <div class="release-date">
                                 <i class="far fa-calendar"></i>
                                 Publicado: Noviembre 2025
                             </div>
-                            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">
-                                Producción con bases pesadas y líricas contundentes.
+                            <p style="color: var(--text-secondary); margin-bottom: 1.2rem; font-size: 1rem; line-height: 1.6;">
+                                Producción con bases pesadas y líricas contundentes. Una declaración de crecimiento personal y éxito continuo en el camino musical.
                             </p>
                             <div class="release-actions">
-                                <a href="https://www.youtube.com/watch?v=ycOw7CFICMQ" target="_blank" class="platform-link" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">
+                                <a href="https://www.youtube.com/watch?v=ycOw7CFICMQ" target="_blank" class="platform-link" style="padding: 0.8rem 1.5rem; font-size: 0.95rem;">
                                     <i class="fab fa-youtube"></i>
                                     Ver en YouTube
                                 </a>
@@ -1592,20 +1732,20 @@
                 <div class="releases-grid">
                     <div class="release-card fade-liquid">
                         <div class="release-thumbnail">
-                            <img src="https://i.ytimg.com/vi/Fj2p1FzhZUc/maxresdefault.jpg" alt="TECHNO VIBES">
+                            <img src="https://i.ytimg.com/vi/Fj2p1FzhZUc/maxresdefault.jpg" alt="NOVA">
                         </div>
                         <div class="release-info">
-                            <span class="release-genre" style="background: var(--violet);">TECHNO</span>
+                            <span class="release-genre" style="background: var(--gradient-fire);">⚡ TECHNO</span>
                             <h3 class="release-title">NOVA</h3>
                             <div class="release-date">
                                 <i class="far fa-calendar"></i>
                                 Publicado: Agosto 2025
                             </div>
-                            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">
-                                Viaje sonoro techno con elementos atmosféricos y ritmos profundos.
+                            <p style="color: var(--text-secondary); margin-bottom: 1.2rem; font-size: 1rem; line-height: 1.6;">
+                                Viaje sonoro techno con elementos atmosféricos y ritmos profundos. Una experiencia inmersiva que demuestra mi dominio del género electrónico.
                             </p>
                             <div class="release-actions">
-                                <a href="https://www.youtube.com/watch?v=Fj2p1FzhZUc" target="_blank" class="platform-link" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">
+                                <a href="https://www.youtube.com/watch?v=Fj2p1FzhZUc" target="_blank" class="platform-link" style="padding: 0.8rem 1.5rem; font-size: 0.95rem;">
                                     <i class="fab fa-youtube"></i>
                                     Ver en YouTube
                                 </a>
@@ -1615,20 +1755,20 @@
                     
                     <div class="release-card fade-liquid" style="transition-delay: 0.1s">
                         <div class="release-thumbnail">
-                            <img src="https://i.ytimg.com/vi/Dx8RJk93LEE/maxresdefault.jpg" alt="FUTURE TECHNO">
+                            <img src="https://i.ytimg.com/vi/Dx8RJk93LEE/maxresdefault.jpg" alt="Cigarretes After Sex">
                         </div>
                         <div class="release-info">
-                            <span class="release-genre" style="background: var(--violet);">TECHNO</span>
+                            <span class="release-gense" style="background: var(--gradient-fire);">⚡ TECHNO</span>
                             <h3 class="release-title">Cigarretes After Sex</h3>
                             <div class="release-date">
                                 <i class="far fa-calendar"></i>
                                 Publicado: Noviembre 2024
                             </div>
-                            <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.95rem;">
-                                Techno futurista con sintetizadores expansivos y groove constante.
+                            <p style="color: var(--text-secondary); margin-bottom: 1.2rem; font-size: 1rem; line-height: 1.6;">
+                                Techno futurista con sintetizadores expansivos y groove constante. Un track que refleja mi evolución como productor desde 2022.
                             </p>
                             <div class="release-actions">
-                                <a href="https://www.youtube.com/watch?v=Dx8RJk93LEE" target="_blank" class="platform-link" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">
+                                <a href="https://www.youtube.com/watch?v=Dx8RJk93LEE" target="_blank" class="platform-link" style="padding: 0.8rem 1.5rem; font-size: 0.95rem;">
                                     <i class="fab fa-youtube"></i>
                                     Ver en YouTube
                                 </a>
@@ -1644,7 +1784,7 @@
     <section class="section" id="music">
         <div class="container">
             <div class="section-header fade-liquid">
-                <h2>DISPONIBLE EN <span class="liquid-text">TODAS LAS PLATAFORMAS</span></h2>
+                <h2>DISPONIBLE EN <span class="fire-text">TODAS LAS PLATAFORMAS</span></h2>
                 <p class="section-subtitle">Accede a mi música en tu plataforma digital favorita</p>
             </div>
             
@@ -1671,8 +1811,41 @@
                     </a>
                 </div>
                 
-                <!-- Instagram -->
+                <!-- Amazon Music -->
                 <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.2s">
+                    <i class="fab fa-amazon platform-icon" style="color: #FF9900;"></i>
+                    <h3 class="platform-name">Amazon Music</h3>
+                    <p class="platform-desc">Disponible para usuarios de Amazon Music Unlimited y Prime Music con calidad HD y Ultra HD.</p>
+                    <a href="https://music.amazon.com/es-ar/artists/B0BBP4DM1V/powerpeace" target="_blank" class="platform-link">
+                        <i class="fab fa-amazon"></i>
+                        ESCUCHAR
+                    </a>
+                </div>
+                
+                <!-- Deezer -->
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.3s">
+                    <i class="fab fa-deezer platform-icon" style="color: #00C7F2;"></i>
+                    <h3 class="platform-name">Deezer</h3>
+                    <p class="platform-desc">Escucha mi música en Deezer con calidad HiFi y descubre playlists personalizadas con mi sonido.</p>
+                    <a href="https://www.deezer.com/mx/artist/180903537" target="_blank" class="platform-link">
+                        <i class="fab fa-deezer"></i>
+                        SEGUIR
+                    </a>
+                </div>
+                
+                <!-- Claro Música -->
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.4s">
+                    <i class="fas fa-music platform-icon" style="color: #FF3366;"></i>
+                    <h3 class="platform-name">Claro Música</h3>
+                    <p class="platform-desc">Disponible en Claro Música para usuarios de América Latina. Todo mi catálogo al alcance de tu mano.</p>
+                    <a href="https://www.claromusica.com/artist/8163571/AR" target="_blank" class="platform-link">
+                        <i class="fas fa-play"></i>
+                        ESCUCHAR
+                    </a>
+                </div>
+                
+                <!-- Instagram -->
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.5s">
                     <i class="fab fa-instagram platform-icon" style="color: #E4405F;"></i>
                     <h3 class="platform-name">Instagram</h3>
                     <p class="platform-desc">Contenido diario, anuncios exclusivos, behind the scenes y conexión directa con la comunidad.</p>
@@ -1683,7 +1856,7 @@
                 </div>
                 
                 <!-- TikTok -->
-                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.3s">
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.6s">
                     <i class="fab fa-tiktok platform-icon" style="color: #00f2ea;"></i>
                     <h3 class="platform-name">TikTok</h3>
                     <p class="platform-desc">Shorts musicales, fragmentos exclusivos de producciones y tendencias virales con mi música.</p>
@@ -1694,7 +1867,7 @@
                 </div>
                 
                 <!-- SoundCloud -->
-                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.4s">
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.7s">
                     <i class="fab fa-soundcloud platform-icon" style="color: #FF3300;"></i>
                     <h3 class="platform-name">SoundCloud</h3>
                     <p class="platform-desc">Lanzamientos exclusivos, demos y versiones alternativas. Plataforma esencial para productores.</p>
@@ -1705,7 +1878,7 @@
                 </div>
                 
                 <!-- Apple Music -->
-                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.5s">
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.8s">
                     <i class="fab fa-apple platform-icon" style="color: #FA243C;"></i>
                     <h3 class="platform-name">Apple Music</h3>
                     <p class="platform-desc">Calidad de audio superior. Todo mi catálogo disponible para usuarios de Apple Music.</p>
@@ -1724,38 +1897,42 @@
             <div class="liquid-glass release-glass fade-liquid">
                 <div class="liquid-badge">
                     <i class="fas fa-fire"></i>
-                    ÚLTIMO LANZAMIENTO
+                    ÚLTIMO LANZAMIENTO 🔥
                 </div>
                 
                 <h2 class="release-title">"MIENTRAS YO GANO"</h2>
                 
                 <p class="release-desc">
-                    Mi single más reciente que representa la evolución de mi sonido. Una fusión perfecta entre el TRAP urbano y elementos electrónicos innovadores. Una declaración de crecimiento artístico y éxito continuo en el camino musical. Ya disponible en todas las plataformas digitales.
+                    Mi single más reciente que representa la evolución de mi sonido. Una fusión perfecta entre el TRAP urbano y elementos electrónicos innovadores. Una declaración de crecimiento artístico y éxito continuo en el camino musical. <strong>¡Escucha "Mientras Yo Gano" completo en todas las plataformas!</strong> Este año 2025 me dio por probar nuevas cosas, nuevos géneros, y pronto saldrán nuevos temas de trap. Este track marca el comienzo de una nueva era para POWERPEACE.
                 </p>
                 
                 <div class="hero-actions release-actions">
-                    <a href="https://youtu.be/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs" target="_blank" class="liquid-button" style="padding: 1.2rem 3rem;">
+                    <a href="https://youtu.be/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs" target="_blank" class="liquid-button" style="padding: 1.5rem 3.5rem; font-size: 1.1rem;">
                         <i class="fab fa-youtube"></i>
                         VER EN YOUTUBE
                     </a>
-                    <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-outline" style="padding: 1.2rem 3rem;">
+                    <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-outline" style="padding: 1.5rem 3.5rem; font-size: 1.1rem;">
                         <i class="fas fa-stream"></i>
                         ESCUCHAR EN STREAMING
                     </a>
                 </div>
                 
-                <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div style="margin-top: 4rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
                     <div style="text-align: center;">
-                        <div style="font-size: 2rem; color: var(--pink); margin-bottom: 0.5rem;"><i class="fab fa-spotify"></i></div>
-                        <div style="color: var(--text-secondary); font-size: 0.9rem;">Disponible en Spotify</div>
+                        <div style="font-size: 2.5rem; color: #1DB954; margin-bottom: 1rem;"><i class="fab fa-spotify"></i></div>
+                        <div style="color: var(--text-secondary); font-size: 1rem;">Disponible en Spotify</div>
                     </div>
                     <div style="text-align: center;">
-                        <div style="font-size: 2rem; color: var(--cyan); margin-bottom: 0.5rem;"><i class="fab fa-apple"></i></div>
-                        <div style="color: var(--text-secondary); font-size: 0.9rem;">Disponible en Apple Music</div>
+                        <div style="font-size: 2.5rem; color: #FA243C; margin-bottom: 1rem;"><i class="fab fa-apple"></i></div>
+                        <div style="color: var(--text-secondary); font-size: 1rem;">Disponible en Apple Music</div>
                     </div>
                     <div style="text-align: center;">
-                        <div style="font-size: 2rem; color: #FF3300; margin-bottom: 0.5rem;"><i class="fab fa-soundcloud"></i></div>
-                        <div style="color: var(--text-secondary); font-size: 0.9rem;">Disponible en SoundCloud</div>
+                        <div style="font-size: 2.5rem; color: #FF9900; margin-bottom: 1rem;"><i class="fab fa-amazon"></i></div>
+                        <div style="color: var(--text-secondary); font-size: 1rem;">Disponible en Amazon Music</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2.5rem; color: #00C7F2; margin-bottom: 1rem;"><i class="fab fa-deezer"></i></div>
+                        <div style="color: var(--text-secondary); font-size: 1rem;">Disponible en Deezer</div>
                     </div>
                 </div>
             </div>
@@ -1766,21 +1943,21 @@
     <section class="section" id="newsletter">
         <div class="container">
             <div class="liquid-glass newsletter-glass fade-liquid">
-                <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">ÚNETE A LA <span class="liquid-text">COMUNIDAD</span></h2>
+                <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">ÚNETE A LA <span class="fire-text">COMUNIDAD</span></h2>
                 
                 <p class="release-desc" style="max-width: 700px;">
-                    Sé el primero en recibir noticias sobre nuevos lanzamientos, contenido exclusivo, acceso anticipado a producciones y convocatorias especiales para mis seguidores más comprometidos.
+                    Sé el primero en recibir noticias sobre nuevos lanzamientos, contenido exclusivo, acceso anticipado a producciones y convocatorias especiales para mis seguidores más comprometidos. <strong>¡Nuevos temas de trap están por venir en 2025!</strong>
                 </p>
                 
                 <form class="newsletter-form" id="newsletterForm">
                     <input type="email" class="newsletter-input" placeholder="Ingresa tu mejor correo electrónico" required>
-                    <button type="submit" class="liquid-button" style="padding: 1.2rem 2.8rem;">
-                        <i class="fas fa-paper-plane"></i>
+                    <button type="submit" class="liquid-button" style="padding: 1.5rem 3.2rem; font-size: 1.1rem;">
+                        <i class="fas fa-fire"></i>
                         SUSCRIBIRME
                     </button>
                 </form>
                 
-                <p style="margin-top: 1.5rem; color: var(--text-tertiary); font-size: 0.9rem;">
+                <p style="margin-top: 2rem; color: var(--text-tertiary); font-size: 0.95rem;">
                     <i class="fas fa-lock" style="margin-right: 0.5rem;"></i>
                     Respetamos tu privacidad. Sin spam, solo música y contenido de valor.
                 </p>
@@ -1794,8 +1971,8 @@
             <div class="footer-grid">
                 <div class="footer-column">
                     <h3>POWERPEACE</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.8;">
-                        Proyecto musical de Matías Taibo. Producciones originales que fusionan TRAP y TECHNO en una experiencia sonora única. Música creada con pasión y dedicación.
+                    <p style="color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.8; font-size: 1.05rem;">
+                        Proyecto musical de <strong>Matías Taibo</strong> (nacido 07/11/2003). Producciones originales que fusionan TRAP y TECHNO en una experiencia sonora única. Música creada con pasión y dedicación desde los 12-13 años, perfeccionando mi sonido hasta lograr <strong>23 canciones disponibles</strong>.
                     </p>
                     <div class="hero-social">
                         <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="social-bubble" title="Instagram">
@@ -1816,11 +1993,11 @@
                 <div class="footer-column">
                     <h3>NAVEGACIÓN</h3>
                     <ul class="footer-links">
-                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-                        <li><a href="#artist"><i class="fas fa-chevron-right"></i> Sobre el Artista</a></li>
-                        <li><a href="#releases"><i class="fas fa-chevron-right"></i> Últimos Estrenos</a></li>
-                        <li><a href="#music"><i class="fas fa-chevron-right"></i> Plataformas</a></li>
-                        <li><a href="#release"><i class="fas fa-chevron-right"></i> Nuevo Single</a></li>
+                        <li><a href="#home"><i class="fas fa-fire"></i> Inicio</a></li>
+                        <li><a href="#artist"><i class="fas fa-user"></i> Sobre el Artista</a></li>
+                        <li><a href="#releases"><i class="fas fa-compact-disc"></i> Últimos Estrenos</a></li>
+                        <li><a href="#music"><i class="fas fa-music"></i> Plataformas</a></li>
+                        <li><a href="#release"><i class="fas fa-fire"></i> Nuevo Single</a></li>
                     </ul>
                 </div>
                 
@@ -1836,11 +2013,11 @@
                 </div>
             </div>
             
-            <div style="text-align: center; color: var(--text-secondary); padding-top: 3rem; border-top: 1px solid rgba(255, 255, 255, 0.06);">
-                <p>&copy; <span id="currentYear"></span> <strong>POWERPEACE</strong> · Todos los derechos reservados</p>
-                <p style="margin-top: 1rem; color: var(--text-tertiary);">Artista: <strong>Matías Taibo</strong> · Música original protegida bajo derechos de autor</p>
-                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.3);">
-                    Diseño Liquid Glass Ultra Pro · Experiencia sonora optimizada
+            <div style="text-align: center; color: var(--text-secondary); padding-top: 4rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                <p style="font-size: 1.1rem;">&copy; <span id="currentYear"></span> <strong class="fire-text">POWERPEACE</strong> · Todos los derechos reservados</p>
+                <p style="margin-top: 1.5rem; color: var(--text-tertiary); font-size: 1.05rem;">Artista: <strong>Matías Taibo</strong> · 23 canciones disponibles · Música original protegida bajo derechos de autor</p>
+                <p style="margin-top: 2rem; font-size: 0.95rem; color: rgba(255, 255, 255, 0.4); letter-spacing: 1px;">
+                    🔥 Diseño Liquid Fire Ultra Pro · Experiencia sonora optimizada · 2025 Nuevo Sonido Trap 🔥
                 </p>
             </div>
         </div>
@@ -1848,8 +2025,8 @@
 
     <!-- Liquid Floating Elements -->
     <button class="liquid-glass liquid-player" id="liquidPlayer">
-        <i class="fas fa-play"></i>
-        ESCUCHAR AHORA
+        <i class="fas fa-fire"></i>
+        ESCUCHAR AHORA 🔥
     </button>
 
     <a href="#home" class="liquid-glass liquid-scrolltop" id="liquidScrollTop">
@@ -1865,9 +2042,9 @@
                 loader.style.opacity = '0';
                 setTimeout(() => {
                     loader.style.display = 'none';
-                    showLiquidNotification('🎵 Nuevo single "MIENTRAS YO GANO" disponible!');
+                    showLiquidNotification('🔥 Nuevo single "MIENTRAS YO GANO" disponible en todas las plataformas!');
                 }, 800);
-            }, 1200);
+            }, 1500);
             
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
@@ -1876,6 +2053,9 @@
             
             // Initialize counters
             initCounters();
+            
+            // Initialize fire particles
+            createFireParticles();
         });
 
         // Tab System
@@ -1982,14 +2162,14 @@
             const email = this.querySelector('.newsletter-input').value;
             
             // Show success message
-            showLiquidNotification('¡Gracias por suscribirte! Pronto recibirás contenido exclusivo.');
+            showLiquidNotification('🔥 ¡Gracias por suscribirte! Pronto recibirás contenido exclusivo de POWERPEACE.');
             this.reset();
             
             // Animate button
             const submitBtn = this.querySelector('.liquid-button');
             const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡SUSCRITO!';
-            submitBtn.style.background = 'linear-gradient(135deg, #00CC88, #00AA66)';
+            submitBtn.innerHTML = '<i class="fas fa-fire"></i> ¡SUSCRITO! 🔥';
+            submitBtn.style.background = 'var(--gradient-fire)';
             
             setTimeout(() => {
                 submitBtn.innerHTML = originalText;
@@ -2005,7 +2185,7 @@
         // Liquid Animated Counters
         function animateLiquidCounter(element, target, suffix = '') {
             let current = 0;
-            const increment = target / 50;
+            const increment = target / 40;
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
@@ -2014,7 +2194,7 @@
                 } else {
                     element.textContent = Math.floor(current).toLocaleString() + suffix;
                 }
-            }, 30);
+            }, 20);
         }
 
         // Initialize Counters
@@ -2053,11 +2233,11 @@
             
             setTimeout(() => {
                 notification.classList.remove('show');
-            }, 5000);
+            }, 6000);
         }
 
-        // Liquid Particle Effect
-        function createLiquidParticles() {
+        // Fire Particle Effect
+        function createFireParticles() {
             const particlesContainer = document.createElement('div');
             particlesContainer.style.position = 'fixed';
             particlesContainer.style.top = '0';
@@ -2068,26 +2248,26 @@
             particlesContainer.style.zIndex = '-1';
             document.body.appendChild(particlesContainer);
             
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 25; i++) {
                 const particle = document.createElement('div');
-                const size = Math.random() * 4 + 2;
+                const size = Math.random() * 6 + 2;
                 particle.style.position = 'absolute';
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
-                particle.style.background = 'rgba(255, 255, 255, 0.1)';
+                particle.style.background = 'radial-gradient(circle, rgba(255,45,117,0.6) 0%, rgba(255,107,0,0.4) 100%)';
                 particle.style.borderRadius = '50%';
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
                 particle.style.zIndex = '-1';
+                particle.style.boxShadow = '0 0 15px rgba(255,45,117,0.5)';
                 
-                const duration = Math.random() * 20 + 10;
-                particle.style.animation = `liquidFloat ${duration}s infinite ease-in-out`;
+                const duration = Math.random() * 15 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `liquidFloat ${duration}s infinite ease-in-out ${delay}s`;
                 
                 particlesContainer.appendChild(particle);
             }
         }
-        
-        createLiquidParticles();
 
         // Initialize animations
         setTimeout(() => {
