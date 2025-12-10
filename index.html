@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es" class="dark-mode">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POWERPEACE | Matías Taibo · Neo-Futurist Audio Experience</title>
-    <meta name="description" content="POWERPEACE (Matías Taibo) · Artista independiente de vanguardia. Sonido líquido, estética neo-futurista. Nuevo single 'MIENTRAS YO GANO'">
-    <meta name="theme-color" content="#000010">
+    <title>POWERPEACE · Liquid Glass Ultra Pro — Matías Taibo</title>
+    <meta name="description" content="POWERPEACE · Sonido líquido en vidrio. Experiencia musical neo-futurista de Matías Taibo. Nuevo single 'MIENTRAS YO GANO'">
+    <meta name="theme-color" content="#05060a">
     <meta property="og:image" content="https://i.ytimg.com/vi/VjdFM17OoGM/maxresdefault.jpg">
     
     <!-- Apple Meta -->
@@ -28,7 +28,7 @@
         "member": {
             "@type": "Person",
             "name": "Matías Taibo",
-            "jobTitle": "Artista Musical Independiente"
+            "jobTitle": "Artista Musical"
         }
     }
     </script>
@@ -40,40 +40,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <style>
-        /* ---------- SUPER MODERN CSS VARIABLES ---------- */
+        /* ---------- LIQUID GLASS ULTRA VARIABLES ---------- */
         :root {
-            --primary-glow: #FF00AA;
-            --secondary-glow: #7700FF;
-            --accent-glow: #00D4FF;
-            --bg-deep: #000010;
-            --bg-surface: rgba(10, 10, 30, 0.6);
-            --glass-edge: rgba(255, 255, 255, 0.1);
-            --glass-core: rgba(255, 255, 255, 0.03);
-            --neon-border: rgba(255, 0, 170, 0.3);
-            --text-primary: rgba(255, 255, 255, 0.95);
-            --text-secondary: rgba(255, 255, 255, 0.7);
+            --pink: #ff2d75;
+            --violet: #7b4dff;
+            --cyan: #00d4ff;
+            --deep-blue: #05060a;
+            --midnight: #0a0b16;
+            --glass-edge: rgba(255, 255, 255, 0.15);
+            --glass-core: rgba(255, 255, 255, 0.05);
+            --glass-hover: rgba(255, 255, 255, 0.08);
+            --text-primary: rgba(255, 255, 255, 0.98);
+            --text-secondary: rgba(255, 255, 255, 0.75);
             --text-tertiary: rgba(255, 255, 255, 0.5);
             
             --radius-xl: 32px;
             --radius-lg: 24px;
             --radius-md: 16px;
             --radius-sm: 12px;
+            --radius-pill: 999px;
             
-            --shadow-deep: 0 60px 200px -20px rgba(0, 0, 0, 0.8);
-            --shadow-neon: 0 0 60px rgba(255, 0, 170, 0.3);
-            --shadow-accent: 0 0 40px rgba(0, 212, 255, 0.2);
+            --shadow-liquid: 0 60px 200px -20px rgba(0, 0, 0, 0.7);
+            --shadow-glow: 0 0 80px rgba(255, 45, 117, 0.25);
+            --shadow-cyan: 0 0 60px rgba(0, 212, 255, 0.2);
             
-            --transition-super-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            --transition-quick: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --transition-liquid: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-snap: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             
-            --gradient-primary: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
-            --gradient-horizontal: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
-            --gradient-diagonal: linear-gradient(45deg, var(--primary-glow), var(--accent-glow), var(--secondary-glow));
+            --gradient-main: linear-gradient(135deg, var(--pink), var(--violet));
+            --gradient-horizontal: linear-gradient(90deg, var(--pink), var(--violet));
+            --gradient-cyan: linear-gradient(135deg, var(--cyan), var(--pink));
+            --gradient-diagonal: linear-gradient(45deg, var(--pink), var(--cyan), var(--violet));
             
-            --max-width: 1600px;
+            --max-width: 1400px;
+            --glass-gap: 24px;
+            --glass-pad: 32px;
         }
         
-        /* ---------- RESET & BASE ---------- */
+        /* ---------- RESET & BASE LIQUID ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -89,8 +93,8 @@
         }
         
         body {
-            font-family: 'Inter', 'Space Grotesk', system-ui, -apple-system, sans-serif;
-            background: var(--bg-deep);
+            font-family: 'Inter', 'Space Grotesk', system-ui, sans-serif;
+            background: var(--deep-blue);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
@@ -100,7 +104,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Background Effects */
+        /* LIQUID BACKGROUND EFFECTS */
         body::before {
             content: '';
             position: fixed;
@@ -109,29 +113,60 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 10% 20%, rgba(255, 0, 170, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 90% 10%, rgba(119, 0, 255, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 50% 80%, rgba(0, 212, 255, 0.08) 0%, transparent 40%);
-            z-index: -2;
+                radial-gradient(circle at 15% 20%, rgba(255, 45, 117, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 85% 10%, rgba(123, 77, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 50% 85%, rgba(0, 212, 255, 0.1) 0%, transparent 40%);
+            z-index: -3;
             pointer-events: none;
+            opacity: 0.6;
         }
         
-        /* Grid Pattern */
-        body::after {
+        /* LIQUID FLOW ANIMATION */
+        @keyframes liquidFlow {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.02); }
+        }
+        
+        /* GLASS MORPHISM COMPONENT */
+        .liquid-glass {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.05) 50%,
+                rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid var(--glass-edge);
+            border-radius: var(--radius-xl);
+            padding: var(--glass-pad);
+            box-shadow: var(--shadow-liquid);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            transition: var(--transition-liquid);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .liquid-glass::before {
             content: '';
-            position: fixed;
+            position: absolute;
             top: 0;
-            left: 0;
-            width: 200%;
-            height: 200%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            transform: perspective(500px) rotateX(60deg) translateZ(-100px);
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.3;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent);
+            transition: left 0.8s ease;
+            z-index: 1;
+        }
+        
+        .liquid-glass:hover::before {
+            left: 100%;
+        }
+        
+        .liquid-glass:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: var(--shadow-glow);
         }
         
         h1, h2, h3, h4 {
@@ -144,7 +179,7 @@
         a {
             text-decoration: none;
             color: inherit;
-            transition: var(--transition-quick);
+            transition: var(--transition-snap);
         }
         
         img {
@@ -153,30 +188,105 @@
             display: block;
         }
         
-        /* ---------- UTILITY CLASSES ---------- */
-        .gradient-text {
-            background: var(--gradient-primary);
+        /* ---------- LIQUID UTILITY CLASSES ---------- */
+        .liquid-text {
+            background: var(--gradient-main);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            position: relative;
             display: inline-block;
         }
         
-        .gradient-border {
-            position: relative;
-            border: 1.5px solid transparent;
-            background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box,
-                       var(--gradient-primary) border-box;
+        .liquid-text::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-horizontal);
+            border-radius: 2px;
+            opacity: 0.7;
         }
         
-        .glass-morphism {
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.08) 0%,
-                rgba(255, 255, 255, 0.02) 100%);
-            backdrop-filter: blur(40px) saturate(180%);
-            -webkit-backdrop-filter: blur(40px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: var(--shadow-deep);
+        .liquid-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-main);
+            color: white;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 40px rgba(255, 45, 117, 0.3);
+            animation: pulseGlow 2s infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 10px 40px rgba(255, 45, 117, 0.3); }
+            50% { box-shadow: 0 15px 60px rgba(255, 45, 117, 0.5); }
+        }
+        
+        .liquid-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-main);
+            color: white;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition-liquid);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .liquid-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.2), 
+                transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .liquid-button:hover::before {
+            left: 100%;
+        }
+        
+        .liquid-button:hover {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .liquid-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--glass-edge);
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition-liquid);
+        }
+        
+        .liquid-outline:hover {
+            border-color: var(--pink);
+            background: rgba(255, 45, 117, 0.05);
+            transform: translateY(-6px);
         }
         
         .container {
@@ -187,18 +297,18 @@
         }
         
         .section {
-            padding: 120px 0;
+            padding: 100px 0;
             position: relative;
         }
         
-        /* ---------- PRELOADER ---------- */
-        #preloader {
+        /* ---------- LIQUID PRELOADER ---------- */
+        #liquid-loader {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--bg-deep);
+            background: var(--deep-blue);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -207,54 +317,49 @@
             transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .preloader-content {
+        .loader-content {
             text-align: center;
         }
         
-        .preloader-logo {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-        
-        .preloader-logo span {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-        }
-        
-        .preloader-spinner {
+        .liquid-spinner {
             width: 80px;
             height: 80px;
             border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top-color: var(--primary-glow);
+            border-top: 3px solid var(--pink);
+            border-right: 3px solid var(--violet);
+            border-bottom: 3px solid var(--cyan);
             border-radius: 50%;
-            animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-            margin: 0 auto 1.5rem;
+            animation: liquidSpin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+            margin: 0 auto 2rem;
         }
         
-        /* ---------- NAVBAR ULTRA MODERN ---------- */
-        .navbar {
+        @keyframes liquidSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        
+        /* ---------- LIQUID NAVBAR ---------- */
+        .liquid-nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 1.5rem 5%;
+            top: 20px;
+            left: 5%;
+            right: 5%;
             z-index: 1000;
-            transition: var(--transition-super-smooth);
-            background: rgba(0, 0, 16, 0.4);
+            padding: 1rem 2rem;
+            background: rgba(5, 6, 10, 0.7);
+            border: 1px solid var(--glass-edge);
+            border-radius: var(--radius-pill);
             backdrop-filter: blur(30px) saturate(180%);
             -webkit-backdrop-filter: blur(30px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
+            transition: var(--transition-liquid);
         }
         
-        .navbar.scrolled {
-            padding: 1rem 5%;
-            background: rgba(0, 0, 16, 0.85);
-            box-shadow: 0 10px 60px rgba(0, 0, 0, 0.4);
+        .liquid-nav.scrolled {
+            top: 10px;
+            background: rgba(5, 6, 10, 0.85);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
         }
         
         .nav-container {
@@ -265,46 +370,56 @@
             margin: 0 auto;
         }
         
-        .logo {
+        .liquid-logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 900;
-            background: var(--gradient-primary);
+        }
+        
+        .logo-gradient {
+            background: var(--gradient-main);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            transition: var(--transition-quick);
         }
         
-        .logo:hover {
-            transform: scale(1.05);
+        .verified-bubble {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--gradient-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: white;
+            box-shadow: 0 8px 30px rgba(255, 45, 117, 0.3);
+            animation: bubbleFloat 3s infinite ease-in-out;
         }
         
-        .logo-icon {
-            font-size: 1.4rem;
-            animation: pulse 2s infinite;
+        @keyframes bubbleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
         
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: 2.5rem;
             align-items: center;
         }
         
-        .nav-link {
+        .nav-item {
             position: relative;
             font-weight: 600;
             font-size: 0.95rem;
             color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
             padding: 0.5rem 0;
-            transition: var(--transition-quick);
+            transition: var(--transition-snap);
         }
         
-        .nav-link::after {
+        .nav-item::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -315,54 +430,15 @@
             transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .nav-link:hover {
+        .nav-item:hover {
             color: var(--text-primary);
         }
         
-        .nav-link:hover::after {
+        .nav-item:hover::after {
             width: 100%;
         }
         
-        .nav-cta {
-            margin-left: 2rem;
-        }
-        
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.9rem 2.2rem;
-            background: var(--gradient-primary);
-            color: white;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            transition: var(--transition-super-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.7s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-neon);
-        }
-        
-        .cta-button:hover::before {
-            left: 100%;
-        }
-        
-        .mobile-menu-btn {
+        .mobile-toggle {
             display: none;
             background: none;
             border: none;
@@ -371,19 +447,19 @@
             cursor: pointer;
             padding: 0.5rem;
             border-radius: var(--radius-sm);
-            transition: var(--transition-quick);
+            transition: var(--transition-snap);
         }
         
-        /* ---------- MOBILE MENU ---------- */
-        .mobile-menu {
+        /* ---------- LIQUID MOBILE MENU ---------- */
+        .liquid-menu {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 16, 0.98);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
+            background: rgba(5, 6, 10, 0.95);
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
             z-index: 9998;
             display: flex;
             flex-direction: column;
@@ -391,38 +467,15 @@
             align-items: center;
             opacity: 0;
             visibility: hidden;
-            transition: var(--transition-super-smooth);
+            transition: var(--transition-liquid);
         }
         
-        .mobile-menu.active {
+        .liquid-menu.active {
             opacity: 1;
             visibility: visible;
         }
         
-        .mobile-menu-content {
-            text-align: center;
-            padding: 2rem;
-            width: 100%;
-            max-width: 400px;
-        }
-        
-        .mobile-nav-link {
-            display: block;
-            padding: 1.2rem;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            transition: var(--transition-quick);
-            border-radius: var(--radius-md);
-            margin: 0.5rem 0;
-        }
-        
-        .mobile-nav-link:hover {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-primary);
-        }
-        
-        .close-menu {
+        .menu-close {
             position: absolute;
             top: 2rem;
             right: 2rem;
@@ -433,11 +486,38 @@
             cursor: pointer;
             padding: 0.5rem;
             border-radius: var(--radius-sm);
-            transition: var(--transition-quick);
+            transition: var(--transition-snap);
         }
         
-        /* ---------- HERO SECTION ULTRA ---------- */
-        .hero {
+        .menu-close:hover {
+            transform: rotate(90deg);
+        }
+        
+        .menu-content {
+            text-align: center;
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .menu-item {
+            display: block;
+            padding: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: var(--transition-snap);
+            border-radius: var(--radius-md);
+            margin: 0.5rem 0;
+        }
+        
+        .menu-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+        }
+        
+        /* ---------- LIQUID HERO SECTION ---------- */
+        .liquid-hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -446,7 +526,7 @@
             overflow: hidden;
         }
         
-        .hero-content {
+        .hero-grid {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
             gap: 6rem;
@@ -455,25 +535,8 @@
             z-index: 2;
         }
         
-        .hero-text {
-            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
-        }
-        
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.8rem 1.5rem;
-            background: var(--gradient-primary);
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow-neon);
-        }
-        
         .hero-title {
-            font-size: clamp(4rem, 8vw, 8rem);
+            font-size: clamp(3.5rem, 8vw, 7rem);
             line-height: 0.9;
             margin-bottom: 1.5rem;
         }
@@ -481,7 +544,7 @@
         .hero-subtitle {
             font-size: 1.4rem;
             color: var(--text-secondary);
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             max-width: 600px;
             line-height: 1.6;
         }
@@ -493,14 +556,14 @@
             flex-wrap: wrap;
         }
         
-        .stat-item {
+        .hero-stat {
             text-align: center;
         }
         
         .stat-number {
             font-size: 3rem;
             font-weight: 900;
-            background: var(--gradient-primary);
+            background: var(--gradient-main);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -522,67 +585,71 @@
             margin-bottom: 3rem;
         }
         
-        .primary-button {
-            padding: 1.2rem 2.8rem;
-            background: var(--gradient-primary);
-            color: white;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.05rem;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition-super-smooth);
-            display: inline-flex;
+        .hero-social {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-bubble {
+            width: 56px;
+            height: 56px;
+            display: flex;
             align-items: center;
-            gap: 0.8rem;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-edge);
+            border-radius: 50%;
+            font-size: 1.4rem;
+            transition: var(--transition-liquid);
             position: relative;
             overflow: hidden;
         }
         
-        .primary-button:hover {
+        .social-bubble::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-main);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+        
+        .social-bubble:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-neon);
+            border-color: transparent;
         }
         
-        .secondary-button {
-            padding: 1.2rem 2.8rem;
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.05rem;
-            cursor: pointer;
-            transition: var(--transition-super-smooth);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
+        .social-bubble:hover::before {
+            opacity: 1;
         }
         
-        .secondary-button:hover {
-            border-color: var(--primary-glow);
-            background: rgba(255, 0, 170, 0.05);
-            transform: translateY(-8px);
-        }
-        
-        .hero-video {
-            animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+        .hero-visual {
             position: relative;
+            animation: liquidFloat 6s infinite ease-in-out;
         }
         
-        .video-container {
-            position: relative;
+        @keyframes liquidFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+        
+        .video-glass {
             border-radius: var(--radius-xl);
             overflow: hidden;
-            box-shadow: var(--shadow-deep);
+            box-shadow: var(--shadow-liquid);
             transform-style: preserve-3d;
         }
         
-        .video-container::before {
+        .video-glass::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: var(--gradient-primary);
+            background: var(--gradient-main);
             opacity: 0.1;
             z-index: 1;
             pointer-events: none;
@@ -604,54 +671,41 @@
             border: none;
         }
         
-        /* ---------- PLATFORMS GRID ULTRA ---------- */
+        /* ---------- LIQUID PLATFORMS ---------- */
         .platforms-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            gap: var(--glass-gap);
             margin-top: 4rem;
         }
         
-        .platform-card {
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.08) 0%,
-                rgba(255, 255, 255, 0.02) 100%);
-            backdrop-filter: blur(40px) saturate(180%);
-            -webkit-backdrop-filter: blur(40px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius-lg);
-            padding: 3rem 2.5rem;
+        .platform-glass {
             text-align: center;
-            transition: var(--transition-super-smooth);
+            padding: 3rem 2.5rem;
+            transition: var(--transition-liquid);
             position: relative;
-            overflow: hidden;
         }
         
-        .platform-card::before {
+        .platform-glass::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 4px;
             background: var(--gradient-horizontal);
-        }
-        
-        .platform-card:hover {
-            transform: translateY(-20px) scale(1.02);
-            border-color: var(--neon-border);
-            box-shadow: var(--shadow-neon);
         }
         
         .platform-icon {
             font-size: 4.5rem;
             margin-bottom: 2rem;
             display: block;
-            transition: var(--transition-super-smooth);
+            transition: var(--transition-liquid);
         }
         
-        .platform-card:hover .platform-icon {
+        .platform-glass:hover .platform-icon {
             transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 10px 30px currentColor);
         }
         
         .platform-name {
@@ -660,7 +714,7 @@
             font-weight: 800;
         }
         
-        .platform-description {
+        .platform-desc {
             color: var(--text-secondary);
             margin-bottom: 2.5rem;
             line-height: 1.7;
@@ -671,38 +725,32 @@
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            padding: 1.2rem 2.5rem;
+            padding: 1rem 2.5rem;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
+            border: 1px solid var(--glass-edge);
+            border-radius: var(--radius-pill);
             color: white;
             font-weight: 700;
-            transition: var(--transition-super-smooth);
+            transition: var(--transition-liquid);
         }
         
         .platform-link:hover {
-            background: var(--gradient-primary);
+            background: var(--gradient-main);
             border-color: transparent;
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 0, 170, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 45, 117, 0.3);
         }
         
-        /* ---------- RELEASE SECTION ULTRA ---------- */
-        .release-section {
-            background: linear-gradient(135deg, 
-                rgba(255, 0, 170, 0.08) 0%,
-                rgba(119, 0, 255, 0.08) 100%);
-            border-radius: var(--radius-xl);
-            padding: 6rem 5rem;
+        /* ---------- LIQUID RELEASE SECTION ---------- */
+        .release-glass {
+            padding: 5rem 4rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 4rem;
         }
         
-        .release-section::before {
+        .release-glass::before {
             content: '';
             position: absolute;
             top: 0;
@@ -710,32 +758,18 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at 30% 30%, 
-                rgba(255, 0, 170, 0.15) 0%, 
+                rgba(255, 45, 117, 0.15) 0%, 
                 transparent 70%);
             z-index: -1;
         }
         
-        .release-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1rem 2.2rem;
-            background: var(--gradient-primary);
-            color: white;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 1rem;
-            margin-bottom: 2.5rem;
-            box-shadow: var(--shadow-neon);
-        }
-        
         .release-title {
-            font-size: 4.5rem;
+            font-size: 4rem;
             margin-bottom: 1.5rem;
             line-height: 1;
         }
         
-        .release-description {
+        .release-desc {
             font-size: 1.4rem;
             color: var(--text-secondary);
             max-width: 800px;
@@ -743,46 +777,39 @@
             line-height: 1.8;
         }
         
-        /* ---------- STATS SECTION ULTRA ---------- */
+        /* ---------- LIQUID STATS ---------- */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            gap: var(--glass-gap);
             margin-top: 4rem;
         }
         
-        .stat-card {
-            background: linear-gradient(135deg, 
-                rgba(255, 255, 255, 0.08) 0%,
-                rgba(255, 255, 255, 0.02) 100%);
-            backdrop-filter: blur(40px) saturate(180%);
-            -webkit-backdrop-filter: blur(40px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius-lg);
-            padding: 3.5rem 2.5rem;
+        .stat-glass {
             text-align: center;
-            transition: var(--transition-super-smooth);
+            padding: 3.5rem 2.5rem;
+            transition: var(--transition-liquid);
         }
         
-        .stat-card:hover {
+        .stat-glass:hover {
             transform: translateY(-15px);
-            border-color: var(--neon-border);
-            box-shadow: var(--shadow-neon);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: var(--shadow-glow);
         }
         
         .stat-icon {
             font-size: 4rem;
             margin-bottom: 2rem;
-            background: var(--gradient-primary);
+            background: var(--gradient-main);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
-        .stat-number {
+        .stat-value {
             font-size: 4.5rem;
             font-weight: 900;
-            background: var(--gradient-primary);
+            background: var(--gradient-main);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -790,19 +817,26 @@
             margin-bottom: 1rem;
         }
         
-        /* ---------- NEWSLETTER ULTRA ---------- */
-        .newsletter-section {
-            background: linear-gradient(135deg, 
-                rgba(0, 212, 255, 0.08) 0%,
-                rgba(119, 0, 255, 0.08) 100%);
-            border-radius: var(--radius-xl);
-            padding: 6rem 5rem;
+        /* ---------- LIQUID NEWSLETTER ---------- */
+        .newsletter-glass {
+            padding: 5rem 4rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 4rem;
+        }
+        
+        .newsletter-glass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, 
+                rgba(0, 212, 255, 0.15) 0%, 
+                transparent 70%);
+            z-index: -1;
         }
         
         .newsletter-form {
@@ -816,24 +850,24 @@
             flex: 1;
             padding: 1.2rem 2rem;
             background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 50px;
+            border: 1px solid var(--glass-edge);
+            border-radius: var(--radius-pill);
             color: white;
             font-size: 1.05rem;
-            transition: var(--transition-quick);
+            transition: var(--transition-snap);
             outline: none;
         }
         
         .newsletter-input:focus {
-            border-color: var(--primary-glow);
+            border-color: var(--pink);
             background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 0 4px rgba(255, 0, 170, 0.1);
+            box-shadow: 0 0 0 4px rgba(255, 45, 117, 0.1);
         }
         
-        /* ---------- FOOTER ULTRA ---------- */
-        footer {
+        /* ---------- LIQUID FOOTER ---------- */
+        .liquid-footer {
             padding: 6rem 5% 3rem;
-            background: rgba(0, 0, 16, 0.8);
+            background: rgba(5, 6, 10, 0.8);
             border-top: 1px solid rgba(255, 255, 255, 0.06);
             position: relative;
             backdrop-filter: blur(40px);
@@ -874,94 +908,40 @@
         
         .footer-links a {
             color: var(--text-secondary);
-            transition: var(--transition-quick);
+            transition: var(--transition-snap);
             display: inline-flex;
             align-items: center;
             gap: 1rem;
         }
         
         .footer-links a:hover {
-            color: var(--primary-glow);
+            color: var(--pink);
             transform: translateX(10px);
         }
         
-        .social-links {
-            display: flex;
-            gap: 1.2rem;
-            margin-top: 2rem;
-        }
-        
-        .social-link {
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 50%;
-            font-size: 1.4rem;
-            transition: var(--transition-super-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .social-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-primary);
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: -1;
-        }
-        
-        .social-link:hover {
-            transform: translateY(-8px);
-            border-color: transparent;
-        }
-        
-        .social-link:hover::before {
-            opacity: 1;
-        }
-        
-        /* ---------- FLOATING ELEMENTS ---------- */
-        .floating-player {
+        /* ---------- LIQUID FLOATING ELEMENTS ---------- */
+        .liquid-player {
             position: fixed;
-            bottom: 3rem;
-            right: 3rem;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 1.2rem 2.5rem;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            box-shadow: var(--shadow-neon);
+            right: 2.5rem;
+            bottom: 2.5rem;
             z-index: 999;
             cursor: pointer;
-            transition: var(--transition-super-smooth);
-            border: none;
-            font-weight: 700;
-            font-size: 1.05rem;
+            transition: var(--transition-liquid);
         }
         
-        .floating-player:hover {
+        .liquid-player:hover {
             transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 30px 80px rgba(255, 0, 170, 0.4);
+            box-shadow: var(--shadow-glow);
         }
         
-        .back-to-top {
+        .liquid-scrolltop {
             position: fixed;
-            bottom: 6rem;
-            right: 3rem;
+            right: 2.5rem;
+            bottom: 7rem;
             width: 60px;
             height: 60px;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-edge);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -970,24 +950,24 @@
             font-size: 1.5rem;
             opacity: 0;
             visibility: hidden;
-            transition: var(--transition-super-smooth);
+            transition: var(--transition-liquid);
             z-index: 998;
             backdrop-filter: blur(10px);
         }
         
-        .back-to-top.show {
+        .liquid-scrolltop.show {
             opacity: 1;
             visibility: visible;
         }
         
-        .back-to-top:hover {
-            background: var(--gradient-primary);
+        .liquid-scrolltop:hover {
+            background: var(--gradient-main);
             border-color: transparent;
             transform: translateY(-5px);
         }
         
-        /* ---------- PROGRESS BAR ---------- */
-        .progress-bar {
+        /* ---------- LIQUID PROGRESS ---------- */
+        .liquid-progress {
             position: fixed;
             top: 0;
             left: 0;
@@ -1002,76 +982,26 @@
             background: var(--gradient-horizontal);
             width: 0%;
             transition: width 0.1s ease;
+            border-radius: 0 2px 2px 0;
         }
         
-        /* ---------- NOTIFICATION ---------- */
-        .notification {
+        /* ---------- LIQUID NOTIFICATION ---------- */
+        .liquid-notification {
             position: fixed;
             top: 2rem;
             right: 2rem;
-            background: linear-gradient(135deg, 
-                rgba(255, 0, 170, 0.9) 0%,
-                rgba(119, 0, 255, 0.9) 100%);
-            color: white;
-            padding: 1.5rem 2rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-neon);
             z-index: 10000;
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
             transform: translateX(120%);
             transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .notification.show {
+        .liquid-notification.show {
             transform: translateX(0);
         }
         
-        /* ---------- ANIMATIONS ---------- */
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(60px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* ---------- RESPONSIVE ---------- */
+        /* ---------- RESPONSIVE LIQUID ---------- */
         @media (max-width: 1200px) {
-            .hero-content {
+            .hero-grid {
                 grid-template-columns: 1fr;
                 gap: 4rem;
                 text-align: center;
@@ -1084,6 +1014,10 @@
             .hero-actions {
                 justify-content: center;
             }
+            
+            .hero-social {
+                justify-content: center;
+            }
         }
         
         @media (max-width: 992px) {
@@ -1091,16 +1025,16 @@
                 display: none;
             }
             
-            .mobile-menu-btn {
+            .mobile-toggle {
                 display: block;
             }
             
-            .hero {
+            .liquid-hero {
                 padding-top: 140px;
             }
             
-            .release-section,
-            .newsletter-section {
+            .release-glass,
+            .newsletter-glass {
                 padding: 4rem 2rem;
             }
             
@@ -1131,22 +1065,22 @@
                 flex-direction: column;
             }
             
-            .floating-player {
-                bottom: 2rem;
-                right: 2rem;
+            .liquid-player {
+                bottom: 1.5rem;
+                right: 1.5rem;
                 padding: 1rem 2rem;
                 font-size: 0.9rem;
             }
             
-            .back-to-top {
-                bottom: 5rem;
-                right: 2rem;
+            .liquid-scrolltop {
+                bottom: 6rem;
+                right: 1.5rem;
             }
         }
         
         @media (max-width: 480px) {
-            .primary-button,
-            .secondary-button {
+            .liquid-button,
+            .liquid-outline {
                 width: 100%;
                 justify-content: center;
             }
@@ -1155,144 +1089,166 @@
                 flex-direction: column;
             }
             
-            .release-cta {
+            .release-actions {
                 flex-direction: column;
             }
+        }
+        
+        /* ---------- LIQUID ANIMATIONS ---------- */
+        .fade-liquid {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .fade-liquid.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="preloader-content">
-            <div class="preloader-spinner"></div>
-            <div class="preloader-logo">
-                <span>POWER</span><span style="color: white;">PEACE</span>
+    <!-- Liquid Preloader -->
+    <div id="liquid-loader">
+        <div class="loader-content">
+            <div class="liquid-spinner"></div>
+            <div class="liquid-logo" style="font-size: 2.5rem; margin-bottom: 1rem;">
+                <span class="logo-gradient">POWERPEACE</span>
+                <div class="verified-bubble">
+                    <i class="fas fa-check"></i>
+                </div>
             </div>
-            <p style="color: var(--text-secondary); letter-spacing: 2px;">LOADING NEO-AUDIO EXPERIENCE</p>
+            <p style="color: var(--text-tertiary); letter-spacing: 2px;">LIQUID GLASS EXPERIENCE</p>
         </div>
     </div>
 
-    <!-- Progress Bar -->
-    <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
+    <!-- Liquid Progress -->
+    <div class="liquid-progress">
+        <div class="progress-fill" id="liquidProgress"></div>
     </div>
 
-    <!-- Notification -->
-    <div class="notification" id="notification">
-        <i class="fas fa-music"></i>
-        <span>🎵 Nuevo single "MIENTRAS YO GANO" disponible en todas las plataformas</span>
+    <!-- Liquid Notification -->
+    <div class="liquid-notification" id="liquidNotification">
+        <div class="liquid-glass" style="display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem;">
+            <i class="fas fa-music" style="color: var(--pink);"></i>
+            <div>
+                <strong>MIENTRAS YO GANO</strong>
+                <div style="color: var(--text-secondary); font-size: 0.9rem;">Nuevo single disponible</div>
+            </div>
+        </div>
     </div>
 
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
+    <!-- Liquid Navbar -->
+    <nav class="liquid-nav" id="liquidNav">
         <div class="nav-container">
-            <a href="#home" class="logo">
-                <i class="fas fa-bolt logo-icon"></i>
-                POWERPEACE
+            <a href="#home" class="liquid-logo">
+                <span class="logo-gradient">POWERPEACE</span>
+                <div class="verified-bubble">
+                    <i class="fas fa-check"></i>
+                </div>
             </a>
             
             <div class="nav-links">
-                <a href="#home" class="nav-link active">INICIO</a>
-                <a href="#stats" class="nav-link">ESTADÍSTICAS</a>
-                <a href="#music" class="nav-link">MÚSICA</a>
-                <a href="#platforms" class="nav-link">PLATAFORMAS</a>
-                <a href="#release" class="nav-link">NUEVO LANZAMIENTO</a>
-                <div class="nav-cta">
-                    <a href="#music" class="cta-button">
-                        <i class="fas fa-headphones"></i>
-                        ESCUCHAR AHORA
-                    </a>
-                </div>
+                <a href="#home" class="nav-item">INICIO</a>
+                <a href="#stats" class="nav-item">ESTADÍSTICAS</a>
+                <a href="#music" class="nav-item">MÚSICA</a>
+                <a href="#platforms" class="nav-item">PLATAFORMAS</a>
+                <a href="#release" class="nav-item">NUEVO LANZAMIENTO</a>
+                <a href="#newsletter" class="nav-item">NEWSLETTER</a>
+                <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-button" style="padding: 0.8rem 2rem;">
+                    <i class="fas fa-play"></i>
+                    ESCUCHAR
+                </a>
             </div>
             
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-toggle" id="mobileToggle">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="close-menu" id="closeMenu">
+    <!-- Liquid Mobile Menu -->
+    <div class="liquid-menu" id="liquidMenu">
+        <button class="menu-close" id="menuClose">
             <i class="fas fa-times"></i>
         </button>
-        <div class="mobile-menu-content">
-            <a href="#home" class="mobile-nav-link">INICIO</a>
-            <a href="#stats" class="mobile-nav-link">ESTADÍSTICAS</a>
-            <a href="#music" class="mobile-nav-link">MÚSICA</a>
-            <a href="#platforms" class="mobile-nav-link">PLATAFORMAS</a>
-            <a href="#release" class="mobile-nav-link">NUEVO LANZAMIENTO</a>
-            <a href="#newsletter" class="mobile-nav-link">NEWSLETTER</a>
-            <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="cta-button" style="margin-top: 2rem;">
+        <div class="menu-content">
+            <a href="#home" class="menu-item">INICIO</a>
+            <a href="#stats" class="menu-item">ESTADÍSTICAS</a>
+            <a href="#music" class="menu-item">MÚSICA</a>
+            <a href="#platforms" class="menu-item">PLATAFORMAS</a>
+            <a href="#release" class="menu-item">NUEVO LANZAMIENTO</a>
+            <a href="#newsletter" class="menu-item">NEWSLETTER</a>
+            <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-button" style="margin-top: 2rem; width: 100%;">
                 <i class="fab fa-spotify"></i>
                 ABRIR SPOTIFY
             </a>
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero section" id="home">
+    <!-- Liquid Hero -->
+    <section class="liquid-hero section" id="home">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="hero-badge">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="liquid-badge">
                         <i class="fas fa-check"></i>
                         ARTISTA VERIFICADO
                     </div>
                     
                     <h1 class="hero-title">
-                        <span class="gradient-text">POWER</span>PEACE
+                        <span class="liquid-text">POWER</span>PEACE
                     </h1>
                     
                     <p class="hero-subtitle">
-                        Matías Taibo · Sonido líquido, estética neo-futurista. Música que trasciende géneros y conecta a nivel molecular.
+                        Matías Taibo · Sonido líquido en vidrio. Experiencia musical neo-futurista que redefine los límites del género.
                     </p>
                     
                     <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number" id="stat1">600</div>
+                        <div class="hero-stat">
+                            <div class="stat-number" id="heroStat1">600</div>
                             <div class="stat-label">Oyentes Totales</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number" id="stat2">10K</div>
+                        <div class="hero-stat">
+                            <div class="stat-number" id="heroStat2">10K</div>
                             <div class="stat-label">Streams</div>
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-number" id="stat3">23</div>
+                        <div class="hero-stat">
+                            <div class="stat-number" id="heroStat3">23</div>
                             <div class="stat-label">Canciones</div>
                         </div>
                     </div>
                     
                     <div class="hero-actions">
-                        <a href="#release" class="primary-button">
+                        <a href="#release" class="liquid-button">
                             <i class="fas fa-play-circle"></i>
                             NUEVO LANZAMIENTO
                         </a>
-                        <a href="#music" class="secondary-button">
+                        <a href="#music" class="liquid-outline">
                             <i class="fas fa-stream"></i>
                             EXPLORAR CATÁLOGO
                         </a>
                     </div>
                     
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="social-link" title="Instagram">
+                    <div class="hero-social">
+                        <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="social-bubble" title="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@matias.taiboo" target="_blank" class="social-link" title="TikTok">
+                        <a href="https://www.tiktok.com/@matias.taiboo" target="_blank" class="social-bubble" title="TikTok">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="https://youtube.com/channel/UCj2EzCODcnx5hqrqNVH6tAg" target="_blank" class="social-link" title="YouTube">
+                        <a href="https://youtube.com/channel/UCj2EzCODcnx5hqrqNVH6tAg" target="_blank" class="social-bubble" title="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="social-link" title="Spotify">
+                        <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="social-bubble" title="Spotify">
                             <i class="fab fa-spotify"></i>
                         </a>
                     </div>
                 </div>
                 
-                <div class="hero-video">
-                    <div class="video-container glass-morphism">
+                <div class="hero-visual">
+                    <div class="liquid-glass video-glass">
                         <div class="video-wrapper">
                             <iframe 
                                 src="https://www.youtube.com/embed/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs" 
@@ -1308,64 +1264,64 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Liquid Stats -->
     <section class="section" id="stats">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">IMPACTO <span class="gradient-text">GLOBAL</span></h2>
-                <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">Estadísticas en tiempo real de mi música en todas las plataformas digitales</p>
+            <div class="section-header fade-liquid" style="text-align: center;">
+                <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">IMPACTO <span class="liquid-text">GLOBAL</span></h2>
+                <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">Estadísticas en tiempo real de todas las plataformas</p>
             </div>
             
             <div class="stats-grid">
-                <div class="stat-card fade-in">
+                <div class="liquid-glass stat-glass fade-liquid">
                     <div class="stat-icon">
                         <i class="fas fa-headphones"></i>
                     </div>
-                    <div class="stat-number" id="totalListeners">600</div>
+                    <div class="stat-value" id="totalListeners">600</div>
                     <div class="stat-label">Oyentes Mensuales</div>
                 </div>
                 
-                <div class="stat-card fade-in" style="animation-delay: 0.1s">
+                <div class="liquid-glass stat-glass fade-liquid" style="transition-delay: 0.1s">
                     <div class="stat-icon">
                         <i class="fas fa-play-circle"></i>
                     </div>
-                    <div class="stat-number" id="totalStreams">10,000</div>
+                    <div class="stat-value" id="totalStreams">10,000</div>
                     <div class="stat-label">Reproducciones Totales</div>
                 </div>
                 
-                <div class="stat-card fade-in" style="animation-delay: 0.2s">
+                <div class="liquid-glass stat-glass fade-liquid" style="transition-delay: 0.2s">
                     <div class="stat-icon">
                         <i class="fas fa-music"></i>
                     </div>
-                    <div class="stat-number" id="totalTracks">23</div>
+                    <div class="stat-value" id="totalTracks">23</div>
                     <div class="stat-label">Canciones Publicadas</div>
                 </div>
                 
-                <div class="stat-card fade-in" style="animation-delay: 0.3s">
+                <div class="liquid-glass stat-glass fade-liquid" style="transition-delay: 0.3s">
                     <div class="stat-icon">
                         <i class="fas fa-globe-americas"></i>
                     </div>
-                    <div class="stat-number" id="totalCountries">15</div>
+                    <div class="stat-value" id="totalCountries">15</div>
                     <div class="stat-label">Países con Oyentes</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Platforms Section -->
+    <!-- Liquid Platforms -->
     <section class="section" id="music">
         <div class="container">
-            <div class="section-header fade-in">
-                <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">DISPONIBLE EN <span class="gradient-text">TODAS LAS PLATAFORMAS</span></h2>
+            <div class="section-header fade-liquid" style="text-align: center;">
+                <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">DISPONIBLE EN <span class="liquid-text">TODAS LAS PLATAFORMAS</span></h2>
                 <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto;">Elije tu plataforma favorita y sumérgete en la experiencia sonora</p>
             </div>
             
             <div class="platforms-grid">
                 <!-- Spotify -->
-                <div class="platform-card fade-in">
+                <div class="liquid-glass platform-glass fade-liquid">
                     <i class="fab fa-spotify platform-icon" style="color: #1DB954;"></i>
                     <h3 class="platform-name">Spotify</h3>
-                    <p class="platform-description">Escucha mis playlists oficiales, álbumes completos y singles más recientes con la mejor calidad de streaming.</p>
+                    <p class="platform-desc">Escucha mis playlists oficiales, álbumes completos y singles más recientes con la mejor calidad de streaming.</p>
                     <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="platform-link">
                         <i class="fab fa-spotify"></i>
                         ABRIR EN SPOTIFY
@@ -1373,10 +1329,10 @@
                 </div>
                 
                 <!-- Apple Music -->
-                <div class="platform-card fade-in" style="animation-delay: 0.1s">
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.1s">
                     <i class="fab fa-apple platform-icon" style="color: #FA243C;"></i>
                     <h3 class="platform-name">Apple Music</h3>
-                    <p class="platform-description">Experiencia musical premium con sonido espacial y todo mi catálogo en alta definición.</p>
+                    <p class="platform-desc">Experiencia musical premium con sonido espacial y todo mi catálogo en alta definición.</p>
                     <a href="https://music.apple.com/ar/artist/powerpeace/1641021393" target="_blank" class="platform-link">
                         <i class="fab fa-apple"></i>
                         ABRIR EN APPLE MUSIC
@@ -1384,10 +1340,10 @@
                 </div>
                 
                 <!-- YouTube -->
-                <div class="platform-card fade-in" style="animation-delay: 0.2s">
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.2s">
                     <i class="fab fa-youtube platform-icon" style="color: #FF0000;"></i>
                     <h3 class="platform-name">YouTube Music</h3>
-                    <p class="platform-description">Videos oficiales, contenido exclusivo y mi catálogo completo disponible en video y audio.</p>
+                    <p class="platform-desc">Videos oficiales, contenido exclusivo y mi catálogo completo disponible en video y audio.</p>
                     <a href="https://youtube.com/channel/UCj2EzCODcnx5hqrqNVH6tAg" target="_blank" class="platform-link">
                         <i class="fab fa-youtube"></i>
                         ABRIR EN YOUTUBE
@@ -1395,10 +1351,10 @@
                 </div>
                 
                 <!-- Deezer -->
-                <div class="platform-card fade-in" style="animation-delay: 0.3s">
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.3s">
                     <i class="fab fa-deezer platform-icon" style="color: #00C7F2;"></i>
                     <h3 class="platform-name">Deezer</h3>
-                    <p class="platform-description">Calidad Hi-Fi superior y playlists personalizadas con Flow. Escucha como nunca antes.</p>
+                    <p class="platform-desc">Calidad Hi-Fi superior y playlists personalizadas con Flow. Escucha como nunca antes.</p>
                     <a href="https://link.deezer.com/s/31Plv6FXvdjRBSCPOJGKA" target="_blank" class="platform-link">
                         <i class="fab fa-deezer"></i>
                         ABRIR EN DEEZER
@@ -1406,10 +1362,10 @@
                 </div>
                 
                 <!-- Amazon Music -->
-                <div class="platform-card fade-in" style="animation-delay: 0.4s">
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.4s">
                     <i class="fab fa-amazon platform-icon" style="color: #00A8E1;"></i>
                     <h3 class="platform-name">Amazon Music</h3>
-                    <p class="platform-description">Disponible para suscriptores de Prime y Amazon Music Unlimited en todo el mundo.</p>
+                    <p class="platform-desc">Disponible para suscriptores de Prime y Amazon Music Unlimited en todo el mundo.</p>
                     <a href="https://music.amazon.com/artists/B0BBP4DM1V/powerpeace" target="_blank" class="platform-link">
                         <i class="fab fa-amazon"></i>
                         ABRIR EN AMAZON MUSIC
@@ -1417,10 +1373,10 @@
                 </div>
                 
                 <!-- SoundCloud -->
-                <div class="platform-card fade-in" style="animation-delay: 0.5s">
+                <div class="liquid-glass platform-glass fade-liquid" style="transition-delay: 0.5s">
                     <i class="fab fa-soundcloud platform-icon" style="color: #FF3300;"></i>
                     <h3 class="platform-name">SoundCloud</h3>
-                    <p class="platform-description">Lanzamientos exclusivos, demos y versiones alternativas disponibles solo aquí.</p>
+                    <p class="platform-desc">Lanzamientos exclusivos, demos y versiones alternativas disponibles solo aquí.</p>
                     <a href="https://soundcloud.com/powerpeace-music" target="_blank" class="platform-link">
                         <i class="fab fa-soundcloud"></i>
                         ABRIR EN SOUNDCLOUD
@@ -1430,27 +1386,27 @@
         </div>
     </section>
 
-    <!-- New Release -->
+    <!-- Liquid Release -->
     <section class="section" id="release">
         <div class="container">
-            <div class="release-section fade-in">
-                <div class="release-badge">
+            <div class="liquid-glass release-glass fade-liquid">
+                <div class="liquid-badge">
                     <i class="fas fa-fire"></i>
                     NUEVO LANZAMIENTO
                 </div>
                 
                 <h2 class="release-title">"MIENTRAS YO GANO"</h2>
                 
-                <p class="release-description">
+                <p class="release-desc">
                     Mi producción más reciente que fusiona elementos urbanos con sonidos electrónicos innovadores. Una declaración de crecimiento personal y éxito continuo en el camino musical.
                 </p>
                 
-                <div class="hero-actions release-cta">
-                    <a href="https://youtu.be/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs" target="_blank" class="primary-button" style="padding: 1.2rem 3rem;">
+                <div class="hero-actions release-actions">
+                    <a href="https://youtu.be/VjdFM17OoGM?si=Lg_I8Gj5nu_yX3zs" target="_blank" class="liquid-button" style="padding: 1.2rem 3rem;">
                         <i class="fab fa-youtube"></i>
                         VER VIDEO OFICIAL
                     </a>
-                    <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="secondary-button" style="padding: 1.2rem 3rem;">
+                    <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="liquid-outline" style="padding: 1.2rem 3rem;">
                         <i class="fas fa-stream"></i>
                         ESCUCHAR EN STREAMING
                     </a>
@@ -1459,19 +1415,19 @@
         </div>
     </section>
 
-    <!-- Newsletter -->
+    <!-- Liquid Newsletter -->
     <section class="section" id="newsletter">
         <div class="container">
-            <div class="newsletter-section fade-in">
-                <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">ÚNETE A LA <span class="gradient-text">COMUNIDAD</span></h2>
+            <div class="liquid-glass newsletter-glass fade-liquid">
+                <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">ÚNETE A LA <span class="liquid-text">COMUNIDAD</span></h2>
                 
-                <p class="release-description" style="max-width: 700px;">
+                <p class="release-desc" style="max-width: 700px;">
                     Recibe contenido exclusivo, avisos de nuevos lanzamientos antes que nadie, acceso a material inédito y convocatorias especiales para mis seguidores más leales.
                 </p>
                 
                 <form class="newsletter-form" id="newsletterForm">
                     <input type="email" class="newsletter-input" placeholder="Ingresa tu mejor email" required>
-                    <button type="submit" class="primary-button" style="padding: 1.2rem 2.8rem;">
+                    <button type="submit" class="liquid-button" style="padding: 1.2rem 2.8rem;">
                         <i class="fas fa-paper-plane"></i>
                         SUSCRIBIRME
                     </button>
@@ -1485,8 +1441,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- Liquid Footer -->
+    <footer class="liquid-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-column">
@@ -1494,17 +1450,17 @@
                     <p style="color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.8;">
                         Música original creada desde el corazón por Matías Taibo. Cada canción es una pieza única de mi journey artístico y personal.
                     </p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="social-link" title="Instagram">
+                    <div class="hero-social">
+                        <a href="https://www.instagram.com/powerpeacee/" target="_blank" class="social-bubble" title="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@matias.taiboo" target="_blank" class="social-link" title="TikTok">
+                        <a href="https://www.tiktok.com/@matias.taiboo" target="_blank" class="social-bubble" title="TikTok">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="https://youtube.com/channel/UCj2EzCODcnx5hqrqNVH6tAg" target="_blank" class="social-link" title="YouTube">
+                        <a href="https://youtube.com/channel/UCj2EzCODcnx5hqrqNVH6tAg" target="_blank" class="social-bubble" title="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="social-link" title="Spotify">
+                        <a href="https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL" target="_blank" class="social-bubble" title="Spotify">
                             <i class="fab fa-spotify"></i>
                         </a>
                     </div>
@@ -1537,66 +1493,66 @@
                 <p>&copy; <span id="currentYear"></span> <strong>POWERPEACE</strong> · Todos los derechos reservados internacionalmente</p>
                 <p style="margin-top: 1rem; color: var(--text-tertiary);">Artista: <strong>Matías Taibo</strong> · Música original protegida bajo derechos de autor</p>
                 <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.3);">
-                    Diseñado para la mejor experiencia musical · Hecho con <i class="fas fa-heart" style="color: var(--primary-glow);"></i> para mis oyentes
+                    Diseñado para la mejor experiencia musical · Hecho con <i class="fas fa-heart" style="color: var(--pink);"></i> para mis oyentes
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Elements -->
-    <button class="floating-player" id="floatingPlayer">
+    <!-- Liquid Floating Elements -->
+    <button class="liquid-glass liquid-player" id="liquidPlayer">
         <i class="fas fa-play"></i>
         ESCUCHAR AHORA
     </button>
 
-    <a href="#home" class="back-to-top" id="backToTop">
+    <a href="#home" class="liquid-glass liquid-scrolltop" id="liquidScrollTop">
         <i class="fas fa-chevron-up"></i>
     </a>
 
-    <!-- Scripts -->
+    <!-- Liquid Scripts -->
     <script>
-        // Preloader
+        // Liquid Preloader
         window.addEventListener('load', function() {
-            const preloader = document.getElementById('preloader');
+            const loader = document.getElementById('liquid-loader');
             setTimeout(() => {
-                preloader.style.opacity = '0';
+                loader.style.opacity = '0';
                 setTimeout(() => {
-                    preloader.style.display = 'none';
-                    showNotification('🎵 Nuevo single "MIENTRAS YO GANO" disponible!');
+                    loader.style.display = 'none';
+                    showLiquidNotification('🎵 Nuevo single "MIENTRAS YO GANO" disponible!');
                 }, 800);
             }, 1200);
             
             document.getElementById('currentYear').textContent = new Date().getFullYear();
         });
 
-        // Scroll Effects
-        const navbar = document.getElementById('navbar');
-        const backToTop = document.getElementById('backToTop');
-        const progressFill = document.getElementById('progressFill');
+        // Liquid Scroll Effects
+        const liquidNav = document.getElementById('liquidNav');
+        const scrollTop = document.getElementById('liquidScrollTop');
+        const liquidProgress = document.getElementById('liquidProgress');
         
         window.addEventListener('scroll', function() {
             // Navbar scroll
             if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+                liquidNav.classList.add('scrolled');
             } else {
-                navbar.classList.remove('scrolled');
+                liquidNav.classList.remove('scrolled');
             }
             
             // Progress bar
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            progressFill.style.width = scrolled + '%';
+            liquidProgress.style.width = scrolled + '%';
             
-            // Back to top button
+            // Scroll to top button
             if (window.scrollY > 500) {
-                backToTop.classList.add('show');
+                scrollTop.classList.add('show');
             } else {
-                backToTop.classList.remove('show');
+                scrollTop.classList.remove('show');
             }
             
             // Fade in elements
-            document.querySelectorAll('.fade-in').forEach(element => {
+            document.querySelectorAll('.fade-liquid').forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 if (elementTop < window.innerHeight - 100) {
                     element.classList.add('visible');
@@ -1604,30 +1560,30 @@
             });
         });
 
-        // Mobile Menu
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const closeMenu = document.getElementById('closeMenu');
-        const mobileMenu = document.getElementById('mobileMenu');
+        // Liquid Mobile Menu
+        const mobileToggle = document.getElementById('mobileToggle');
+        const menuClose = document.getElementById('menuClose');
+        const liquidMenu = document.getElementById('liquidMenu');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
+        mobileToggle.addEventListener('click', () => {
+            liquidMenu.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
         
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
+        menuClose.addEventListener('click', () => {
+            liquidMenu.classList.remove('active');
             document.body.style.overflow = 'auto';
         });
         
         // Close menu on link click
-        mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
+        liquidMenu.querySelectorAll('.menu-item').forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
+                liquidMenu.classList.remove('active');
                 document.body.style.overflow = 'auto';
             });
         });
 
-        // Smooth Scroll
+        // Liquid Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1644,18 +1600,18 @@
             });
         });
 
-        // Newsletter Form
+        // Liquid Newsletter Form
         const newsletterForm = document.getElementById('newsletterForm');
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const email = this.querySelector('.newsletter-input').value;
             
             // Show success message
-            showNotification('¡Gracias por suscribirte! Recibirás contenido exclusivo pronto.');
+            showLiquidNotification('¡Gracias por suscribirte! Recibirás contenido exclusivo pronto.');
             this.reset();
             
             // Animate button
-            const submitBtn = this.querySelector('.primary-button');
+            const submitBtn = this.querySelector('.liquid-button');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡SUSCRITO!';
             submitBtn.style.background = 'linear-gradient(135deg, #00CC88, #00AA66)';
@@ -1666,13 +1622,13 @@
             }, 3000);
         });
 
-        // Floating Player
-        document.getElementById('floatingPlayer').addEventListener('click', function() {
+        // Liquid Player
+        document.getElementById('liquidPlayer').addEventListener('click', function() {
             window.open('https://open.spotify.com/intl-es/artist/6zmtB63cGtZggwz6l878BL', '_blank');
         });
 
-        // Animated Counters
-        function animateCounter(element, target, suffix = '') {
+        // Liquid Animated Counters
+        function animateLiquidCounter(element, target, suffix = '') {
             let current = 0;
             const increment = target / 50;
             const timer = setInterval(() => {
@@ -1692,20 +1648,14 @@
                 if (entry.isIntersecting) {
                     const element = entry.target;
                     
-                    if (element.id === 'totalListeners') {
-                        animateCounter(element, 600);
-                    } else if (element.id === 'totalStreams') {
-                        animateCounter(element, 10000);
-                    } else if (element.id === 'totalTracks') {
-                        animateCounter(element, 23);
+                    if (element.id === 'totalListeners' || element.id === 'heroStat1') {
+                        animateLiquidCounter(element, 600);
+                    } else if (element.id === 'totalStreams' || element.id === 'heroStat2') {
+                        animateLiquidCounter(element, 10000);
+                    } else if (element.id === 'totalTracks' || element.id === 'heroStat3') {
+                        animateLiquidCounter(element, 23);
                     } else if (element.id === 'totalCountries') {
-                        animateCounter(element, 15);
-                    } else if (element.id === 'stat1') {
-                        animateCounter(element, 600);
-                    } else if (element.id === 'stat2') {
-                        animateCounter(element, 10000);
-                    } else if (element.id === 'stat3') {
-                        animateCounter(element, 23);
+                        animateLiquidCounter(element, 15);
                     }
                     
                     observer.unobserve(element);
@@ -1714,14 +1664,14 @@
         }, { threshold: 0.3 });
 
         // Observe all counter elements
-        document.querySelectorAll('.stat-number').forEach(stat => {
+        document.querySelectorAll('.stat-value, .stat-number').forEach(stat => {
             observer.observe(stat);
         });
 
-        // Show Notification
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            notification.querySelector('span').textContent = message;
+        // Show Liquid Notification
+        function showLiquidNotification(message) {
+            const notification = document.getElementById('liquidNotification');
+            notification.querySelector('strong').textContent = message;
             notification.classList.add('show');
             
             setTimeout(() => {
@@ -1729,8 +1679,19 @@
             }, 5000);
         }
 
-        // Particle Effect
-        function createParticles() {
+        // Liquid Hover Effects
+        document.querySelectorAll('.liquid-glass').forEach(glass => {
+            glass.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.02)';
+            });
+            
+            glass.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Liquid Particle Effect
+        function createLiquidParticles() {
             const particlesContainer = document.createElement('div');
             particlesContainer.style.position = 'fixed';
             particlesContainer.style.top = '0';
@@ -1741,7 +1702,7 @@
             particlesContainer.style.zIndex = '-1';
             document.body.appendChild(particlesContainer);
             
-            for (let i = 0; i < 40; i++) {
+            for (let i = 0; i < 30; i++) {
                 const particle = document.createElement('div');
                 const size = Math.random() * 4 + 2;
                 particle.style.position = 'absolute';
@@ -1754,37 +1715,16 @@
                 particle.style.zIndex = '-1';
                 
                 const duration = Math.random() * 20 + 10;
-                particle.style.animation = `float ${duration}s infinite ease-in-out`;
+                particle.style.animation = `liquidFloat ${duration}s infinite ease-in-out`;
                 
                 particlesContainer.appendChild(particle);
             }
         }
         
-        createParticles();
-
-        // Hover Effects
-        document.querySelectorAll('.platform-card, .stat-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Click Effects
-        document.querySelectorAll('.cta-button, .primary-button, .secondary-button, .platform-link').forEach(button => {
-            button.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-            });
-        });
+        createLiquidParticles();
 
         // Initialize animations
-        document.querySelectorAll('.fade-in').forEach(element => {
+        document.querySelectorAll('.fade-liquid').forEach(element => {
             element.classList.add('visible');
         });
     </script>
